@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr Omer ATLI — Online Doctor Consultations</title>
+  <meta name="description" content="GMC UK-registered doctor offering fast, evidence-based online medical consultations. Book via WhatsApp for acute care, prescriptions, and medical advice." />
+  <meta name="keywords" content="online doctor, telemedicine, GMC registered, UK doctor, private GP, Dr Omer ATLI, WhatsApp consultation" />
+  <link rel="canonical" href="" id="canonical-link" />
+  <meta property="og:title" content="Dr Omer ATLI — Online Doctor Consultations" />
+  <meta property="og:description" content="Fast, clear online medical advice when GP access is slow. GMC UK-registered, evidence-based care." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" id="meta-og-url" />
+  <meta property="og:image" content="dr-omer-atli.jpeg" id="meta-og-image" />
+  <meta property="og:site_name" content="Dr Omer ATLI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dr Omer ATLI — Online Doctor Consultations" />
+  <meta name="twitter:description" content="Fast, clear online medical advice when GP access is slow. GMC UK-registered, evidence-based care." />
+  <meta name="twitter:image" content="dr-omer-atli.jpeg" id="meta-twitter-image" />
+  <meta name="twitter:url" content="" id="meta-twitter-url" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="dr-omer-atli.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --teal-50: #f0fdfa; --teal-100: #ccfbf1; --teal-200: #99f6e4;
+      --teal-400: #2dd4bf; --teal-500: #14b8a6; --teal-600: #0d9488;
+      --teal-700: #0f766e;
+      --green-500: #22c55e; --green-600: #16a34a; --green-700: #15803d;
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+      --gray-400: #9ca3af; --gray-500: #6b7280; --gray-600: #4b5563;
+      --gray-800: #1f2937; --gray-900: #111827;
+      --amber-600: #d97706;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; color: var(--gray-800); background: #fff; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    section[id] { scroll-margin-top: 84px; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── NAV ─────────────────────────────────────── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); transition: box-shadow 0.3s; }
+    .nav.scrolled { box-shadow: 0 1px 8px rgba(0,0,0,0.08); }
+    .nav-inner { max-width: 1152px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .nav-logo { font-size: 1.125rem; font-weight: 600; color: var(--gray-900); }
+    .nav-logo span { color: var(--teal-600); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a { font-size: 0.875rem; color: var(--gray-600); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--teal-600); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal-600); color: #fff !important; font-size: 0.875rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 0.5rem; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--teal-700); }
+    .hamburger { display: none; background: none; border: none; padding: 0.5rem; cursor: pointer; }
+    .mobile-menu { display: none; padding-bottom: 1rem; border-top: 1px solid var(--gray-100); }
+    .mobile-menu a { display: block; padding: 0.75rem 0.5rem; color: var(--gray-600); }
+    .mobile-menu-cta { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.5rem; background: var(--teal-600); color: #fff; font-weight: 500; padding: 0.75rem; border-radius: 0.5rem; }
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero { padding: 7rem 1rem 4rem; }
+    .hero-inner { max-width: 1152px; margin: 0 auto; display: flex; align-items: center; gap: 4rem; }
+    .hero-text { flex: 1; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal-50); color: var(--teal-700); font-size: 0.875rem; font-weight: 500; padding: 0.375rem 0.75rem; border-radius: 9999px; margin-bottom: 1.5rem; }
+    .hero h1 { font-size: 3.25rem; font-weight: 700; color: var(--gray-900); line-height: 1.1; margin-bottom: 1rem; }
+    .hero h1 span { color: var(--teal-600); }
+    .hero-tagline { font-size: 1.375rem; color: var(--gray-600); font-weight: 300; margin-bottom: 1rem; line-height: 1.4; }
+    .hero-desc { color: var(--gray-500); max-width: 32rem; margin-bottom: 1rem; }
+    .hero-price { color: var(--teal-700); font-weight: 600; font-size: 1.125rem; margin-bottom: 2rem; }
+    .hero-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-whatsapp { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--green-600); color: #fff; font-weight: 600; padding: 1rem 2rem; border-radius: 0.75rem; font-size: 1rem; box-shadow: 0 4px 14px rgba(34,197,94,0.2); transition: all 0.2s; }
+    .btn-whatsapp:hover { background: var(--green-700); box-shadow: 0 6px 20px rgba(34,197,94,0.3); }
+    .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: #fff; border: 2px solid var(--gray-200); color: var(--gray-700); font-weight: 500; padding: 1rem 2rem; border-radius: 0.75rem; font-size: 1rem; transition: all 0.2s; }
+    .btn-secondary:hover { border-color: var(--teal-400); }
+    .hero-photo { flex-shrink: 0; }
+    .photo-wrap { position: relative; }
+    .photo-circle { width: 18rem; height: 18rem; border-radius: 50%; overflow: hidden; border: 4px solid #fff; box-shadow: 0 25px 50px rgba(0,0,0,0.08); background: var(--gray-100); }
+    .photo-circle img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+    .photo-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--teal-50), var(--teal-100)); font-size: 3.5rem; font-weight: 300; color: var(--teal-400); }
+    .badge-available { position: absolute; bottom: -0.5rem; right: -0.5rem; background: var(--green-500); color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.375rem 0.75rem; border-radius: 9999px; box-shadow: 0 4px 12px rgba(34,197,94,0.3); }
+
+    /* ── TRUST BAR ────────────────────────────────── */
+    .trust-bar { padding: 2rem 1rem; background: var(--gray-50); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+    .trust-grid { max-width: 1152px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .trust-item { display: flex; align-items: center; gap: 0.75rem; justify-content: center; }
+    .trust-icon { color: var(--teal-600); flex-shrink: 0; }
+    .trust-label { font-size: 0.875rem; font-weight: 600; color: var(--gray-800); }
+    .trust-sub { font-size: 0.75rem; color: var(--gray-500); }
+
+    /* ── SECTIONS ─────────────────────────────────── */
+    .section { padding: 4rem 1rem; }
+    .section-alt { background: var(--gray-50); }
+    .section-inner { max-width: 1152px; margin: 0 auto; }
+    .section-narrow { max-width: 48rem; margin: 0 auto; }
+    .section-title { font-size: 2rem; font-weight: 700; color: var(--gray-900); text-align: center; margin-bottom: 0.5rem; }
+    .section-bar { width: 3rem; height: 4px; background: var(--teal-500); border-radius: 9999px; margin: 0 auto 2.5rem; }
+    .section-subtitle { text-align: center; color: var(--gray-500); max-width: 36rem; margin: -1.5rem auto 3rem; }
+
+    /* ── ABOUT ────────────────────────────────────── */
+    .about-text { color: var(--gray-600); line-height: 1.8; font-size: 1.0625rem; }
+    .about-text p { margin-bottom: 1.25rem; }
+    .about-text strong { color: var(--gray-800); }
+
+    /* ── SERVICES ─────────────────────────────────── */
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .service-card { background: #fff; border-radius: 1rem; padding: 1.5rem; border: 1px solid var(--gray-100); box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: all 0.3s; }
+    .service-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-color: var(--teal-200); }
+    .service-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.0625rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; }
+    .services-note { text-align: center; font-size: 0.875rem; color: var(--gray-400); font-style: italic; margin-top: 2rem; }
+
+    /* ── HOW IT WORKS ─────────────────────────────── */
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; }
+    .step-icon { width: 4rem; height: 4rem; background: var(--teal-50); border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; color: var(--teal-600); }
+    .step-label { font-size: 0.75rem; font-weight: 700; color: var(--teal-500); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .steps-grid h3 { font-size: 1.0625rem; font-weight: 600; color: var(--gray-900); margin-bottom: 0.5rem; }
+    .steps-grid p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; }
+
+    /* ── PRICING ──────────────────────────────────── */
+    .pricing-card { background: #fff; border-radius: 1rem; padding: 2.5rem; border: 1px solid var(--gray-100); box-shadow: 0 1px 3px rgba(0,0,0,0.04); max-width: 28rem; margin: 0 auto; text-align: center; }
+    .pricing-amount { font-size: 3rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.25rem; }
+    .pricing-per { color: var(--gray-500); margin-bottom: 1.5rem; }
+    .pricing-list { list-style: none; text-align: left; max-width: 20rem; margin: 0 auto 2rem; }
+    .pricing-list li { display: flex; align-items: flex-start; gap: 0.75rem; color: var(--gray-600); margin-bottom: 0.75rem; font-size: 0.9375rem; }
+    .pricing-check { color: var(--teal-500); flex-shrink: 0; margin-top: 0.15rem; }
+
+    /* ── TESTIMONIALS ─────────────────────────────── */
+    .testimonials-scroll { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 1rem; scrollbar-width: thin; scrollbar-color: var(--teal-200) transparent; }
+    .testimonials-scroll::-webkit-scrollbar { height: 6px; }
+    .testimonials-scroll::-webkit-scrollbar-track { background: transparent; }
+    .testimonials-scroll::-webkit-scrollbar-thumb { background: var(--teal-200); border-radius: 3px; }
+    .testimonial-card { background: var(--gray-50); border-radius: 1rem; padding: 1.5rem; border: 1px solid var(--gray-100); min-width: 320px; max-width: 380px; flex-shrink: 0; scroll-snap-align: start; }
+    .testimonial-quote { color: var(--teal-400); font-size: 2.5rem; font-family: Georgia, serif; line-height: 1; margin-bottom: 0.75rem; }
+    .testimonial-card .text { font-size: 0.875rem; color: var(--gray-600); line-height: 1.6; font-style: italic; margin-bottom: 1rem; }
+    .testimonial-card .divider { border-top: 1px solid var(--gray-200); padding-top: 0.75rem; }
+    .testimonial-card .name { font-size: 0.875rem; font-weight: 600; color: var(--gray-800); }
+    .testimonial-card .detail { font-size: 0.75rem; color: var(--gray-400); }
+    .testimonial-stars { color: #f59e0b; font-size: 0.875rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+    .testimonials-count { text-align: center; margin-top: 1.5rem; font-size: 0.875rem; color: var(--gray-500); }
+    .testimonials-count strong { color: var(--teal-600); }
+
+    /* ── BOOKING ──────────────────────────────────── */
+    .booking { padding: 4rem 1rem; background: linear-gradient(135deg, var(--teal-600), var(--teal-700)); }
+    .booking-inner { max-width: 48rem; margin: 0 auto; text-align: center; }
+    .booking h2 { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 1rem; }
+    .booking p { color: rgba(255,255,255,0.8); max-width: 36rem; margin: 0 auto; line-height: 1.7; }
+    .booking .note { font-size: 0.875rem; color: rgba(255,255,255,0.7); margin-top: 0.75rem; }
+    .booking .italic-note { font-size: 0.875rem; color: rgba(255,255,255,0.7); font-style: italic; margin-top: 0.75rem; margin-bottom: 2.5rem; }
+    .booking-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 28rem; margin: 0 auto 2rem; }
+    .btn-book-wa { display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: var(--green-500); color: #fff; font-weight: 600; padding: 1rem 1.5rem; border-radius: 0.75rem; font-size: 1rem; box-shadow: 0 4px 14px rgba(34,197,94,0.25); transition: all 0.2s; }
+    .btn-book-wa:hover { background: var(--green-600); }
+    .btn-book-email { display: flex; align-items: center; justify-content: center; gap: 0.75rem; background: rgba(255,255,255,0.15); color: #fff; font-weight: 500; padding: 1rem 1.5rem; border-radius: 0.75rem; font-size: 1rem; border: 1px solid rgba(255,255,255,0.25); transition: all 0.2s; }
+    .btn-book-email:hover { background: rgba(255,255,255,0.25); }
+    .booking .email-line { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+    .booking .email-line a { color: #fff; text-decoration: underline; }
+
+    /* ── PRIVACY ──────────────────────────────────── */
+    .privacy { padding: 3rem 1rem; }
+    .privacy h3 { font-size: 1.125rem; font-weight: 600; color: var(--gray-800); margin-bottom: 1rem; text-align: center; }
+    .privacy p { font-size: 0.875rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 0.75rem; }
+    .privacy a { color: var(--teal-600); text-decoration: underline; }
+
+    /* ── DISCLAIMER ───────────────────────────────── */
+    .disclaimer { padding: 2.5rem 1rem; background: var(--gray-50); border-top: 1px solid var(--gray-100); text-align: center; }
+    .disclaimer-badge { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--amber-600); font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .disclaimer p { font-size: 0.875rem; color: var(--gray-500); max-width: 36rem; margin: 0 auto; line-height: 1.6; }
+
+    /* ── FOOTER ───────────────────────────────────── */
+    .footer { padding: 2.5rem 1rem; background: var(--gray-900); color: var(--gray-400); }
+    .footer-inner { max-width: 1152px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-name { color: #fff; font-weight: 600; font-size: 1.125rem; margin-bottom: 0.25rem; }
+    .footer-name span { color: var(--teal-400); }
+    .footer-info { font-size: 0.875rem; }
+    .footer-socials { display: flex; gap: 1rem; }
+    .footer-social { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--gray-800); display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: all 0.2s; }
+    .footer-social:hover { color: #fff; }
+    .footer-social.wa:hover { background: var(--green-600); }
+    .footer-social.em:hover { background: var(--teal-600); }
+    .footer-bottom { max-width: 1152px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; font-size: 0.75rem; color: var(--gray-500); }
+
+    /* ── FLOATING WHATSAPP ────────────────────────── */
+    .fab-whatsapp { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 90; background: var(--green-500); color: #fff; width: 3.5rem; height: 3.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 24px rgba(34,197,94,0.35); transition: all 0.2s; }
+    .fab-whatsapp:hover { background: var(--green-600); transform: scale(1.1); }
+    .fab-whatsapp svg { width: 28px; height: 28px; }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .mobile-menu.open { display: block; }
+      .hero { padding: 6rem 1rem 3rem; }
+      .hero-inner { flex-direction: column; text-align: center; gap: 2.5rem; }
+      .hero h1 { font-size: 2.25rem; }
+      .hero-tagline { font-size: 1.125rem; }
+      .hero-desc { margin: 0 auto 1rem; }
+      .hero-buttons { justify-content: center; }
+      .photo-circle { width: 12rem; height: 12rem; }
+      .trust-grid { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .testimonial-card { min-width: 280px; }
+      .booking-buttons { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn-whatsapp, .btn-secondary { width: 100%; max-width: 20rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.875rem; }
+      .section-title { font-size: 1.5rem; }
+      .pricing-amount { font-size: 2.25rem; }
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Dr Omer <span>ATLI</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#booking">Contact</a>
+        <a href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="nav-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book Now
+        </a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
+        <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#how-it-works" onclick="closeMenu()">How It Works</a>
+      <a href="#pricing" onclick="closeMenu()">Pricing</a>
+      <a href="#booking" onclick="closeMenu()">Contact</a>
+      <a href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book via WhatsApp
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          GMC UK-Registered Doctor
+        </div>
+        <h1>Dr Omer <span>ATLI</span></h1>
+        <p class="hero-tagline">Fast, clear online medical advice<br>when GP access is slow.</p>
+        <p class="hero-desc">
+          Independent telemedicine physician providing remote consultations,
+          prescriptions, and acute care support — delivered to UK-standard,
+          evidence-based practice. Consultations also available in Turkish.
+        </p>
+        <p class="hero-price">From £20 – £40 per consultation</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Book Consultation
+          </a>
+          <a href="https://wa.me/447385273502" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Message on WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="photo-wrap">
+          <div class="photo-circle">
+            <img src="dr-omer-atli.jpeg" alt="Dr Omer ATLI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="photo-fallback" style="display:none">OA</div>
+          </div>
+          <div class="badge-available">● Available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><div class="trust-label">GMC UK Registered</div><div class="trust-sub">No. 8126471</div></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <div><div class="trust-label">Turkish Ministry of Health</div><div class="trust-sub">Registered Physician</div></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div><div class="trust-label">Evidence-Based Practice</div><div class="trust-sub">NICE & NHS Aligned</div></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div><div class="trust-label">Safety-First Approach</div><div class="trust-sub">Patient-Centred Care</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="section-narrow">
+      <h2 class="section-title">About</h2>
+      <div class="section-bar"></div>
+      <div class="about-text">
+        <p>
+          I am a GMC-registered medical doctor (No. 8126471) with clinical training from
+          <strong>Akdeniz University Faculty of Medicine</strong>, one of Turkey's leading
+          medical schools. My background spans Emergency Medicine and Primary Care —
+          environments where quick, accurate clinical decisions matter most.
+        </p>
+        <p>
+          After years of frontline practice, I moved into independent telemedicine to address
+          a problem I saw repeatedly: patients waiting days or weeks for basic GP access when
+          their concern needed attention now. My consultations follow UK-standard protocols
+          aligned with <strong>NICE guidelines and NHS best practice</strong>.
+        </p>
+        <p>
+          My approach is straightforward — listen carefully, assess thoroughly, explain clearly,
+          and treat appropriately. No unnecessary tests, no vague advice. If something needs
+          face-to-face review or specialist input, I will tell you directly. Consultations are
+          available in both English and Turkish.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section section-alt">
+    <div class="section-inner">
+      <h2 class="section-title">Services</h2>
+      <div class="section-bar"></div>
+      <p class="section-subtitle">Comprehensive remote medical care — from initial assessment through to treatment and follow-up.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🩺</div>
+          <h3>Acute Illness Assessment</h3>
+          <p>Prompt evaluation of new symptoms — fever, pain, infections — with clear guidance on next steps and when to seek emergency care.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🫁</div>
+          <h3>Respiratory & GI Symptoms</h3>
+          <p>Cough, sore throat, breathlessness, nausea, diarrhoea, abdominal pain — assessed thoroughly via video consultation.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔬</div>
+          <h3>Urinary & Skin Conditions</h3>
+          <p>UTIs, rashes, minor skin infections, allergic reactions — diagnosed and treated remotely where clinically safe.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💊</div>
+          <h3>Prescriptions & Refills</h3>
+          <p>Medication refills, travel prescriptions, and short-course treatments — issued only where clinically appropriate.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Medical Notes & Reports</h3>
+          <p>Fit notes, medical letters, and consultation summaries for work, travel, or personal records.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>Telemedicine Consultations</h3>
+          <p>Comprehensive video or audio consultations with follow-up plans, referrals, and ongoing care coordination.</p>
+        </div>
+      </div>
+      <p class="services-note">Prescriptions are issued only where clinically appropriate.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="section">
+    <div class="section-inner">
+      <h2 class="section-title">How It Works</h2>
+      <div class="section-bar"></div>
+      <div class="steps-grid">
+        <div>
+          <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div class="step-label">Step 1</div>
+          <h3>Book Your Consultation</h3>
+          <p>Message via WhatsApp or email with your name and a brief description of your concern. You'll receive a prompt response with available times.</p>
+        </div>
+        <div>
+          <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="step-label">Step 2</div>
+          <h3>Assessment & Treatment</h3>
+          <p>A thorough video or audio consultation. I'll take a full history, assess your symptoms, and provide a clear diagnosis and treatment plan.</p>
+        </div>
+        <div>
+          <div class="step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="step-label">Step 3</div>
+          <h3>Follow-Up & Guidance</h3>
+          <p>Receive your prescriptions, referral letters, or medical notes. Ongoing support and follow-up are available as needed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section section-alt">
+    <div class="section-inner">
+      <h2 class="section-title">Consultation Fees</h2>
+      <div class="section-bar"></div>
+      <div class="pricing-card">
+        <div class="pricing-amount">£20 – £40</div>
+        <p class="pricing-per">per consultation</p>
+        <ul class="pricing-list">
+          <li><span class="pricing-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>Video or audio consultation</li>
+          <li><span class="pricing-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>Prescriptions where appropriate</li>
+          <li><span class="pricing-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>Medical notes and letters</li>
+          <li><span class="pricing-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>Follow-up guidance included</li>
+          <li><span class="pricing-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>No hidden fees</li>
+        </ul>
+        <a href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="btn-whatsapp" style="width:100%">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <div class="section-inner">
+      <h2 class="section-title">Patient Feedback</h2>
+      <div class="section-bar"></div>
+      <p class="section-subtitle">Real reviews from verified patients.</p>
+      <div class="testimonials-scroll">
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="text">Saved my life during a short trip. Got the needed prescription after a good detailed consultation. Doctor Omer is very knowledgeable and involved in the process from consultation till the end. I felt heard and comfortable. Found this site through a Google search and I will definitely keep this in my emergency list for trips!</p>
+          <div class="divider">
+            <div class="name">C. S.</div>
+            <div class="detail">March 2026 · Verified Patient</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="text">The service was excellent: I had a pleasant, professional conversation with Dr. Atli, with the result that I was able to simply pick up a suitable prescription medication at the nearest pharmacy. Everything worked out perfectly, and my condition is improving steadily. My business trip can continue.</p>
+          <div class="divider">
+            <div class="name">P. D.</div>
+            <div class="detail">March 2026 · Verified Patient</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="text">Quick and easy to book, with a professional Doctor who listened carefully and gave clear, reassuring advice. A convenient, reliable service that makes accessing quality healthcare simple and stress-free.</p>
+          <div class="divider">
+            <div class="name">S. T.</div>
+            <div class="detail">March 2026 · Verified Patient</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="text">The doctor was excellent, very professional and empathetic to my problem. Offered practical solutions and I left the appointment happy and knowledgeable about what steps to take.</p>
+          <div class="divider">
+            <div class="name">B. T.</div>
+            <div class="detail">March 2026 · Verified Patient</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="text">Dr Atli was very professional and thorough in his questions. He filled me with confidence and I found the appointment very reassuring and helpful. He is a very caring doctor.</p>
+          <div class="divider">
+            <div class="name">C. L.</div>
+            <div class="detail">March 2026 · Verified Patient</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="text">Great Doctor — listened carefully to my issue and recommended a great solution! Highly recommended Doctor!!</p>
+          <div class="divider">
+            <div class="name">A. J.</div>
+            <div class="detail">March 2026 · Verified Patient</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="text">Dr Atli was very nice and available to listen to my health issues. I recommend him for the professionality.</p>
+          <div class="divider">
+            <div class="name">G. N.</div>
+            <div class="detail">March 2026 · Verified Patient</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="text">Excellent service and clear. Calm and very helpful.</p>
+          <div class="divider">
+            <div class="name">R. J.</div>
+            <div class="detail">March 2026 · Verified Patient</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="booking" class="booking">
+    <div class="booking-inner">
+      <h2>Get in Touch</h2>
+      <p>
+        Choose the fastest way to get in touch. You can message directly on WhatsApp
+        to request an appointment, ask about availability, or follow up after a consultation.
+      </p>
+      <p class="note">Please include your name and a brief description of your medical concern.</p>
+      <p class="italic-note">Prescriptions are issued only where clinically appropriate.</p>
+      <div class="booking-buttons">
+        <a href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="btn-book-wa">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book via WhatsApp
+        </a>
+        <a href="mailto:dr@omeratli.com" class="btn-book-email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          Email Dr ATLI
+        </a>
+      </div>
+      <p class="email-line">Email for reports, prescriptions, or general queries: <a href="mailto:dr@omeratli.com">dr@omeratli.com</a></p>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section class="privacy">
+    <div class="section-narrow">
+      <h3>Privacy & Data Protection</h3>
+      <p>
+        Your privacy matters. All personal and medical information shared during consultations
+        is treated as strictly confidential and handled in accordance with the UK General Data
+        Protection Regulation (UK GDPR) and the Data Protection Act 2018.
+      </p>
+      <p>
+        Your data is used solely for the purpose of providing medical care and will not be
+        shared with third parties without your explicit consent, unless required by law or
+        to protect your safety. Medical records are stored securely and retained in line
+        with NHS record-keeping guidelines.
+      </p>
+      <p>
+        By booking a consultation, you consent to the collection and processing of your
+        personal and health data for clinical purposes. You have the right to access,
+        correct, or request deletion of your data at any time by contacting
+        <a href="mailto:dr@omeratli.com">dr@omeratli.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="disclaimer">
+    <div class="disclaimer-badge">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Medical Disclaimer
+    </div>
+    <p>
+      This service does not replace emergency care. If you are experiencing severe
+      chest pain, difficulty breathing, signs of stroke, heavy bleeding, or any
+      life-threatening symptoms, call 999 (UK) or 112 (Turkey) immediately.
+      Telemedicine has limitations — a face-to-face assessment may be required for certain conditions.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-name">Dr Omer <span>ATLI</span></div>
+        <div class="footer-info">GMC UK-Registered Doctor · No. 8126471</div>
+        <div class="footer-info">Independent Telemedicine Practice</div>
+      </div>
+      <div class="footer-socials">
+        <a href="https://wa.me/447385273502" target="_blank" rel="noopener noreferrer" class="footer-social wa" aria-label="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="mailto:dr@omeratli.com" class="footer-social em" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Dr Omer ATLI. All rights reserved. · Independent medical practice.</div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="fab-whatsapp" aria-label="Book via WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', function() {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      var menu = document.getElementById('mobile-menu');
+      var menuIcon = document.getElementById('menu-icon');
+      var closeIcon = document.getElementById('close-icon');
+      var hamburger = document.querySelector('.hamburger');
+      var isOpen = menu.classList.toggle('open');
+      menuIcon.style.display = isOpen ? 'none' : 'block';
+      closeIcon.style.display = isOpen ? 'block' : 'none';
+      if (hamburger) hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+    function closeMenu() {
+      var menu = document.getElementById('mobile-menu');
+      var hamburger = document.querySelector('.hamburger');
+      if (menu) menu.classList.remove('open');
+      var menuIcon = document.getElementById('menu-icon');
+      var closeIcon = document.getElementById('close-icon');
+      if (menuIcon) menuIcon.style.display = 'block';
+      if (closeIcon) closeIcon.style.display = 'none';
+      if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    document.addEventListener('click', function(e) {
+      var menu = document.getElementById('mobile-menu');
+      if (!menu || !menu.classList.contains('open')) return;
+      var hamburger = document.querySelector('.hamburger');
+      if (hamburger && hamburger.contains(e.target)) return;
+      if (menu.contains(e.target)) return;
+      closeMenu();
+    });
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) closeMenu();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key !== 'Escape') return;
+      var menu = document.getElementById('mobile-menu');
+      if (menu && menu.classList.contains('open')) closeMenu();
+    });
+
+    (function setShareMeta() {
+      var isWebUrl = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+      var pageUrl = isWebUrl ? window.location.href : '';
+      var imageUrl = isWebUrl ? new URL('dr-omer-atli.jpeg', window.location.href).href : 'dr-omer-atli.jpeg';
+
+      var canonicalLink = document.getElementById('canonical-link');
+      var ogUrl = document.getElementById('meta-og-url');
+      var ogImage = document.getElementById('meta-og-image');
+      var twUrl = document.getElementById('meta-twitter-url');
+      var twImage = document.getElementById('meta-twitter-image');
+
+      if (canonicalLink && pageUrl) canonicalLink.setAttribute('href', pageUrl);
+      if (ogUrl && pageUrl) ogUrl.setAttribute('content', pageUrl);
+      if (ogImage) ogImage.setAttribute('content', imageUrl);
+      if (twUrl && pageUrl) twUrl.setAttribute('content', pageUrl);
+      if (twImage) twImage.setAttribute('content', imageUrl);
+    })();
+  </script>
+</body>
+</html>
