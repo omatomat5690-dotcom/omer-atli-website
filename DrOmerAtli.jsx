@@ -72,35 +72,55 @@ const GlobeIcon = () => (
 // ─── SERVICES DATA ──────────────────────────────────────────────────────────
 const services = [
   {
-    title: "Acute Illness Assessment",
-    description: "Prompt evaluation of new symptoms — fever, pain, infections — with clear guidance on next steps and when to seek emergency care.",
-    icon: "🩺",
-  },
-  {
-    title: "Respiratory & GI Symptoms",
-    description: "Cough, sore throat, breathlessness, nausea, diarrhoea, abdominal pain — assessed thoroughly via video consultation.",
+    title: "Respiratory, Throat & Chest Symptoms",
+    description: "Evaluation of cough, sore throat, sinus symptoms, chest infections, breathlessness, and flu-like illness, with treatment and safety-net advice.",
     icon: "🫁",
   },
   {
-    title: "Urinary & Skin Conditions",
-    description: "UTIs, rashes, minor skin infections, allergic reactions — diagnosed and treated remotely where clinically safe.",
-    icon: "🔬",
+    title: "Gastrointestinal & Abdominal Symptoms",
+    description: "Assessment of nausea, vomiting, diarrhoea, abdominal pain, reflux, and digestive issues, including guidance on when further investigation is needed.",
+    icon: "🧠",
   },
   {
-    title: "Prescriptions & Refills",
-    description: "Medication refills, travel prescriptions, and short-course treatments — issued only where clinically appropriate.",
+    title: "Urinary & Kidney Symptoms",
+    description: "Diagnosis and treatment of urinary tract infections (UTIs), painful urination, urinary frequency, and related symptoms, with prescribing where appropriate.",
+    icon: "🚻",
+  },
+  {
+    title: "Skin Conditions & Minor Infections",
+    description: "Management of rashes, allergic reactions, acne, infected lesions, insect bites, and minor skin infections, including when antibiotics are required.",
+    icon: "🧴",
+  },
+  {
+    title: "Sexual Health & STI Assessment",
+    description: "Confidential assessment of STIs, genital symptoms, discharge, irritation, and exposure concerns, with guidance on testing, treatment, and follow-up.",
+    icon: "❤️",
+  },
+  {
+    title: "Prescriptions & Medication Support",
+    description: "Medication refills, travel prescriptions, and short-course treatments, issued only where clinically appropriate following assessment.",
     icon: "💊",
   },
   {
     title: "Medical Notes & Reports",
-    description: "Fit notes, medical letters, and consultation summaries for work, travel, or personal records.",
+    description: "Provision of fit notes, medical certificates, and consultation summaries for work, travel, or personal use where appropriate.",
     icon: "📋",
   },
-  {
-    title: "Telemedicine Consultations",
-    description: "Comprehensive video or audio consultations with follow-up plans, referrals, and ongoing care coordination.",
-    icon: "📱",
-  },
+];
+
+const commonConditions = [
+  "Sore throat, tonsillitis, and upper respiratory infections",
+  "Sinus infections and nasal congestion",
+  "Chest infections and persistent cough",
+  "Urinary tract infections (UTIs)",
+  "Sexually transmitted infection (STI) concerns and exposure",
+  "Skin infections, rashes, and allergic reactions",
+  "Gastroenteritis, diarrhoea, and vomiting",
+  "Abdominal pain and digestive symptoms",
+  "Medication refills and continuation of treatment",
+  "Travel-related prescriptions and advice",
+  "Minor infections requiring short-course treatment",
+  "General medical concerns where you need timely advice",
 ];
 
 // ─── TRUST ITEMS ────────────────────────────────────────────────────────────
@@ -148,7 +168,7 @@ export default function DrOmerAtliWebsite() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <a href="#" className="text-lg font-semibold text-gray-900 tracking-tight">
-              Dr Omer <span className="text-teal-600">ATLI</span>
+              Dr Omer ATLI
             </a>
 
             {/* Desktop nav */}
@@ -231,15 +251,16 @@ export default function DrOmerAtliWebsite() {
                 GMC UK-Registered Doctor
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
-                Dr Omer <span className="text-teal-600">ATLI</span>
+                Dr Omer ATLI
               </h1>
               <p className="text-xl sm:text-2xl text-gray-600 font-light mb-4 leading-relaxed">
                 Fast, clear online medical advice<br className="hidden sm:inline" /> when GP access is slow.
               </p>
               <p className="text-gray-500 max-w-lg mx-auto md:mx-0 mb-4 leading-relaxed">
-                Independent telemedicine physician providing remote consultations,
-                prescriptions, and acute care support — delivered to UK-standard,
-                evidence-based practice. Consultations also available in Turkish.
+                Can't get a GP appointment? Need a prescription or medical advice without
+                the wait? I provide same-day online consultations with clear diagnosis,
+                treatment, and follow-up — to the same standard you'd expect from a UK
+                doctor. Available in English and Turkish.
               </p>
               <p className="text-teal-700 font-semibold text-lg mb-8">
                 From {CONFIG.pricing} per consultation
@@ -314,24 +335,104 @@ export default function DrOmerAtliWebsite() {
           <div className="w-12 h-1 bg-teal-500 mx-auto rounded-full mb-10"></div>
           <div className="space-y-5 text-gray-600 leading-relaxed text-lg">
             <p>
-              I am a GMC-registered medical doctor (No. {CONFIG.gmcNumber}) with clinical
-              training from <strong className="text-gray-800">Akdeniz University Faculty of Medicine</strong>,
-              one of Turkey's leading medical schools. My background spans Emergency Medicine and
-              Primary Care — environments where quick, accurate clinical decisions matter most.
+              I am a <strong className="text-gray-800">GMC UK-registered doctor</strong> (GMC No. {CONFIG.gmcNumber}) and a physician
+              registered with the Turkish Ministry of Health, providing online consultations for patients
+              in the UK and internationally.
             </p>
             <p>
-              After years of frontline practice, I moved into independent telemedicine to address
-              a problem I saw repeatedly: patients waiting days or weeks for basic GP access when
-              their concern needed attention now. My consultations follow UK-standard protocols
-              aligned with <strong className="text-gray-800">NICE guidelines and NHS best practice</strong>.
+              My background is in <strong className="text-gray-800">Emergency Medicine and Primary Care</strong>, where
+              I have worked with a wide range of acute and everyday medical problems. These are settings where
+              decisions need to be made quickly, clearly, and safely, and where recognising serious illness
+              early is critical.
             </p>
             <p>
-              My approach is straightforward — listen carefully, assess thoroughly, explain clearly,
-              and treat appropriately. No unnecessary tests, no vague advice. If something needs
-              face-to-face review or specialist input, I will tell you directly. Consultations
-              are available in both English and Turkish.
+              I moved into telemedicine after repeatedly seeing patients wait too long for care that could have
+              been assessed much earlier. Many problems do not need to wait days — they need proper assessment,
+              clear advice, and a plan. My role is to provide that: structured, UK-standard medical care, and
+              clear guidance on what to do next.
             </p>
+            <p>
+              My consultations follow <strong className="text-gray-800">NICE-aligned, evidence-based practice</strong>,
+              with a strong focus on identifying risk and not missing important conditions. I do not over-investigate
+              or over-treat, but I also do not overlook what matters. You will receive clear explanations,
+              practical advice, and prescriptions where appropriate.
+            </p>
+            <p>
+              If your condition requires in-person care, urgent review, or specialist input, I will tell you directly.
+            </p>
+            <p>Consultations are available in English and Turkish.</p>
           </div>
+
+          {/* How I Work pills */}
+          <div className="mt-8 flex gap-4 flex-wrap">
+            {[
+              { title: "Structured assessment", sub: "not guesswork" },
+              { title: "Clear explanations", sub: "not vague reassurance" },
+              { title: "Honest advice", sub: "on when in-person care is needed" },
+            ].map((item, i) => (
+              <div key={i} className="flex-1 min-w-[200px] bg-teal-50 rounded-xl px-5 py-4 text-center">
+                <div className="font-semibold text-teal-700 text-sm">{item.title}</div>
+                <div className="text-gray-500 text-xs mt-1">{item.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Additional Clinical Background */}
+          <details className="mt-8 border border-gray-200 rounded-xl overflow-hidden">
+            <summary className="cursor-pointer px-5 py-4 font-semibold text-gray-800 text-sm flex items-center gap-2 hover:bg-gray-50 transition-colors">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="flex-shrink-0"><polyline points="6 9 12 15 18 9" /></svg>
+              Additional Clinical Background
+            </summary>
+            <div className="px-5 pb-5 text-gray-500 text-base leading-relaxed space-y-3">
+              <p>
+                Alongside clinical work, I have also been involved in medical reviewing, healthcare AI safety,
+                and clinical quality assurance, checking medical content against NICE guidance, the British
+                National Formulary (BNF), and current evidence-based standards.
+              </p>
+              <p>
+                In practical terms, this means I have worked on identifying unsafe medical advice, missed
+                warning signs, and incorrect treatment recommendations. This directly strengthens how I
+                practise — focusing on what is safe, accurate, and clinically appropriate, not just what
+                appears reasonable.
+              </p>
+              <p>
+                My background in emergency medicine reinforces the same approach. In acute care, the key is
+                often recognising serious conditions early and acting appropriately. That is exactly how I
+                approach telemedicine: structured assessment, clear decision-making, and knowing when something
+                can be managed remotely and when it requires in-person care.
+              </p>
+              <p>
+                I am also a published, PubMed-indexed author, with work in clinical case reporting and
+                evidence-based medical writing, including publication with Oxford University Press.
+              </p>
+
+              {/* Verification & Publications */}
+              <div className="border-t border-gray-200 pt-4 mt-4">
+                <div className="font-semibold text-gray-800 text-sm mb-3">Professional Verification</div>
+                <a href="https://www.gmc-uk.org/registrants/8126471" target="_blank" rel="noopener noreferrer"
+                   className="inline-flex items-center gap-2 bg-teal-50 text-teal-700 text-xs font-semibold px-4 py-2 rounded-lg border border-teal-100 hover:bg-teal-100 transition-colors">
+                  <ShieldIcon /> GMC UK Medical Register
+                </a>
+              </div>
+              <div className="border-t border-gray-200 pt-4 mt-4">
+                <div className="font-semibold text-gray-800 text-sm mb-3">Publications</div>
+                <div className="space-y-2">
+                  <a href="https://academic.oup.com/omcr/article/2025/11/omaf233/8343261" target="_blank" rel="noopener noreferrer"
+                     className="block text-teal-600 text-xs font-medium underline">
+                    Late Diagnosis of Kartagener Syndrome: A Case Report — Oxford Medical Case Reports (OUP)
+                  </a>
+                  <a href="https://pubmed.ncbi.nlm.nih.gov/41311431/" target="_blank" rel="noopener noreferrer"
+                     className="block text-teal-600 text-xs font-medium underline">
+                    PubMed / PubMed Central
+                  </a>
+                  <a href="https://www.linkedin.com/in/omer-atli-968a2a3a6" target="_blank" rel="noopener noreferrer"
+                     className="block text-teal-600 text-xs font-medium underline">
+                    LinkedIn Profile
+                  </a>
+                </div>
+              </div>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -341,7 +442,7 @@ export default function DrOmerAtliWebsite() {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2 text-center">Services</h2>
           <div className="w-12 h-1 bg-teal-500 mx-auto rounded-full mb-4"></div>
           <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto">
-            Comprehensive remote medical care — from initial assessment through to treatment and follow-up.
+            Comprehensive remote medical care — from initial assessment through to treatment, prescription, and follow-up.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
@@ -356,8 +457,21 @@ export default function DrOmerAtliWebsite() {
             ))}
           </div>
           <p className="text-center text-sm text-gray-400 mt-8 italic">
-            Prescriptions are issued only where clinically appropriate.
+            Prescriptions are issued only where clinically appropriate following clinical assessment.
           </p>
+
+          {/* Expandable conditions list */}
+          <details className="mt-8 border border-gray-200 rounded-xl overflow-hidden bg-white">
+            <summary className="cursor-pointer px-5 py-4 font-semibold text-gray-800 text-sm flex items-center gap-2 hover:bg-gray-50 transition-colors">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="flex-shrink-0"><polyline points="6 9 12 15 18 9" /></svg>
+              Common Conditions I Help With
+            </summary>
+            <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1 text-gray-500 text-sm leading-loose">
+              {commonConditions.map((c, i) => (
+                <div key={i}>• {c}</div>
+              ))}
+            </div>
+          </details>
         </div>
       </section>
 
@@ -559,7 +673,7 @@ export default function DrOmerAtliWebsite() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
               <div className="text-white font-semibold text-lg mb-1">
-                Dr Omer <span className="text-teal-400">ATLI</span>
+                Dr Omer ATLI
               </div>
               <div className="text-sm">GMC UK-Registered Doctor · No. {CONFIG.gmcNumber}</div>
               <div className="text-sm">Independent Telemedicine Practice</div>

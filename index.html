@@ -42,12 +42,38 @@
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
 
+    /* ── INLINE STYLES CLASSES ───────────────────────────── */
+    .how-i-work { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .how-i-work-item { flex: 1; min-width: 200px; background: var(--teal-50); border-radius: 0.75rem; padding: 1rem 1.25rem; text-align: center; }
+    .how-i-work-label { font-weight: 600; color: var(--teal-700); font-size: 0.9375rem; }
+    .how-i-work-desc { color: var(--gray-500); font-size: 0.8125rem; margin-top: 0.25rem; }
+
+    .details-block { margin-top: 2rem; border: 1px solid var(--gray-200); border-radius: 0.75rem; padding: 0; background: #fff; }
+    .details-block summary { cursor: pointer; padding: 1rem 1.25rem; font-weight: 600; color: var(--gray-900); font-size: 0.9375rem; list-style: none; display: flex; align-items: center; gap: 0.5rem; }
+    .details-block summary::-webkit-details-marker { display: none; }
+    .details-content { padding: 0 1.25rem 1.25rem; color: var(--gray-500); font-size: 0.9375rem; line-height: 1.7; }
+    .details-content p { margin-bottom: 0.75rem; }
+    .details-content p:last-child { margin-bottom: 1.5rem; }
+    .details-section { border-top: 1px solid var(--gray-200); padding-top: 1.25rem; margin-top: 1.25rem; }
+    .details-section:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+    .details-title { font-weight: 600; color: var(--gray-900); font-size: 0.875rem; margin-bottom: 0.75rem; }
+    .gmc-link { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal-50); color: var(--teal-700); font-size: 0.8125rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid var(--teal-100); transition: background 0.2s; }
+    .gmc-link:hover { background: var(--teal-100); }
+    .pub-link { color: var(--teal-600); font-size: 0.8125rem; font-weight: 500; text-decoration: underline; }
+    .pub-link:hover { text-decoration: none; }
+
+    .conditions-list { columns: 2; column-gap: 2rem; color: var(--gray-500); font-size: 0.875rem; line-height: 2; }
+    .icon-inline { flex-shrink: 0; }
+    .fallback-hidden { display: none; }
+    .icon-hidden { display: none; }
+    .btn-full { width: 100%; }
+
     /* ── NAV ─────────────────────────────────────── */
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); transition: box-shadow 0.3s; }
     .nav.scrolled { box-shadow: 0 1px 8px rgba(0,0,0,0.08); }
     .nav-inner { max-width: 1152px; margin: 0 auto; padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; height: 64px; }
     .nav-logo { font-size: 1.125rem; font-weight: 600; color: var(--gray-900); }
-    .nav-logo span { color: var(--teal-600); }
+    .nav-logo span { color: var(--gray-900); }
     .nav-links { display: flex; align-items: center; gap: 2rem; }
     .nav-links a { font-size: 0.875rem; color: var(--gray-600); transition: color 0.2s; }
     .nav-links a:hover { color: var(--teal-600); }
@@ -64,7 +90,7 @@
     .hero-text { flex: 1; }
     .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--teal-50); color: var(--teal-700); font-size: 0.875rem; font-weight: 500; padding: 0.375rem 0.75rem; border-radius: 9999px; margin-bottom: 1.5rem; }
     .hero h1 { font-size: 3.25rem; font-weight: 700; color: var(--gray-900); line-height: 1.1; margin-bottom: 1rem; }
-    .hero h1 span { color: var(--teal-600); }
+    .hero h1 span { color: var(--gray-900); }
     .hero-tagline { font-size: 1.375rem; color: var(--gray-600); font-weight: 300; margin-bottom: 1rem; line-height: 1.4; }
     .hero-desc { color: var(--gray-500); max-width: 32rem; margin-bottom: 1rem; }
     .hero-price { color: var(--teal-700); font-weight: 600; font-size: 1.125rem; margin-bottom: 2rem; }
@@ -103,7 +129,8 @@
     .about-text strong { color: var(--gray-800); }
 
     /* ── SERVICES ─────────────────────────────────── */
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .services-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+    .service-card { width: calc(33.333% - 1rem); }
     .service-card { background: #fff; border-radius: 1rem; padding: 1.5rem; border: 1px solid var(--gray-100); box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: all 0.3s; }
     .service-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-color: var(--teal-200); }
     .service-icon { font-size: 1.75rem; margin-bottom: 1rem; }
@@ -127,10 +154,14 @@
     .pricing-check { color: var(--teal-500); flex-shrink: 0; margin-top: 0.15rem; }
 
     /* ── TESTIMONIALS ─────────────────────────────── */
-    .testimonials-scroll { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 1rem; scrollbar-width: thin; scrollbar-color: var(--teal-200) transparent; }
+    .testimonials-scroll { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; }
     .testimonials-scroll::-webkit-scrollbar { height: 6px; }
     .testimonials-scroll::-webkit-scrollbar-track { background: transparent; }
     .testimonials-scroll::-webkit-scrollbar-thumb { background: var(--teal-200); border-radius: 3px; }
+    /* Fallback for browsers without scrollbar styling */
+    @supports (scrollbar-width: thin) {
+      .testimonials-scroll { scrollbar-width: thin; scrollbar-color: var(--teal-200) transparent; }
+    }
     .testimonial-card { background: var(--gray-50); border-radius: 1rem; padding: 1.5rem; border: 1px solid var(--gray-100); min-width: 320px; max-width: 380px; flex-shrink: 0; scroll-snap-align: start; }
     .testimonial-quote { color: var(--teal-400); font-size: 2.5rem; font-family: Georgia, serif; line-height: 1; margin-bottom: 0.75rem; }
     .testimonial-card .text { font-size: 0.875rem; color: var(--gray-600); line-height: 1.6; font-style: italic; margin-bottom: 1rem; }
@@ -171,7 +202,7 @@
     .footer { padding: 2.5rem 1rem; background: var(--gray-900); color: var(--gray-400); }
     .footer-inner { max-width: 1152px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .footer-name { color: #fff; font-weight: 600; font-size: 1.125rem; margin-bottom: 0.25rem; }
-    .footer-name span { color: var(--teal-400); }
+    .footer-name span { color: #fff; }
     .footer-info { font-size: 0.875rem; }
     .footer-socials { display: flex; gap: 1rem; }
     .footer-social { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--gray-800); display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: all 0.2s; }
@@ -198,7 +229,7 @@
       .hero-buttons { justify-content: center; }
       .photo-circle { width: 12rem; height: 12rem; }
       .trust-grid { grid-template-columns: 1fr 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
+      .service-card { width: 100%; }
       .steps-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .testimonial-card { min-width: 280px; }
       .booking-buttons { grid-template-columns: 1fr; }
@@ -232,7 +263,7 @@
       </div>
       <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
         <svg id="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-        <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-hidden"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
     </div>
     <div class="mobile-menu" id="mobile-menu">
@@ -259,9 +290,10 @@
         <h1>Dr Omer <span>ATLI</span></h1>
         <p class="hero-tagline">Fast, clear online medical advice<br>when GP access is slow.</p>
         <p class="hero-desc">
-          Independent telemedicine physician providing remote consultations,
-          prescriptions, and acute care support — delivered to UK-standard,
-          evidence-based practice. Consultations also available in Turkish.
+          Can't get a GP appointment? Need a prescription or medical advice without
+          the wait? I provide same-day online consultations with clear diagnosis,
+          treatment, and follow-up — to the same standard you'd expect from a UK
+          doctor. Available in English and Turkish.
         </p>
         <p class="hero-price">From £20 – £40 per consultation</p>
         <div class="hero-buttons">
@@ -278,8 +310,8 @@
       <div class="hero-photo">
         <div class="photo-wrap">
           <div class="photo-circle">
-            <img src="dr-omer-atli.jpeg" alt="Dr Omer ATLI" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <div class="photo-fallback" style="display:none">OA</div>
+            <img src="dr-omer-atli.jpeg" alt="Dr Omer ATLI" width="288" height="288" onerror="this.classList.add('fallback-hidden');this.nextElementSibling.classList.remove('fallback-hidden')" />
+            <div class="photo-fallback fallback-hidden">OA</div>
           </div>
           <div class="badge-available">● Available</div>
         </div>
@@ -316,24 +348,101 @@
       <div class="section-bar"></div>
       <div class="about-text">
         <p>
-          I am a GMC-registered medical doctor (No. 8126471) with clinical training from
-          <strong>Akdeniz University Faculty of Medicine</strong>, one of Turkey's leading
-          medical schools. My background spans Emergency Medicine and Primary Care —
-          environments where quick, accurate clinical decisions matter most.
+          I am a <strong>GMC UK-registered doctor</strong> (GMC No. 8126471) and a physician registered with the
+          Turkish Ministry of Health, providing online consultations for patients in the UK and internationally.
         </p>
         <p>
-          After years of frontline practice, I moved into independent telemedicine to address
-          a problem I saw repeatedly: patients waiting days or weeks for basic GP access when
-          their concern needed attention now. My consultations follow UK-standard protocols
-          aligned with <strong>NICE guidelines and NHS best practice</strong>.
+          My background is in <strong>Emergency Medicine and Primary Care</strong>, where I have worked with a wide
+          range of acute and everyday medical problems. These are settings where decisions need to be made
+          quickly, clearly, and safely, and where recognising serious illness early is critical.
         </p>
         <p>
-          My approach is straightforward — listen carefully, assess thoroughly, explain clearly,
-          and treat appropriately. No unnecessary tests, no vague advice. If something needs
-          face-to-face review or specialist input, I will tell you directly. Consultations are
-          available in both English and Turkish.
+          I moved into telemedicine after repeatedly seeing patients wait too long for care that could have
+          been assessed much earlier. Many problems do not need to wait days — they need proper assessment,
+          clear advice, and a plan. My role is to provide that: structured, UK-standard medical care, and
+          clear guidance on what to do next.
         </p>
+        <p>
+          My consultations follow <strong>NICE-aligned, evidence-based practice</strong>, with a strong focus on
+          identifying risk and not missing important conditions. I do not over-investigate or over-treat,
+          but I also do not overlook what matters. You will receive clear explanations, practical advice,
+          and prescriptions where appropriate.
+        </p>
+        <p>
+          If your condition requires in-person care, urgent review, or specialist input, I will tell you directly.
+        </p>
+        <p>Consultations are available in English and Turkish.</p>
       </div>
+
+        <!-- How I Work -->
+        <div class="how-i-work">
+          <div class="how-i-work-item">
+            <div class="how-i-work-label">Structured assessment</div>
+            <div class="how-i-work-desc">not guesswork</div>
+          </div>
+          <div class="how-i-work-item">
+            <div class="how-i-work-label">Clear explanations</div>
+            <div class="how-i-work-desc">not vague reassurance</div>
+          </div>
+          <div class="how-i-work-item">
+            <div class="how-i-work-label">Honest advice</div>
+            <div class="how-i-work-desc">on when in-person care is needed</div>
+          </div>
+        </div>
+
+        <!-- Additional Clinical Background -->
+        <details class="details-block">
+          <summary>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-inline"><polyline points="6 9 12 15 18 9"/></svg>
+            Additional Clinical Background
+          </summary>
+          <div class="details-content">
+          <p>
+            Alongside clinical work, I have also been involved in medical reviewing, healthcare AI safety,
+            and clinical quality assurance, checking medical content against NICE guidance, the British
+            National Formulary (BNF), and current evidence-based standards.
+          </p>
+          <p>
+            My background in emergency medicine reinforces the same approach. In acute care, the key is
+            often recognising serious conditions early and acting appropriately. That is exactly how I
+            approach telemedicine: structured assessment, clear decision-making, and knowing when something
+            can be managed remotely and when it requires in-person care.
+          </p>
+          <p>
+            I am also a published, PubMed-indexed author, with work in clinical case reporting and
+            evidence-based medical writing, including publication with Oxford University Press.
+          </p>
+
+            <!-- Professional Verification -->
+            <div class="details-section">
+              <div class="details-title">Professional Verification</div>
+              <a href="https://www.gmc-uk.org/registrants/8126471" target="_blank" rel="noopener noreferrer" class="gmc-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                GMC UK Medical Register
+              </a>
+            </div>
+
+            <!-- Publications -->
+            <div class="details-section">
+              <div class="details-title">Publications</div>
+              <div>
+                <a href="https://academic.oup.com/omcr/article/2025/11/omaf233/8343261" target="_blank" rel="noopener noreferrer" class="pub-link">
+                  Late Diagnosis of Kartagener Syndrome: A Case Report — Oxford Medical Case Reports (OUP)
+                </a>
+              </div>
+              <div>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/41311431/" target="_blank" rel="noopener noreferrer" class="pub-link">
+                  PubMed / PubMed Central
+                </a>
+              </div>
+              <div>
+                <a href="https://www.linkedin.com/in/omer-atli-968a2a3a6" target="_blank" rel="noopener noreferrer" class="pub-link">
+                  LinkedIn Profile
+                </a>
+              </div>
+            </div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -342,40 +451,67 @@
     <div class="section-inner">
       <h2 class="section-title">Services</h2>
       <div class="section-bar"></div>
-      <p class="section-subtitle">Comprehensive remote medical care — from initial assessment through to treatment and follow-up.</p>
+      <p class="section-subtitle">Comprehensive remote medical care — from initial assessment through to treatment, prescription, and follow-up.</p>
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">🩺</div>
-          <h3>Acute Illness Assessment</h3>
-          <p>Prompt evaluation of new symptoms — fever, pain, infections — with clear guidance on next steps and when to seek emergency care.</p>
-        </div>
-        <div class="service-card">
           <div class="service-icon">🫁</div>
-          <h3>Respiratory & GI Symptoms</h3>
-          <p>Cough, sore throat, breathlessness, nausea, diarrhoea, abdominal pain — assessed thoroughly via video consultation.</p>
+          <h3>Respiratory, Throat & Chest Symptoms</h3>
+          <p>Evaluation of cough, sore throat, sinus symptoms, chest infections, breathlessness, and flu-like illness, with treatment and safety-net advice.</p>
         </div>
         <div class="service-card">
-          <div class="service-icon">🔬</div>
-          <h3>Urinary & Skin Conditions</h3>
-          <p>UTIs, rashes, minor skin infections, allergic reactions — diagnosed and treated remotely where clinically safe.</p>
+          <div class="service-icon">🧠</div>
+          <h3>Gastrointestinal & Abdominal Symptoms</h3>
+          <p>Assessment of nausea, vomiting, diarrhoea, abdominal pain, reflux, and digestive issues, including guidance on when further investigation is needed.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚻</div>
+          <h3>Urinary & Kidney Symptoms</h3>
+          <p>Diagnosis and treatment of urinary tract infections (UTIs), painful urination, urinary frequency, and related symptoms, with prescribing where appropriate.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🧴</div>
+          <h3>Skin Conditions & Minor Infections</h3>
+          <p>Management of rashes, allergic reactions, acne, infected lesions, insect bites, and minor skin infections, including when antibiotics are required.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">❤️</div>
+          <h3>Sexual Health & STI Assessment</h3>
+          <p>Confidential assessment of STIs, genital symptoms, discharge, irritation, and exposure concerns, with guidance on testing, treatment, and follow-up.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">💊</div>
-          <h3>Prescriptions & Refills</h3>
-          <p>Medication refills, travel prescriptions, and short-course treatments — issued only where clinically appropriate.</p>
+          <h3>Prescriptions & Medication Support</h3>
+          <p>Medication refills, travel prescriptions, and short-course treatments, issued only where clinically appropriate following assessment.</p>
         </div>
         <div class="service-card">
           <div class="service-icon">📋</div>
           <h3>Medical Notes & Reports</h3>
-          <p>Fit notes, medical letters, and consultation summaries for work, travel, or personal records.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📱</div>
-          <h3>Telemedicine Consultations</h3>
-          <p>Comprehensive video or audio consultations with follow-up plans, referrals, and ongoing care coordination.</p>
+          <p>Provision of fit notes, medical certificates, and consultation summaries for work, travel, or personal use where appropriate.</p>
         </div>
       </div>
-      <p class="services-note">Prescriptions are issued only where clinically appropriate.</p>
+      <p class="services-note">Prescriptions are issued only where clinically appropriate following clinical assessment.</p>
+
+      <!-- Expandable conditions list -->
+      <details class="details-block">
+        <summary>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-inline"><polyline points="6 9 12 15 18 9"/></svg>
+          Common Conditions I Help With
+        </summary>
+        <div class="conditions-list">
+          <div>• Sore throat, tonsillitis, and upper respiratory infections</div>
+          <div>• Sinus infections and nasal congestion</div>
+          <div>• Chest infections and persistent cough</div>
+          <div>• Urinary tract infections (UTIs)</div>
+          <div>• Sexually transmitted infection (STI) concerns and exposure</div>
+          <div>• Skin infections, rashes, and allergic reactions</div>
+          <div>• Gastroenteritis, diarrhoea, and vomiting</div>
+          <div>• Abdominal pain and digestive symptoms</div>
+          <div>• Medication refills and continuation of treatment</div>
+          <div>• Travel-related prescriptions and advice</div>
+          <div>• Minor infections requiring short-course treatment</div>
+          <div>• General medical concerns where you need timely advice</div>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -422,7 +558,7 @@
           <li><span class="pricing-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>Follow-up guidance included</li>
           <li><span class="pricing-check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#14b8a6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>No hidden fees</li>
         </ul>
-        <a href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="btn-whatsapp" style="width:100%">
+        <a href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="btn-whatsapp btn-full">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Book Now
         </a>
