@@ -7,5 +7,5 @@
   </defs>
   <rect width="64" height="64" rx="16" fill="url(#g)" />
   <circle cx="32" cy="32" r="18" fill="rgba(255,255,255,0.18)" />
-  <path d="M29 20c0-1.1046.8954-2 2-2h2c1.1046 0 2 .8954 2 2v9h9c1.1046 0 2 .8954 2 2v2c0 1.1046-.8954 2-2 2h-9v9c0 1.1046-.8954 2-2 2h-2c-1.1046 0-2-.8954-2-2v-9h-9c-1.1046 0-2-.8954-2-2v-2c0-1.1046.8954-2 2-2h9v-9Z" fill="#ffffff" />
+  <text x="32" y="38" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">OA</text>
 </svg>
