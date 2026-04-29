@@ -255,6 +255,30 @@
     .about-collapsed::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4rem; background: linear-gradient(transparent, #fff); }
     .about-read-more { display: none; background: none; border: none; color: var(--teal-600); font-weight: 600; font-size: 0.9375rem; cursor: pointer; padding: 0.5rem 0; }
 
+    /* ── HERO PRACTITIONERS BUTTON ────────────────── */
+    .btn-practitioners-hero { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--gray-800); color: var(--gray-100); font-weight: 500; padding: 1rem 2rem; border-radius: 0.75rem; font-size: 1rem; border: 1px solid var(--gray-600); transition: all 0.2s; }
+    .btn-practitioners-hero:hover { background: var(--gray-900); border-color: var(--gray-500); }
+
+    /* ── PRACTITIONERS SECTION ────────────────────── */
+    .practitioners { padding: 4rem 1rem; background: var(--gray-800); }
+    .practitioners-inner { max-width: 1152px; margin: 0 auto; }
+    .practitioners-eyebrow { font-size: 0.6875rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-400); margin-bottom: 0.75rem; font-weight: 600; }
+    .practitioners h2 { color: var(--gray-100); font-size: 1.75rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; }
+    .practitioners-sub { color: var(--gray-400); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 2rem; border-left: 3px solid var(--teal-500); padding-left: 1rem; font-style: italic; }
+    .practitioners-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .practitioner-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.75rem; padding: 1.25rem; }
+    .practitioner-card:hover { background: rgba(255,255,255,0.08); }
+    .practitioner-card-label { font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-400); margin-bottom: 0.5rem; font-weight: 600; }
+    .practitioner-card p { color: var(--gray-400); font-size: 0.8125rem; line-height: 1.6; }
+    .practitioners-callout { border: 1px solid rgba(255,255,255,0.12); border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; background: rgba(255,255,255,0.03); }
+    .practitioners-callout-label { font-size: 0.6875rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal-400); margin-bottom: 0.625rem; font-weight: 600; }
+    .practitioners-callout p { color: var(--gray-400); font-size: 0.9375rem; line-height: 1.7; }
+    .practitioners-ctas { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 36rem; }
+    .btn-practitioner-wa { display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: var(--green-600); color: #fff; font-weight: 600; padding: 1rem 1.5rem; border-radius: 0.75rem; font-size: 0.9375rem; transition: all 0.2s; box-shadow: 0 4px 14px rgba(34,197,94,0.2); }
+    .btn-practitioner-wa:hover { background: var(--green-700); }
+    .btn-practitioner-collab { display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: transparent; color: var(--gray-200); font-weight: 500; padding: 1rem 1.5rem; border-radius: 0.75rem; font-size: 0.9375rem; border: 1px solid rgba(255,255,255,0.15); transition: all 0.2s; }
+    .btn-practitioner-collab:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.25); }
+
     /* ── STICKY MOBILE CTA ────────────────────────── */
     .sticky-cta { display: none; }
 
@@ -273,6 +297,7 @@
       .hero-buttons { justify-content: center; flex-direction: column; align-items: center; }
       .hero-buttons .btn-whatsapp { width: 100%; max-width: 20rem; }
       .hero-buttons .btn-secondary { display: none; }
+      .hero-buttons .btn-practitioners-hero { width: 100%; max-width: 20rem; }
       .photo-circle { width: 10rem; height: 10rem; }
       .hero-badge { margin-bottom: 0.75rem; font-size: 0.8125rem; }
       .desktop-only { display: none; }
@@ -296,6 +321,9 @@
       .sticky-cta .btn-sticky-wa { background: var(--green-600); color: #fff; box-shadow: 0 2px 8px rgba(34,197,94,0.25); }
       .fab-whatsapp { display: none; }
       body { padding-bottom: 4.5rem; }
+      .practitioners-grid { grid-template-columns: 1fr; }
+      .practitioners-ctas { grid-template-columns: 1fr; }
+      .practitioners h2 { font-size: 1.5rem; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.75rem; }
@@ -335,6 +363,7 @@ src="https://www.facebook.com/tr?id=1725452101962355&ev=PageView&noscript=1"
         <a href="#how-it-works">How It Works</a>
         <a href="#pricing">Pricing</a>
         <a href="#booking">Contact</a>
+        <a href="#aesthetic-practitioners">For Practitioners</a>
         <a onclick="fbq('track', 'Contact', {content_name: 'WhatsApp Contact'})" href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="nav-cta">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Book on WhatsApp
@@ -351,6 +380,7 @@ src="https://www.facebook.com/tr?id=1725452101962355&ev=PageView&noscript=1"
       <a href="#how-it-works" onclick="closeMenu()">How It Works</a>
       <a href="#pricing" onclick="closeMenu()">Pricing</a>
       <a href="#booking" onclick="closeMenu()">Contact</a>
+      <a href="#aesthetic-practitioners" onclick="closeMenu()">For Practitioners</a>
       <a onclick="fbq('track', 'Contact', {content_name: 'WhatsApp Contact'})" href="https://wa.me/447385273502?text=Hello%20Dr%20Omer%20ATLI%2C%20I%20would%20like%20to%20book%20an%20online%20consultation.%20My%20name%20is%20%5Bname%5D%20and%20my%20main%20concern%20is%20%5Bbrief%20issue%5D." target="_blank" rel="noopener noreferrer" class="mobile-menu-cta">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Book on WhatsApp
@@ -383,9 +413,9 @@ src="https://www.facebook.com/tr?id=1725452101962355&ev=PageView&noscript=1"
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Book on WhatsApp
           </a>
-          <a href="https://calendly.com/dr-omeratli/30min" onclick="fbq('track', 'InitiateCheckout', {content_name: 'Calendly Booking'})" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            Book via Calendar
+          <a href="#aesthetic-practitioners" class="btn-practitioners-hero">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            For Aesthetic Practitioners
           </a>
         </div>
       </div>
@@ -578,11 +608,6 @@ src="https://www.facebook.com/tr?id=1725452101962355&ev=PageView&noscript=1"
           <h3>Weight Management</h3>
           <p>Structured, clinician-led weight management with personalised assessment, evidence-based guidance, and appropriate prescribing where indicated.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">💉</div>
-          <h3>Aesthetic Prescribing & Complications Advisory</h3>
-          <p>Clinical support for aesthetic treatments including prescribing where appropriate, complication assessment, and management guidance for post-procedure concerns.</p>
-        </div>
       </div>
       <p class="services-note">Prescriptions are issued only where clinically appropriate following clinical assessment.</p>
       <p class="services-note">Identity verification and clinical appropriateness checks are carried out before issuing prescriptions.</p>
@@ -608,6 +633,49 @@ src="https://www.facebook.com/tr?id=1725452101962355&ev=PageView&noscript=1"
           <div>• General medical concerns where you need timely advice</div>
         </div>
       </details>
+    </div>
+  </section>
+
+  <!-- AESTHETIC PRACTITIONERS -->
+  <section id="aesthetic-practitioners" class="practitioners">
+    <div class="practitioners-inner">
+      <p class="practitioners-eyebrow">For Aesthetic Practitioners</p>
+      <h2>Clinical support built around how aesthetic practice actually works.</h2>
+      <p class="practitioners-sub">A GMC-registered emergency physician available when something feels off — not just someone who signs a prescription and disappears.</p>
+
+      <div class="practitioners-grid">
+        <div class="practitioner-card">
+          <p class="practitioner-card-label">Prescribing</p>
+          <p>Botulinum toxin, dermal fillers, skin treatments, and weight management prescribing where clinically appropriate.</p>
+        </div>
+        <div class="practitioner-card">
+          <p class="practitioner-card-label">Complications</p>
+          <p>Emergency advisory and complication management. Real-time support from an EM physician when you need it most.</p>
+        </div>
+        <div class="practitioner-card">
+          <p class="practitioner-card-label">Metabolic & Wellness</p>
+          <p>GLP-1 prescribing, weight management protocols, and skin health advisory for your patients.</p>
+        </div>
+        <div class="practitioner-card">
+          <p class="practitioner-card-label">Governance</p>
+          <p>Clinical oversight, case review, and structured governance support for your practice.</p>
+        </div>
+      </div>
+
+      <div class="practitioners-callout">
+        <p class="practitioners-callout-label">Work with me</p>
+        <p>Building an aesthetic clinic? Looking for a named prescriber or ongoing clinical partner? I work with a small number of practitioners on a longer-term basis. If that sounds like what you need — let's talk.</p>
+      </div>
+
+      <div class="practitioners-ctas">
+        <a onclick="fbq('track', 'Contact', {content_name: 'Practitioner WhatsApp'})" href="https://wa.me/447385273502?text=Hello%20Dr%20Atli%2C%20I%20am%20an%20aesthetic%20practitioner%20and%20would%20like%20to%20discuss%20working%20together." target="_blank" rel="noopener noreferrer" class="btn-practitioner-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Discuss a Case
+        </a>
+        <a onclick="fbq('track', 'Contact', {content_name: 'Practitioner Collaboration'})" href="https://wa.me/447385273502?text=Hello%20Dr%20Atli%2C%20I%20am%20an%20aesthetic%20practitioner%20interested%20in%20exploring%20a%20clinical%20collaboration." target="_blank" rel="noopener noreferrer" class="btn-practitioner-collab">
+          Explore a Collaboration
+        </a>
+      </div>
     </div>
   </section>
 
