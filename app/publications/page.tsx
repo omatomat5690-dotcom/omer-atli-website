@@ -8,68 +8,73 @@ export const metadata: Metadata = {
     'Peer-reviewed publications, writing, and media by Dr Omer Atli on healthcare AI, emergency medicine, and clinical safety.',
 }
 
-// Edit these lists as new work is published. `href` is optional.
-const publications: { title: string; venue: string; year: string; href?: string }[] = [
+interface Entry {
+  title: string
+  venue: string
+  year: string
+  links?: { label: string; href: string }[]
+}
+
+// Edit these lists as new work is published.
+const publications: Entry[] = [
   {
-    title: 'Case report',
+    title:
+      'Late diagnosis of Kartagener syndrome in a 38-year-old female presenting with palpitations in a resource-limited emergency department',
     venue: 'Oxford Medical Case Reports',
     year: '2025',
-    // href: 'https://doi.org/...',  // add the DOI / link when available
+    links: [
+      {
+        label: 'Oxford Medical Case Reports',
+        href: 'https://academic.oup.com/omcr/article/2025/11/omaf233/8343261',
+      },
+      { label: 'PubMed', href: 'https://pubmed.ncbi.nlm.nih.gov/41311431/' },
+    ],
   },
 ]
 
-const press: { title: string; venue: string; year: string; href?: string }[] = [
-  // e.g. { title: 'Interview on clinical AI', venue: 'Podcast name', year: '2025', href: '...' },
+const press: Entry[] = [
+  // e.g. { title: 'Interview on clinical AI', venue: 'Podcast name', year: '2025', links: [...] },
 ]
 
-function EntryList({
-  items,
-}: {
-  items: { title: string; venue: string; year: string; href?: string }[]
-}) {
+function EntryList({ items }: { items: Entry[] }) {
   return (
     <ul className="space-y-0">
-      {items.map((item, i) => {
-        const inner = (
-          <>
-            <div className="flex items-baseline gap-3">
-              <span className="font-sans text-sm text-text-faint tabular-nums shrink-0">
-                {item.year}
-              </span>
-              <div>
-                <span className="font-sans font-semibold text-text-heading group-hover:text-accent transition-colors duration-200">
-                  {item.title}
-                  {item.href && (
-                    <ArrowUpRight size={14} className="inline ml-1 -translate-y-px" />
-                  )}
-                </span>
-                <span className="block font-serif italic text-text-muted text-sm mt-0.5">
-                  {item.venue}
-                </span>
-              </div>
+      {items.map((item, i) => (
+        <li
+          key={`${item.title}-${i}`}
+          className="border-t border-border-subtle first:border-t-0 py-6"
+        >
+          <div className="flex items-baseline gap-4">
+            <span className="font-sans text-sm text-text-faint tabular-nums shrink-0 pt-0.5">
+              {item.year}
+            </span>
+            <div>
+              <h3 className="font-sans font-semibold text-text-heading leading-snug">
+                {item.title}
+              </h3>
+              <p className="font-serif italic text-text-muted text-sm mt-1">
+                {item.venue}
+              </p>
+              {item.links && item.links.length > 0 && (
+                <div className="flex flex-wrap gap-x-4 gap-y-1.5 mt-3">
+                  {item.links.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 font-sans text-sm font-medium text-accent hover:text-accent-hover transition-colors duration-200"
+                    >
+                      {l.label}
+                      <ArrowUpRight size={13} />
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
-          </>
-        )
-        return (
-          <li
-            key={`${item.title}-${i}`}
-            className="border-t border-border-subtle first:border-t-0 py-5"
-          >
-            {item.href ? (
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block -mx-4 px-4 rounded-lg hover:bg-bg-subtle transition-colors duration-200"
-              >
-                {inner}
-              </a>
-            ) : (
-              <div className="group">{inner}</div>
-            )}
-          </li>
-        )
-      })}
+          </div>
+        </li>
+      ))}
     </ul>
   )
 }
