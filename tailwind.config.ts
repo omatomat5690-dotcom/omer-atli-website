@@ -16,7 +16,7 @@ const config: Config = {
         'text-heading': '#0F0F0F',
         'text-muted': '#595959',
         'text-faint': '#8A8A8A',
-        'accent': '#C65D2E',
+        'accent': '#BE5126',
         'accent-hover': '#A84A20',
         'border-subtle': '#E5E1D6',
         'border-strong': '#C9C5B8',

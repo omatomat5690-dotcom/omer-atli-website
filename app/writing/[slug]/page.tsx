@@ -7,6 +7,7 @@ import remarkGfm from 'remark-gfm'
 import { ArrowLeft } from 'lucide-react'
 import { getAllArticles, getArticleBySlug } from '@/lib/articles'
 import { formatDate } from '@/lib/format'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
 const DISCLAIMER = `This website is for educational, editorial, and professional purposes only. It does not provide medical consultations, diagnosis, treatment, prescribing, or personal medical advice. The content reflects the author's commentary and opinions on clinical, scientific, and healthcare-industry topics, and is not a substitute for individual care from a qualified healthcare provider. If you have a clinical concern, please consult your own GP or other healthcare professional.`
 
@@ -130,6 +131,11 @@ export default async function ArticlePage({
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Newsletter */}
+        <div className="mt-12">
+          <NewsletterSignup />
         </div>
       </div>
     </article>

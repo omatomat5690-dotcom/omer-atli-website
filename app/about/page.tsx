@@ -70,9 +70,18 @@ export default function AboutPage() {
         </div>
 
         {/* Credentials */}
-        <div className="font-sans text-sm text-text-muted space-y-1 mb-12 opacity-0 animate-fade-in stagger-3">
-          <p>Published in: Oxford Medical Case Reports (2025).</p>
-          <p>GMC-registered physician. Member, British Medical Association.</p>
+        <div className="font-sans text-sm text-text-muted mb-12 opacity-0 animate-fade-in stagger-3">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-text-heading mb-3">
+            Credentials
+          </h2>
+          <ul className="space-y-1.5">
+            <li>GMC-registered physician (UK) &mdash; 8126471.</li>
+            <li>
+              Member of the British Medical Association, the Independent Doctors
+              Federation, and the Turkish Medical Association.
+            </li>
+            <li>Published in Oxford Medical Case Reports (2025).</li>
+          </ul>
         </div>
 
         {/* Disclaimer */}

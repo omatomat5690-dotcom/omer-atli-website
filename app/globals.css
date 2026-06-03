@@ -4,12 +4,25 @@
 
 @layer base {
   ::selection {
-    background-color: #C65D2E;
+    background-color: #BE5126;
     color: #FAFAF7;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Respect users who prefer reduced motion: keep animations instant rather than
+     removing them, so opacity-0 elements still resolve to visible. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 
   body {
@@ -20,7 +33,7 @@
   /* Focus states */
   a:focus-visible,
   button:focus-visible {
-    outline: 2px solid #C65D2E;
+    outline: 2px solid #BE5126;
     outline-offset: 2px;
     border-radius: 2px;
   }

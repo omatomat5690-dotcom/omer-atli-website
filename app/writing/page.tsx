@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/format'
+import { topics } from '@/lib/topics'
 
 export const metadata: Metadata = {
   title: 'Writing',
@@ -18,9 +19,21 @@ export default function WritingPage() {
         <h1 className="font-sans font-semibold text-text-heading text-3xl md:text-4xl tracking-tight mb-4 animate-fade-in">
           Writing
         </h1>
-        <p className="text-text-muted font-sans text-base mb-12 animate-fade-in-up">
+        <p className="text-text-muted font-sans text-base mb-6 animate-fade-in-up">
           Essays on the clinical reality behind modern medicine.
         </p>
+
+        <div className="flex flex-wrap gap-2 mb-12 opacity-0 animate-fade-in-up stagger-1">
+          {topics.map((topic) => (
+            <Link
+              key={topic.slug}
+              href={`/topics/${topic.slug}`}
+              className="font-sans text-xs font-medium uppercase tracking-[0.1em] text-text-muted border border-border-subtle rounded-full px-3 py-1.5 hover:text-accent hover:border-accent transition-colors duration-200"
+            >
+              {topic.title}
+            </Link>
+          ))}
+        </div>
 
         {articles.length === 0 ? (
           <p className="text-text-muted text-base italic">

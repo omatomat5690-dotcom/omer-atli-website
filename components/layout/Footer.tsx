@@ -26,25 +26,22 @@ export default function Footer() {
                 <Mail size={16} />
                 dr@omeratli.com
               </a>
-              <div className="flex gap-6">
-                <Link
-                  href="/writing"
-                  className="text-text-muted text-sm hover:text-accent transition-colors duration-200"
-                >
-                  Writing
-                </Link>
-                <Link
-                  href="/about"
-                  className="text-text-muted text-sm hover:text-accent transition-colors duration-200"
-                >
-                  About
-                </Link>
-                <Link
-                  href="/contact"
-                  className="text-text-muted text-sm hover:text-accent transition-colors duration-200"
-                >
-                  Contact
-                </Link>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {[
+                  { href: '/writing', label: 'Writing' },
+                  { href: '/publications', label: 'Publications' },
+                  { href: '/about', label: 'About' },
+                  { href: '/now', label: 'Now' },
+                  { href: '/contact', label: 'Contact' },
+                ].map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-text-muted text-sm hover:text-accent transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -57,9 +54,9 @@ export default function Footer() {
           </div>
 
           {/* Bottom */}
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-text-faint text-xs">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-text-muted text-xs">
             <span>&copy; {new Date().getFullYear()} Omer Atli</span>
-            <span>GMC 8126471</span>
+            <span>GMC (UK) 8126471</span>
           </div>
         </div>
       </div>

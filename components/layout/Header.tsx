@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react'
 
 const navItems = [
   { href: '/writing', label: 'Writing' },
+  { href: '/publications', label: 'Publications' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -62,7 +63,7 @@ export default function Header() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2 text-text-primary"
+          className="md:hidden flex h-11 w-11 -mr-2 items-center justify-center text-text-primary"
           aria-label="Toggle navigation"
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
@@ -84,7 +85,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`block py-3 text-[0.9375rem] font-medium transition-colors duration-200 ${
+              className={`block py-3.5 text-[0.9375rem] font-medium transition-colors duration-200 ${
                 pathname === item.href || pathname?.startsWith(item.href + '/')
                   ? 'text-accent'
                   : 'text-text-primary hover:text-accent'
