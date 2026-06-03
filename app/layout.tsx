@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     description:
       'Dr Omer Atli writes about the clinical reality behind modern medicine — emergency care, healthcare AI, digital health, and patient safety.',
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   robots: {
     index: true,
     follow: true,
