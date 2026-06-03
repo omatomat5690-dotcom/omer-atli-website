@@ -1,4 +1,30 @@
-.DS_Store
+# Dependencies
 node_modules/
+
+# Build output
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Deploy / env
+.vercel
+.env*.local
+
+# OS / editor / tooling
+.DS_Store
+.claude/
+
+# Old build tooling (pre-Next.js)
 *.py
 DrOmerAtli.jsx
+
+# Legacy static site & assets (superseded by the Next.js app; kept on disk, not committed)
+/index.html
+/index.backup.html
+/sitemap.xml
+/favicon.svg
+/netlify.toml
+/*.png
+/*.jpeg
+omeratli.com/

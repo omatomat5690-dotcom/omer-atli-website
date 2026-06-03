@@ -1,0 +1,65 @@
+---
+title: "Clinical Safety Is Not a Checkbox"
+subtitle: "In digital health, safety work is too often compliance theatre — documents produced to be filed, not to find harm. Here's what the real thing looks like."
+slug: "clinical-safety-is-not-a-checkbox"
+date: "2025-05-20"
+theme: "Clinical Safety"
+author: "Dr Omer Atli"
+description: "The test of safety work is whether it changed the product. If the hazard log was written and nothing was redesigned, what happened was compliance theatre."
+featured: true
+clinicalAdjacent: true
+---
+
+Ask a digital health team whether their product is clinically safe and you will, more often than not, receive a list of documents. A hazard log exists. A clinical risk management plan exists. A named clinical safety officer exists. The standards — in the NHS context, DCB0129 for manufacturers and DCB0160 for deploying organisations — have been addressed, and there is a folder that proves it.
+
+Here is the uncomfortable question underneath the folder: did any of that activity change the product? If the hazard log was written and nothing about the system was redesigned, re-scoped, or rethought as a result, then what happened wasn't safety engineering. It was compliance theatre — the production of safety-shaped artefacts whose actual function is to be filed. And in my observation it is the default mode of clinical safety in digital health: rarely through cynicism, mostly through a sincere misunderstanding of what the documents are *for*.
+
+## How safety becomes theatre
+
+The pattern is recognisable across teams and products. Safety work is scheduled late, after the design is settled and the roadmap committed, when the realistic space of responses to a discovered hazard has shrunk to 'add a warning message' or 'note it as accepted risk'. It is delegated to whoever holds the safety title, rather than owned by the engineers and clinicians whose decisions actually create or remove hazards — and a safety case written by one person about a system built by thirty is an act of creative writing. The hazard log fills with generic entries ('user enters incorrect data', 'system unavailable') that could describe any product ever built, because generic hazards are what you produce when you haven't traced *this* system's specific failure paths. And mitigations cluster at the weakest end of the hierarchy: training, documentation, warnings — the mitigations that require no engineering and quietly transfer responsibility to the clinical user, who will be the named human in the incident report.
+
+None of these steps feels like negligence from inside. Each is a reasonable-looking accommodation to deadlines and org charts. The cumulative result is a safety process that runs parallel to the product instead of through it — and parallel processes find nothing, because harm doesn't live in the paperwork. It lives in the system.
+
+## Where digital health products actually cause harm
+
+The theatre version of safety imagines harm arriving through dramatic malfunction — the system goes down, the data is wrong. Real harm in clinical software is usually quieter, and it concentrates in a few recurring places.
+
+**Silent failure.** The dangerous failure mode is rarely the crash everyone notices; it's the result that doesn't arrive and nothing says so. The missing lab value, the notification that was never sent, the record that didn't sync — absences that the workflow has no way to perceive as absences. Patients are harmed less by visible errors than by invisible gaps that everyone reasonably assumed someone else's system had covered.
+
+**Workflow collision.** Software ships with an implicit model of how clinical work proceeds — tidy, sequential, one patient at a time. Clinical work is interrupted, parallel, and resumed mid-thought. A design that is perfectly safe in the demo becomes hazardous at the point where a clinician is mid-task on patient A when the system surfaces something about patient B. Wrong-patient errors, in particular, are substantially *designed into* products by interfaces that make context-switching frictionless and context-confirmation optional.
+
+**Alert economics.** Every alert spends a finite budget of user attention. The team adding the tenth warning is, with sincere intentions, reducing the probability that any of the ten gets read. Alert fatigue is among the best-documented harms in health informatics, and it is created one defensible alert at a time — frequently as the 'mitigation' entered in a hazard log to close out a risk that engineering didn't have time to design away. The mitigation for one hazard becomes the mechanism of the next.
+
+**Degraded-mode behaviour.** Products are safety-assessed in their working state, but the question that finds harm is: what does the clinical workflow look like when this system is slow, partial, or down — and does the design fail loudly, into a usable fallback, or silently, into a gap? Systems that are safe when working and treacherous when degraded are common, because degraded states are an afterthought in both engineering and assessment.
+
+Notice what these have in common: none is discoverable by filling in a template. Every one requires understanding the specific product, embedded in a specific workflow, operated by people under specific pressures. That is why safety cannot be delegated to a document.
+
+## What real safety thinking looks like
+
+The genuine article isn't mysterious, and the standards themselves — read as intended — actually describe it. The difference between theatre and the real thing is not which documents exist. It's a handful of observable practices.
+
+**Safety questions arrive with design questions.** 'How could this feature mislead, delay, or misdirect care, and for which patient does it fail worst?' is asked when the feature is an idea — when the answer can still change the design — not at the pre-release review, when the answer can only change the wording of a warning.
+
+**Hazards are specific and traceable.** A real hazard entry reads like an incident report written in advance: this data path, under this condition, produces this wrong or missing information, which this user, in this workflow moment, plausibly acts on, leading to this category of patient harm. If an entry could be pasted into a competitor's hazard log without edits, it isn't analysis. It's wallpaper.
+
+**The mitigation hierarchy is respected.** Eliminate the hazard by design where possible; constrain it by engineering where not; warn and train only as the residue, never as the plan. A hazard log whose mitigation column is mostly 'user training' and 'on-screen warning' is a confession in tabular form.
+
+**Failure is rehearsed, not just analysed.** Somebody deliberately asks the system the hostile questions before patients do: the wrong patient open in the next tab, the interface mid-interruption, the sync delayed, the network gone. Safety claims that have never been tested against simulated failure are hypotheses wearing the costume of conclusions.
+
+**The safety case is a living argument.** Not 'we did the activities' but 'here is our reasoned, evidence-backed case that this system, in this context, is acceptably safe — and here is what we're watching post-deployment that could prove us wrong'. The willingness to write down 'this could still hurt someone, in this way, and here is why we ship anyway and how we'll detect it' is, more than any other single marker, the line between safety engineering and safety theatre.
+
+## The commercial case, briefly
+
+Teams sometimes hear all this as a tax on velocity. The arithmetic mostly runs the other way. Retrofitting safety after launch is more expensive than designing it in, by the usual brutal multiples of rework. A serious incident costs more than the analysis that would have prevented it — in remediation, in regulatory attention, and in the slow-recovering currency of clinical trust, which is the actual substrate every digital health product runs on. Clinicians talk to each other. A product that hurt someone, and the name attached to it, stays discussed long after the patch notes are forgotten. Safety work, done properly, is not the brake on the product. It is load-bearing engineering for the only asset that compounds in this sector: being trusted with patients.
+
+## What this means
+
+The checkbox version of clinical safety persists because it satisfies everyone in the room on the day. The documents exist, the procurement gate opens, the release ships. Its costs arrive later, dispersed and deniable, carried by a clinician explaining a wrong-patient error and by a patient who never finds out a notification silently failed. The discipline's whole job is to pull those dispersed future costs into the present, where design can still respond to them — which is why it can't be a folder, and can't be a phase, and can't be one person's title. Clinical safety is not a checkbox. Treating it like one is how harm gets shipped.
+
+## Key Takeaways
+
+- The test of safety work is whether it changed the product; documentation that altered nothing is compliance theatre, whatever standard it cites.
+- Real digital health harm concentrates in silent failures, workflow collisions, alert fatigue, and degraded-mode behaviour — none discoverable by template.
+- Generic hazard logs and 'clinician will verify' mitigations transfer risk to the user instead of engineering it out; the mitigation hierarchy exists for a reason.
+- Genuine safety practice asks failure questions at design time, writes hazards as specific traceable failure paths, rehearses failure, and treats the safety case as a living argument with named residual risks.
+- Safety done properly is cheaper than its absence — rework, incidents, and lost clinical trust cost more than analysis ever does.

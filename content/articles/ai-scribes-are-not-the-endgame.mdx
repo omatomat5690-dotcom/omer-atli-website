@@ -1,0 +1,101 @@
+---
+title: "AI Scribes Are Not the Endgame"
+subtitle: "Most of what's sold as a clinical co-pilot is transcription with better marketing. The real thing requires solving a different problem."
+slug: "ai-scribes-are-not-the-endgame"
+date: "2025-06-01"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "AI scribes solve a real documentation problem. But calling them co-pilots confuses transcription with clinical reasoning — and the gap matters."
+featured: true
+clinicalAdjacent: true
+---
+
+A junior in our department once described an AI scribe demo as 'magic'. Six months later, he was the one quietly toggling it off mid-encounter. The two reactions weren't inconsistent. They were measuring different things.
+
+The first reaction measured what the technology does: listen to a clinical conversation and produce a structured, readable note, faster and often more completely than a tired human at hour nine of a shift. That genuinely is close to magic, in the sense that it solves a problem clinicians have complained about for decades. The second reaction measured what the technology understands — which is, in the clinically meaningful sense, nothing. The gap between those two measurements is the subject of this essay, because the industry is currently building its next round of products, and its next round of promises, on top of it.
+
+## What scribes do well
+
+It's worth being fair here, because the case for AI scribes is straightforward and largely correct.
+
+Documentation is a real burden. Clinicians spend a substantial fraction of every shift writing down what happened — not because writing improves care, but because the record is the legal, clinical, and operational backbone of everything that follows. The note is how the next clinician knows what you thought. It's how risk is managed, how handover works, how audit happens. It has to exist, it has to be accurate, and producing it consumes time and attention that would otherwise go to patients.
+
+Ambient AI scribes attack that burden directly. The good ones produce structured notes — history, examination findings, impression, plan — from a natural conversation, with minimal prompting. They reduce the cognitive overhead of holding a note's structure in your head while you're trying to listen to a human being. They give some clinicians back the thing the job has been quietly taking from them for years: the ability to look at the person they're talking to.
+
+These are real, measurable benefits. The time savings are genuine, the notes are often better-structured than what they replace, and the clinicians who love these tools aren't naive. Nothing in this essay argues that scribes shouldn't exist. They should. Many are good.
+
+The trouble starts with the word that increasingly appears next to them in pitch decks: *co-pilot*.
+
+## What scribes don't do
+
+Watch what actually happens in a clinical encounter and the limits become visible quickly.
+
+A patient describes chest discomfort. The scribe captures it faithfully: 'sharp, localised, no radiation, onset two hours ago'. Accurate. Structured. Useless on its own — because the clinically significant material in that encounter may be everything the transcript doesn't contain. The patient's reluctance when asked about exertion. The faint sheen of sweat that prompted a longer cardiac history than the stated symptoms justified. The fact that this person, of this age, with this social context, presenting at this hour, is a higher-risk presenter than the words 'sharp, localised chest discomfort' suggest to anyone — or anything — reading the note afterwards.
+
+The scribe records the encounter. It does not participate in it. Specifically, it does not:
+
+**Weigh differentials.** The clinician hearing 'chest discomfort' is running a live, shifting probability model — cardiac, pulmonary, musculoskeletal, gastrointestinal, the rare and catastrophic — and every question asked is an instrument for moving probability between those bins. The scribe documents the questions. It has no model of why they were asked.
+
+**Note absence deliberately.** A good clinical note says 'no calf swelling, no pleuritic component, no recent travel' not because those things happened, but because their absence rules things out. Negative findings are reasoning made visible. A scribe can transcribe the negatives the clinician voices, but it doesn't know which unvoiced negatives matter — and it will never prompt for the one that wasn't asked.
+
+**Flag the small ambiguity.** Much of safe medicine lives in the note-to-self: *the story doesn't quite fit, review the second troponin, look at this again tomorrow*. That instinct — the registered discomfort that doesn't yet have a name — is precisely the thing transcription cannot capture, because it was never said aloud.
+
+**Recognise when the chief complaint isn't the problem.** Patients present with the symptom they can name, not necessarily the disease they have. The skill of noticing that the 'back pain' is actually a presentation of something else entirely is not a documentation skill. It's the job.
+
+None of this is a criticism of scribes, any more than it's a criticism of a dictaphone that it doesn't examine the patient. It becomes a criticism only when the product is marketed as something that does.
+
+## What 'clinical co-pilot' should mean
+
+The phrase 'co-pilot' borrows from aviation, and the borrowed meaning is instructive. A co-pilot is not a flight recorder. A co-pilot cross-checks, challenges, monitors for what the pilot has missed, and takes an active role in the reasoning of the flight. The flight recorder, meanwhile, produces an accurate account of what happened — which is valuable, and is also an entirely different instrument.
+
+A genuine clinical co-pilot would need to do at least some of the following:
+
+- **Participate in differential generation** — suggest considerations in real time, based on the actual content of the encounter, not merely record the ones the clinician voices.
+- **Flag missing information that would change the reasoning** — notice that nobody has asked about anticoagulants, or that the examination documented doesn't address the stated concern.
+- **Surface context at the right moment** — the prior presentation three months ago with a similar complaint, the lab trend that recontextualises today's result, the discharge summary nobody has had time to read.
+- **Recognise pattern mismatches** — identify when a presentation is drifting towards a less obvious but more dangerous diagnosis, and say so before disposition, not in a retrospective audit.
+- **Push back** — the hardest one. A co-pilot that only ever agrees is a passenger.
+
+Every item on that list is a different technical problem from transcription, and a harder one. Transcription is a perception task with a well-defined ground truth: what was said. Clinical reasoning support is a judgment task under uncertainty, where the ground truth is contested, the cost of error is asymmetric, and the system must know — and communicate — the limits of its own competence. Getting from one to the other is not an incremental product update. It's a different class of problem.
+
+## Why most 'co-pilots' are still scribes
+
+At the technical level, almost all current products follow the same architecture: audio in, transcript, structured note out. The 'co-pilot' features sit on top of that pipeline as additional calls to a large language model — summarise this, suggest a problem list, draft the discharge letter, answer a question about the case.
+
+Some of these features are useful. But there are recurring patterns worth naming, without naming products:
+
+**The post-hoc diagnosis button.** The system summarises the encounter, then asks an LLM what the diagnosis might be. This isn't reasoning alongside the clinician; it's a second opinion generated from the clinician's own filtered account. Whatever the encounter didn't surface, the model never sees. The clinician's blind spot becomes the system's blind spot, with a confident paragraph wrapped around it.
+
+**The reference-lookup feature dressed as intelligence.** Surfacing guideline text or reference content keyed to words in the note is a search feature. A good one, sometimes. But retrieving the standard text about chest pain is not the same as reading *this* case.
+
+**The keyword problem list.** Auto-generating problem lists by pattern-matching the transcript produces output that looks like clinical synthesis and is actually string-matching. The difference shows up exactly where it matters: the atypical case.
+
+Underneath all three patterns sit the same two unsolved issues. Current systems are not calibrated — they do not reliably distinguish between what they know and what they're guessing, and they present both in the same fluent register. And they still confabulate at rates that are tolerable in a drafting tool, where a human reviews every line, and intolerable in a reasoning tool, where the entire value proposition is that the human can lean on the output.
+
+Adding a 'suggest a diagnosis' button to a scribe does not make it a co-pilot, in the same way that adding a horn to a bicycle does not make it a car.
+
+## What would need to happen next
+
+The honest version of this section is: a lot, and not quickly. Three things stand out.
+
+**Reasoning over context, not transcripts.** A co-pilot worth the name needs access to the longitudinal record — prior encounters, lab trends, medication history, the trajectory of this patient over time — and needs to reason over that context in real time, not summarise it on request. This is partly a technical problem and substantially an integration problem, which in healthcare is often the harder kind.
+
+**Calibrated confidence.** A system that says 'I don't know' or 'this is outside what I can assess' at the right moments is more clinically useful than a system that is right more often but never signals its uncertainty. Calibration is an active research area precisely because it is unsolved.
+
+**Audit-friendly outputs.** When the system makes a suggestion, the clinician needs to be able to interrogate the reasoning, not just accept or reject the conclusion. 'Consider pulmonary embolism' is a different artefact from 'consider pulmonary embolism — the presentation includes pleuritic pain and tachycardia, the documented history doesn't address risk factors, and nothing recorded so far rules it out'. The second is checkable. The first is a horoscope with a medical vocabulary.
+
+None of these is solved by adding more model calls to the existing pipeline. Each is a real engineering and research problem with real costs.
+
+## What this means
+
+The risk, to be clear, is not that AI scribes fail. They mostly work, and the documentation problem they solve is real. The risk is that the gap between what's shipped and what's promised gets paid for in clinical trust — and clinical trust, once spent, is expensive to recover. Clinicians who watch a 'co-pilot' confidently miss what a competent colleague would have caught do not conclude that the co-pilot needs another release cycle. They conclude that the category is hype, and they take that conclusion with them into every future product conversation.
+
+The co-pilot is worth building. Some version of it will eventually exist, and it will matter. But it will be built by teams who treat the distance between transcription and reasoning as the actual product problem — not by teams who treat it as a copywriting decision. None of this means AI scribes shouldn't exist. It means we should call them what they are, and keep the better word for the thing that hasn't shipped yet.
+
+## Key Takeaways
+
+- Most current 'clinical co-pilots' are AI scribes with additional LLM features, not systems that reason about the case.
+- Transcription is a perception problem with known ground truth; clinical reasoning support is a judgment problem under uncertainty — a different class of problem, not an incremental upgrade.
+- A genuine co-pilot would need contextual reasoning over the longitudinal record, calibrated confidence, and outputs a clinician can audit.
+- LLM suggestions generated from the clinician's own note inherit the clinician's blind spots while adding confident prose around them.
+- Shipping scribes under the co-pilot label risks discrediting the category before the real thing arrives.

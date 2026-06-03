@@ -1,0 +1,84 @@
+---
+title: "What Healthcare Startups Misunderstand About Doctors"
+subtitle: "The gap between healthcare AI marketing and clinical workflow isn't a translation problem. It's a wrong-model-of-the-user problem."
+slug: "what-healthcare-startups-misunderstand-about-doctors"
+date: "2025-05-28"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "Six specific ways healthtech product teams build around a wrong model of how clinicians actually work — and what to do instead."
+featured: true
+clinicalAdjacent: true
+---
+
+A founder walked me through their product recently. It was good — genuinely good, technically. Clean interface, sensible architecture, a real reduction in the time it takes to produce clinical documentation. It also rested, entirely, on the assumption that the bottleneck in emergency medicine is documentation speed.
+
+It isn't. And that single wrong assumption — invisible to the team, load-bearing for the product — is the most common failure pattern I see in healthtech. Not bad engineering. Not bad intentions. A wrong model of the user, installed early, never tested, and expensive by the time it surfaces. What follows is a catalogue of the specific misunderstandings, offered not as a complaint but as a set of correctable design problems.
+
+## Misunderstanding one: documentation is the bottleneck
+
+Documentation is *a* bottleneck. It is rarely *the* bottleneck.
+
+In most emergency departments, the things that actually determine how long a patient waits and how stretched the team is are structural: bed capacity, laboratory and imaging turnaround, specialist availability, and the slow-burning complexity of discharge — the patient who is medically ready to leave but has nowhere safe to go. A tool that saves ninety seconds per note is welcome. It is also irrelevant to the patient who has been waiting four hours for a CT report, and to the department gridlocked because the wards upstream are full.
+
+I've watched this play out: the department choked, every cubicle full, ambulances queuing — and the documentation tooling humming along beautifully. Nobody's shift got better. The notes were faster; the system was exactly as stuck as before.
+
+The practical consequence for product teams: if your pitch quantifies value in minutes-saved-per-note, you are measuring the thing your product does, not the thing your user needs. Sometimes those align. You should find out whether they do before the Series A deck says they do.
+
+## Misunderstanding two: doctors want efficiency above all else
+
+What clinicians actually optimise for is closer to *predictability* and *defensibility*. Will this decision hold up — clinically, and in retrospect, when someone reviews the chart? A tool that makes a clinician 20 per cent faster while introducing even a small new way to miss something is not a faster tool. It is a worse one, and clinicians price that risk instinctively because they personally carry it.
+
+This is why speed-led pitches so often land flat in clinical rooms. The pitch says 'imagine doing this in half the time'. The clinician hears 'imagine a new category of error you'll be accountable for'. Neither side is being unreasonable; they're weighting different variables. The products that get adopted tend to be the ones that make decisions *safer to stand behind* — better information at the moment of decision, clearer records of why — with speed as a side effect rather than the headline.
+
+## Misunderstanding three: senior clinicians adopt what improves their workflow
+
+The actual adoption bar is not 'is this better?'. It's 'does this fit?'.
+
+A senior clinician's working method is not a set of habits waiting to be optimised. It's a load-bearing structure, built over years, that lets them run fifteen patients in parallel without dropping one. Anything that demands they restructure how they work — new screens, new sequences, new interruptions — is competing not with the old tool but with the entire accumulated cost of rebuilding that structure mid-service. Almost nothing clears that bar, and the things that do clear it tend to be invisible: they slot into the existing flow and ask for nothing.
+
+Most healthtech products quietly require workflow redesign as a precondition of value. The deck calls this 'transformation'. The user experiences it as 'this product doesn't work unless I change how I work, during the busiest hours of my week, for a benefit you've asserted but I haven't seen'. Design for fit. Fit is the feature.
+
+## Misunderstanding four: clinical reasoning is mostly diagnosis
+
+Healthcare AI has a fixation on diagnosis — understandable, because diagnosis is the part of medicine that looks most like a classification problem, and classification is what the technology is good at.
+
+But diagnosis is one component of clinical reasoning, and in the emergency department it is frequently not the hardest one. The hard parts, hour to hour, are risk stratification (not 'what is this?' but 'how dangerous is the worst thing this could plausibly be, and can I exclude it?'), disposition ('home, ward, or resus — and what am I accepting if I choose wrong?'), sequencing (which investigation first, what can run in parallel, what's the cost of waiting), and communication — including the genuinely difficult skill of conveying uncertainty to a patient without either alarming them or falsely reassuring them.
+
+This is where the cognitive load actually lives. It's unglamorous, it doesn't demo well, and it's mostly absent from product roadmaps — which target 'diagnosis' and thereby miss most of what their users spend their judgment on. The opportunity is sitting in plain sight: the team that builds something genuinely useful for disposition decisions will matter more to emergency medicine than another differential generator.
+
+## Misunderstanding five: doctors are conservative — that's why adoption is slow
+
+'Clinicians are resistant to change' is a sentence that appears, in some form, in a remarkable number of pitch decks. It functions as a pre-emptive excuse: if adoption is slow, the users were the problem.
+
+Here is the alternative explanation. Doctors are not conservative; they are evidence-trained. The entire professional formation of a clinician is built around a single discipline: do not adopt an intervention until there is evidence of benefit and a clear account of harm. That standard gets applied to drugs, to procedures, to guidelines — and, quite properly, to software. A product that arrives with real-world evidence, honest failure modes, and a clear account of what happens when it's wrong gets a fair hearing. A product that arrives with the word 'revolutionary' gets the scepticism it has earned.
+
+What's framed as resistance is usually the user applying exactly the epistemic standard that makes them safe to practise. Teams that respect that standard — that show up with data and name their limitations unprompted — consistently find the 'conservative' user surprisingly quick to move.
+
+## Misunderstanding six: the user research was done
+
+Ask who the user research was actually conducted with, and a pattern emerges. It tends to be some mix of: clinicians who advise healthtech companies (and are, by selection, enthusiasts), recently trained clinicians keen to engage with new tools, and clinicians at academic centres whose workflow resembles the average district hospital's the way a test kitchen resembles a Friday-night service.
+
+These people are easy to recruit and pleasant to interview. They are also unrepresentative along precisely the dimension that matters: the clinician who is too busy to take your research call is your median user. Their workflow — interrupted, parallel, resource-constrained — is the environment your product has to survive. You cannot interview your way to it, because the act of being available for the interview filters them out of your sample.
+
+The fix is unglamorous: observation over advisory boards. Hours of watching real workflow in unremarkable departments are worth more than any number of structured interviews with friendly clinicians — because the thing that kills products lives in the workflow nobody thinks to mention.
+
+## What product teams could do differently
+
+Three suggestions, all testable:
+
+**Write down your bottleneck assumption.** Every clinical product encodes a belief about what the user's binding constraint is. Make it explicit — one sentence — and then go and check it in a real department, in person. If the sentence survives contact, build. If it doesn't, you've just saved eighteen months.
+
+**Design for fit, not replacement.** Map the existing workflow first and treat it as a constraint, not as legacy debris. The adoption curve of a tool that asks for nothing is a different species from the adoption curve of a tool that asks for change.
+
+**Weight the user you can't get on a call.** Build your design assumptions around the clinician who declined your interview, not the one who joined your advisory board. One of them is your market.
+
+None of this is a complaint. Healthtech is hard precisely because clinical work is unlike most contexts that product methods were developed in. The teams that get it right are the ones that treat the gap between marketing and workflow as a real engineering problem — not as a messaging issue to be solved with better copy.
+
+## Key Takeaways
+
+- Documentation is rarely the binding constraint in clinical work; capacity, turnaround, and disposition usually are.
+- Clinicians optimise for predictability and defensibility, not raw speed — tools that add new error modes are worse tools, whatever they save in minutes.
+- Senior adoption depends on workflow fit, not workflow improvement; products demanding redesign rarely clear the bar.
+- Most clinical cognitive load is risk stratification, disposition, and communication — not diagnosis, where most products aim.
+- Clinical scepticism is evidence-training, not conservatism; products with honest evidence and named failure modes get adopted faster.
+- The clinician too busy for your user research interview is your median user — design for them.
