@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 const facts = [
   { k: 'Specialty', v: 'Emergency Medicine' },
-  { k: 'Registration', v: 'GMC 8126471 · UK' },
-  { k: 'Writes on', v: 'Healthcare AI & Safety' },
+  { k: 'GMC (UK)', v: '8126471' },
+  { k: 'Also registered', v: 'Turkish Ministry of Health' },
   { k: 'Member', v: 'BMA · IDF · TMA' },
 ]
 
@@ -73,9 +73,10 @@ export default function AboutPage() {
             clinical suggestions.
           </p>
           <p className="body reveal">
-            I&rsquo;m GMC-registered (8126471) and a member of the British Medical Association, the
-            Independent Doctors Federation, and the Turkish Medical Association. My case-report work
-            appears in <Link href="/publications">Oxford Medical Case Reports</Link>.
+            I&rsquo;m registered with the UK General Medical Council (GMC 8126471) and the Turkish
+            Ministry of Health, and a member of the British Medical Association, the Independent
+            Doctors Federation, and the Turkish Medical Association. My case-report work appears in{' '}
+            <Link href="/publications">Oxford Medical Case Reports</Link>.
           </p>
 
           <div className="facts reveal">

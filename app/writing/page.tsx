@@ -14,6 +14,7 @@ const SHORT_LABELS: Record<string, string> = {
   'emergency-medicine': 'Emergency Medicine',
   'clinical-safety': 'Clinical Safety',
   'medical-writing': 'Medical Writing',
+  'future-of-medicine': 'Future of Medicine',
 }
 
 export default function WritingPage() {

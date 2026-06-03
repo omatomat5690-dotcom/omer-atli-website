@@ -1,0 +1,81 @@
+---
+title: "Why Doctors Need to Understand AI (Before AI Reorders the Profession)"
+subtitle: "Not because the machines are coming for the job — because they're coming for the workflow, and the people who understand them will decide what the job becomes."
+slug: "why-doctors-need-to-understand-ai"
+date: "2026-04-15"
+theme: "Future of Medicine"
+author: "Dr Omer Atli"
+description: "AI now operates on clinical language and reasoning, and the defaults are being set now — understanding it is how doctors get to set the terms instead of inheriting them."
+featured: true
+clinicalAdjacent: true
+---
+
+A colleague — sharp, experienced, the kind of doctor you'd want for your own family — recently dismissed the entire subject of AI in medicine with one sentence: 'It writes notes; I've seen it make things up; wake me when it's over.'
+
+Every part of that sentence is reasonable. The note-writing is real, the making-things-up is real, and the fatigue is earned — medicine has watched technology waves arrive on a tide of promises before, and the electronic health record did not leave the profession hungry for the next one. And yet the conclusion is wrong, in a specific and consequential way. This wave is different not because the technology is flawless — it isn't, and this essay will be blunt about that — but because of *where it operates*. Previous technologies changed where clinical information lived. This one operates on clinical language and clinical reasoning itself: the history, the differential, the letter, the guideline, the exam. That is not one more tool in the cupboard. That is the medium the profession works in. And the period in which the defaults get set — what these systems are allowed to do, what they're trusted with, who checks them, and what clinical work reorganises itself around them — is now, not at some future moment when the technology is finished and a considered opinion can be formed at leisure. Defaults, once set, are extraordinarily expensive to unset. Ask anyone who has tried to renegotiate an EHR workflow.
+
+## What the technology actually is — in one honest section
+
+You do not need to be able to build these systems. You need a working model accurate enough to predict where they'll fail. Here is the shortest version I can write while staying honest.
+
+Large language models — the engines behind the current wave — are systems trained on enormous quantities of text to do one thing: predict plausible continuations of language. Everything they appear to do — answering, summarising, reasoning, empathising — emerges from that single capability, scaled. This explains both the startling competence and the characteristic failure. The competence: an immense amount of medical knowledge is embedded in the statistical structure of medical language, so a system that has internalised that structure can produce genuinely useful clinical text and pass licensing-style exams. The failure: a system optimised for *plausibility* has no internal distinction between the plausible-and-true and the plausible-and-false. When it errs, it errs fluently — a fabricated reference formatted perfectly, a confident dosing claim with no source, a summary that smooths over the one detail that mattered. The error wears the same prose as the truth.
+
+Hold onto that asymmetry, because it is the single most clinically relevant fact about the technology: **its confidence is not a signal.** Doctors are trained, deeply, to read confidence as information — the registrar who hesitates, the consultant who doesn't. That heuristic, transplanted onto machine output, fails silently. A model's fluent certainty carries no more evidential weight than its fluent certainty when it is wrong, and current systems remain poorly calibrated about their own reliability. Almost every sensible rule for clinical AI use is a corollary of this one fact.
+
+## Why 'wake me when it's over' fails
+
+The waiting position assumes there will be a settled moment to wake up into. There won't be, for three reasons.
+
+**The technology is already inside the workflow.** Ambient scribes are in clinic rooms now. Models draft discharge summaries, patient letters, and referral triage in live systems. Patients arrive having consulted chatbots — a development that has quietly changed what the 'informed patient' means, for better and worse, and which no clinician can opt out of encountering. The question 'should AI be involved in clinical work?' has been overtaken by events; the live question is 'on what terms?' — and terms are being written by whoever shows up.
+
+**The defaults are being set by the least clinical people in the room.** Procurement decisions, deployment configurations, what gets auto-generated versus reviewed, where the model's output enters the record — these are being decided now, in meetings dominated by vendors, budget holders, and IT. A profession that doesn't understand the technology cannot meaningfully contest the decisions and will discover them later as facts of working life. Medicine has run this experiment once: clinicians largely absented themselves from the design of the EHR era and have spent two decades documenting their grievances inside the result. The single best reason to understand AI is to avoid sitting that exam twice.
+
+**Automation reshapes the humans around it.** The well-studied risks — automation bias (accepting machine output over your own judgment), deskilling (capacities that atrophy when delegated), and the quiet shift in who is blamed when a human 'fails to catch' a machine error — do not wait for the technology to mature. They begin operating the day a tool is switched on, and they operate most strongly on those who understand the tool least. The clinician who has no model of *how* the system fails is precisely the one most likely to trust it when it does.
+
+## What understanding buys you, concretely
+
+This isn't an argument for enthusiasm. Some of the most valuable AI-literate clinicians are deeply sceptical ones — but they are *specifically* sceptical, which is a different thing from generally dismissive. Understanding buys four concrete capacities.
+
+**Safe use.** Knowing what these systems are good at (drafting, summarising, reformatting, translating registers — language work) and where they are dangerous (facts, numbers, references, the unusual case, anything unverifiable at a glance) turns a hazardous tool into a useful one. The practical discipline is verification asymmetry: use the model where its output is cheap to check or low-stakes to get wrong, and refuse to lean on it where checking would cost more than doing the work yourself. That one habit separates the clinicians these tools genuinely help from the ones quietly accumulating risk.
+
+**Real evaluation.** When the next product arrives claiming to triage, flag, or suggest, an AI-literate clinician can ask the questions that matter: validated on what population, against what reference standard? What's the sensitivity *for the rare dangerous case*, not just the aggregate accuracy? How does it behave on inputs unlike its training data? What happens when it's wrong — does the workflow catch it, or absorb it? These are the same epistemic muscles the profession already uses on drug trials. They transfer. The profession that demands evidence from a molecule should be embarrassed to accept a demo from an algorithm.
+
+**A voice in deployment.** Departments and systems are making consequential choices about where machine output enters the record and what gets human review. Clinicians who understand the failure modes can insist on the safeguards that matter — review gates where errors are dangerous, audit trails, the ability to see what the model was shown — instead of accepting whatever configuration shipped. This is where understanding converts directly into patient safety, and it is genuinely a now-or-later choice: retrofitting safeguards after a workflow has ossified around their absence is the EHR story again.
+
+**Protection of the irreplaceable parts.** Paradoxically, the clinicians who best understand what these systems do are the clearest about what they don't. Eliciting a history from a frightened person who isn't saying the real thing; examining a body; weighing risk for *this* patient with these values and this family; carrying responsibility and communicating uncertainty — articulating crisply why these resist automation requires knowing what the automation actually does. 'AI can't do what I do' is, as a defence of the profession, vastly stronger when the speaker can explain *which parts* and *why* — and it identifies, not incidentally, the capacities most worth deliberately maintaining as the language work gets delegated.
+
+## What to actually learn — a bounded list
+
+The good news: the useful knowledge is bounded, conceptual, and acquirable without writing code. Six items, honestly chosen.
+
+1. **What an LLM is and is not.** Plausibility engine, not knowledge base. This single distinction predicts most observed behaviour, good and bad.
+2. **Why confabulation happens and why it's fluent.** Not a bug awaiting a patch but a consequence of the architecture — improving, but unsolved, and unsolved in a way that matters clinically.
+3. **What training data implies.** Systems reproduce the distribution they learnt from: its knowledge cut-offs, its gaps, and its embedded biases — including the demographic ones medicine already struggles with, now laundered through a confident interface.
+4. **What calibration means.** The difference between being right often and knowing when you might be wrong. The second is the clinically load-bearing property, and current systems mostly lack it.
+5. **How evaluation works — and how it's gamed.** Benchmark performance versus real-world performance; aggregate accuracy versus performance on the dangerous tail; the difference between a validation study and a vendor slide.
+6. **The shape of your own automation bias.** The human factors literature is unambiguous: everyone, including you, defers more to machine output when tired, rushed, or junior on the topic. Knowing this doesn't abolish it, but it locates the moments to deliberately re-engage.
+
+A clinician with a working grasp of those six things is, today, better equipped for the next decade of medicine than one with none, regardless of either's enthusiasm. Reading one serious paper on LLM evaluation in medicine, with the same critical eye you'd give a drug trial, will teach more than a year of conference keynotes — and will inoculate against both the vendor's pitch and the doomer's sermon, which are, structurally, the same genre of confident overstatement.
+
+## The reordering, named plainly
+
+'Reorder the profession' is a strong phrase, so it should be cashed out. Nobody serious is predicting the disappearance of doctors, and this essay isn't either. The plausible reordering is quieter and in places already visible. Tasks will redistribute: language work — documentation, correspondence, summarisation, first-draft everything — migrates towards machines, with clinician time reallocated either to patients or to throughput targets, and *which* of those happens is a contest, not a law of nature. Interfaces will shift: more clinical work mediated through machine-generated drafts, summaries, and suggestions, which changes what 'reviewing' means and where errors hide. Expertise will revalue: some skills (synthesis under uncertainty, examination, communication, responsibility) appreciate; others (recall, formatting, boilerplate) depreciate — with real consequences for what training should emphasise and what gets quietly lost. And accountability will be renegotiated: when machine-drafted text enters the record and a human 'reviews' it under time pressure, the question of who owns the error is being answered right now, mostly by default, mostly not in clinicians' favour.
+
+None of that requires the technology to get any better than it is today. It only requires deployment to continue — and deployment is not waiting for the profession's permission.
+
+## What this means
+
+The honest position on AI in medicine is neither evangelism nor dismissal. The technology is simultaneously overhyped in its claims and underestimated in its consequences — both at once, which is exactly why low-effort positions on it are worthless. The marketing will oversell the reasoning; the sceptics will undersell the reach; and the workflow will be rebuilt in the meantime, configured by whoever was paying attention.
+
+Doctors have a long, defensible instinct for waiting until the evidence settles. For treatments, it serves patients well. For the infrastructure of their own profession, it has historically served them badly — the EHR era stands as the controlled trial. The technology now arriving operates on clinical language itself, which means the profession is, for the second time in a generation, deciding the conditions of its own work — mostly without realising the decision is in progress. Understanding AI doesn't mean believing in it. It means being qualified to set its terms. The alternative is not that the reordering doesn't happen. It's that it happens to you.
+
+---
+
+## Key Takeaways
+
+- AI now operates on clinical language and reasoning — the medium of medical work — not merely on where information is stored; that's why this wave differs from previous health IT.
+- The clinically decisive fact about LLMs: they optimise plausibility, so their errors are as fluent as their truths — machine confidence is not a signal, and clinical instincts trained on human confidence fail silently against it.
+- 'Wait until it matures' fails because deployment is already underway and defaults are being set now, largely by non-clinicians; the EHR era shows the cost of professional absence.
+- AI literacy buys four things: safe personal use built on verification asymmetry, real evaluation of products, a voice in deployment safeguards, and a precise defence of what genuinely resists automation.
+- The required knowledge is bounded and conceptual — six ideas, no code — and acquiring it makes a clinician fitter for the next decade regardless of their enthusiasm.
+- The plausible reordering is task redistribution, machine-mediated interfaces, revalued expertise, and renegotiated accountability — proceeding now, with or without clinician input.

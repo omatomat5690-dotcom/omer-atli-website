@@ -1,0 +1,69 @@
+---
+title: "Triage Is the Operating System of Medicine"
+subtitle: "Healthcare AI is obsessed with diagnosis. The deeper function — the one running underneath everything — is prioritisation under scarcity."
+slug: "triage-is-the-operating-system-of-medicine"
+date: "2025-12-15"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "Triage — comparative prioritisation under scarcity — is medicine's core function and healthcare AI's highest-leverage, highest-risk, most neglected problem."
+featured: false
+clinicalAdjacent: true
+---
+
+Ask someone what medicine's core intellectual task is and they will usually say diagnosis: the puzzle, the pattern, the name for the thing. It's the part that television dramatises and AI benchmarks measure.
+
+But watch a health system actually run for a day and a different function reveals itself underneath everything. Before any question of *what is wrong* comes a quieter, harder question, asked thousands of times an hour at every level of the system: *who needs what, how urgently, with which of the resources we actually have?* That function is triage — and once you start looking for it, you find it running everywhere, like an operating system beneath the applications. I've come to think the healthcare AI company that genuinely understands this will end up mattering more than another generation of diagnosis engines.
+
+## Triage is not a desk at the front of the ED
+
+The word conjures a nurse, a waiting room, a category scribbled at the front door. That's the visible instance of something far more general.
+
+A GP scanning the morning's results and deciding which abnormal value gets a phone call today and which gets a letter — triage. A radiologist's worklist, ordering whose scan is read next — triage. A specialist sifting referral letters into urgent and routine; a ward team deciding which deteriorating patient the registrar sees first; a theatre coordinator rebuilding the list when an emergency case lands; a mental health service allocating its impossibly scarce appointments — triage, all of it. Even within a single encounter, the clinician is constantly triaging: which of this patient's five problems gets today's twelve minutes.
+
+Notice what defines every instance. The decision is comparative, not absolute — not 'is this serious?' but 'is this more urgent than the others in the queue?'. It is made under resource constraint, with incomplete information, provisionally — because new arrivals re-order everything — and its failures are asymmetric: over-triage wastes scarce capacity, under-triage hurts someone quietly, later, out of sight. That combination — comparative, constrained, provisional, asymmetric — is the actual operating logic of healthcare. Diagnosis is one input to it.
+
+## Why AI keeps walking past it
+
+If triage is the operating system, why does healthcare AI overwhelmingly target the applications — the diagnostic puzzle, the report, the note?
+
+Partly because diagnosis is benchmarkable. It has answer keys: the discharge diagnosis, the biopsy, the licensing exam. You can score a model on it and publish the score. Triage has no clean ground truth — the question is not 'was the answer right?' but 'was this ordering of these patients, given that information, at that moment, defensible?' — and messy ground truth makes for bad leaderboards and worse press releases.
+
+Partly because triage is unglamorous. 'Our model detects disease' is a story. 'Our model helps decide who waits' is a story nobody wants to tell an investor, even though the second decision shapes more outcomes than the first.
+
+And partly, I suspect, because prioritisation looks administrative from outside — queue management, logistics. It isn't. Deciding who can safely wait is one of the most cognitively demanding and consequential judgments in medicine, which is precisely why systems put their most experienced people near it. The industry has mistaken the hard problem for the boring one.
+
+## What an AI that understood triage would actually do
+
+It would not assign categories at the front door — that's automating the artefact rather than the function. It would do quieter, more structural things.
+
+**Watch the whole queue, continuously.** Human triage is a snapshot; the patient categorised at 14:00 is the same category at 17:00 unless someone happens to look. A system that continuously re-evaluated everyone waiting — new observations, time elapsed, results landing — and surfaced *re-prioritisation*, would address triage's most dangerous known weakness: the deterioration that happens after the snapshot.
+
+**Reason about resources, not just risk.** 'This patient needs a scan urgently' is half a thought; the other half is the queue for the scanner. Real triage trades risk against capacity, and decision-support that can't see capacity is advising from inside the imaginary hospital where resources are infinite.
+
+**Express uncertainty in the queue's own language.** Not 'sepsis probability 0.31', but 'this presentation is the kind in which serious illness declares itself late — the cost of this patient waiting is higher than their current numbers suggest'. Time-sensitivity of uncertainty is the triage-native form of confidence, and almost no product speaks it.
+
+**Show its ordering reasons.** Because every triage decision is contestable by definition — someone is being placed behind someone else — a system that can't explain *why this ordering* is unusable in the one role where justification is the whole job.
+
+## The part that should worry everyone
+
+Here honesty requires a turn, because triage is also the most dangerous place to put an algorithm.
+
+Triage is rationing, said gently. Automating it means encoding decisions about who waits into software — and every bias in the training data becomes a policy, applied at scale, with a patina of objectivity that human triage never claims. The literature already documents algorithms that allocated care resources inequitably because they learnt from spending patterns rather than need. Under-triage of the quiet presenter, of the patient who minimises symptoms, of demographics the data under-served — these are precisely the failure modes machine learning amplifies when the ground truth itself was biased.
+
+So the argument is emphatically not 'let the machine run the queue'. It is that the queue is where the leverage is — and therefore where the clinical scrutiny, the safety engineering, and the honest evaluation need to concentrate. A diagnosis engine that's wrong embarrasses itself in front of a clinician who can catch it. A prioritisation engine that's subtly wrong reshapes who gets seen, system-wide, before anyone notices the pattern. The stakes asymmetry is exactly why serious people should be working on it rather than leaving it to whoever finds it commercially convenient.
+
+## What this means
+
+There's a simple test for whether a healthcare AI company has understood the domain: look at where they think the value is. If the pitch is 'we make the diagnosis faster', they've automated the visible part. If the pitch engages with queues, capacity, deterioration over time, and the brutal comparative judgment of who can safely wait — they've found the operating system, with all its difficulty and all its danger.
+
+Medicine's scarcest resource was never knowledge, and after this decade of AI it will be less so than ever. The scarce resources are attention, time, beds, and people — and the discipline that allocates them is triage. The companies, and the clinicians, who treat that allocation as the central design problem rather than the unglamorous plumbing will be the ones who change what a health system can do. The rest will keep shipping faster answers to the question the system was already best at.
+
+---
+
+## Key Takeaways
+
+- Triage — comparative prioritisation under scarcity — runs beneath every level of healthcare; diagnosis is one input to it, not the core function.
+- AI targets diagnosis because it's benchmarkable and glamorous; triage lacks clean ground truth, which makes it unfashionable and leaves the highest-leverage problem unworked.
+- Genuinely triage-aware systems would re-evaluate whole queues continuously, reason about capacity as well as risk, express uncertainty as time-sensitivity, and justify every ordering.
+- Automated prioritisation is also the highest-risk application: biased training data becomes rationing policy at scale — which is the argument for serious clinical scrutiny, not avoidance.
+- The test of a healthcare AI company: does it think the value is in faster answers, or in the allocation of attention, time, and capacity?

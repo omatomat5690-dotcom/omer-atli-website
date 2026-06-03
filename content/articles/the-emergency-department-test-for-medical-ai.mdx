@@ -1,0 +1,67 @@
+---
+title: "The Emergency Department Test for Any Medical AI Tool"
+subtitle: "If it can't survive noise, missing data, interruption, and time pressure, it isn't a clinical tool. It's a demo."
+slug: "the-emergency-department-test-for-medical-ai"
+date: "2026-03-10"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "A five-question test for medical AI: how it handles noise, missing data, interruption, the unselected tail, and who answers when it's wrong."
+featured: true
+clinicalAdjacent: true
+---
+
+Every healthcare AI demo I have ever seen takes place in the same imaginary hospital. The patient gives a complete history in clean sentences. The record is whole and up to date. The clinician has one patient, one task, and unlimited attention. The wifi works. Nothing interrupts.
+
+No such hospital exists, and the gap between that imaginary building and a real one is where most clinical AI quietly dies. So here is a proposal — half serious, wholly sincere — for how to evaluate any medical AI product before believing a word of its marketing: subject it to the emergency department test. Not because every tool will be used in an ED, but because the ED concentrates, in one loud room, every hostile condition that clinical software will eventually meet everywhere else. A tool that holds up there has earned the adjective 'clinical'. A tool that hasn't been tried there has earned nothing yet.
+
+## Condition one: noise
+
+The ED test begins with input quality. Real clinical data is not the curated vignette the model was benchmarked on. It is a history taken through a language barrier at 3am, from someone in pain, who leads with the symptom that worries them least. It is a medication list that says 'a white tablet, for the heart'. It is observations charted during a resuscitation next door, a triage note written in seven seconds, and a referral letter describing a different version of events from the one the patient gives.
+
+The question for any tool is not 'does it work on clean input?' — everything works on clean input. The question is how it degrades when the input degrades. Does it know the difference between an absent finding and an unrecorded one? Does it treat a half-taken history as half a history, or does it confidently complete the picture with statistically plausible filler? Graceful degradation is the first thing the ED test measures, and most products have never been asked the question.
+
+## Condition two: missing information
+
+Clinical reasoning in acute settings is reasoning about gaps. The old notes are at another hospital. The collateral history is asleep and not answering the phone. The crucial test result will exist in ninety minutes, and the decision is needed now.
+
+Humans handle this with explicit strategies: they flag what they don't know, they reason conditionally ('if the lactate comes back raised, then...'), and they build plans that are safe under several versions of the truth. Software built on the assumption of complete data does none of this. The revealing question for a vendor is brutally simple: *what does your system do when a field it depends on is empty?* The spectrum of answers — fails loudly, fails silently, guesses, or reasons explicitly about the absence — tells you more about clinical readiness than any accuracy figure, because in real use the empty field is not an edge case. It is Tuesday.
+
+## Condition three: time pressure and interruption
+
+The imaginary demo hospital has one other fiction: continuous attention. In a real department, clinical work is a stack of partially completed tasks, swapped constantly. A clinician is mid-thought on patient A when the phone rings about patient B, and a tool that demands sustained engagement — long forms, multi-step flows, output that takes three minutes of careful reading — is not merely inconvenient. It is unsafe, because half-read output and half-finished input are its actual operating conditions.
+
+The ED test asks: what does this product look like used in fragments? Is the output skimmable in ten seconds by someone holding four other patients in their head, and does the most important line come first? If a task is abandoned mid-way and resumed an hour later, does the system make the resumption safe — or does it silently hold stale context against the wrong moment, or worse, the wrong patient? Interruption is not a usability nuance in clinical software. It is one of the primary mechanisms by which design becomes harm.
+
+## Condition four: the unselected population
+
+Benchmarks and pilots are run on curated cases. The ED runs on whoever walks in: the well-described disease and the never-described combination, the textbook presentation and the patient with five conditions interacting, the demographic the training data covered thoroughly and the one it barely saw.
+
+This is where aggregate accuracy becomes the most misleading number in healthcare AI. A tool can be impressively accurate on average and dangerous in the tail — and clinical medicine is disproportionately *about* the tail, because that's where the catastrophes live. The ED test asks for the performance breakdown nobody volunteers: not 'how often is it right?' but 'where is it wrong, for whom, and does it behave differently when it's outside its competence?' A system that performs uniformly across the unselected population is rare. A vendor who can tell you honestly where theirs doesn't is almost as rare, and considerably more trustworthy.
+
+## Condition five: accountability
+
+The final condition is not technical. In an ED, every decision has a name attached to it. When something goes wrong, there is an incident review, a coroner's question, a person who must explain their reasoning. Clinical tools enter that accountability structure whether their designers thought about it or not.
+
+So the test asks: when this tool contributes to a decision, what exactly will the clinician say at the review? 'The system suggested it' is not a defence; it's an indictment of the workflow that allowed it. A tool that passes the ED test produces output a clinician can *own* — inspectable enough to be checked, specific enough to be challenged, recorded in a way that preserves what the human actually saw at the time. Products designed as if liability were someone else's department have, in effect, designed the clinician as their crumple zone. Clinicians can smell this, which is one reason adoption is 'slow'.
+
+## Why the test generalises
+
+The objection writes itself: most health tech isn't for emergency departments, so why should it pass an ED test?
+
+Because the ED's conditions are not exotic — they are ordinary clinical conditions, concentrated. Every part of a health system experiences noise, gaps, interruption, unselected patients, and accountability; the ED simply experiences them all at once, at volume, every hour. A GP surgery in mid-winter, a ward at night staffing, a community team with a full caseload — each becomes, under load, a slower ED. Software validated only in calm conditions is software validated for the part of healthcare that needs it least. Stress-testing against the ED is how you find out what your product does on the day that matters, before that day finds out for you.
+
+There is a positive version of this argument too. Designing for the hostile case produces better products for the gentle one — the skimmable output, the honest handling of absence, the interruption-safe flow all improve the quiet clinic as well. Aviation learned long ago to design for the worst conditions rather than the average flight. Clinical software, which likes aviation metaphors a great deal, has mostly borrowed the vocabulary and skipped the practice.
+
+## What this means
+
+None of this asks healthcare AI to be perfect; the humans it works alongside aren't, and the comparison standard was never perfection. It asks something more modest and much rarer: that products be evaluated under the conditions of actual clinical work rather than the conditions of a funding round. The five questions are not sophisticated. What does it do with noisy input? With missing data? Used in fragments, under interruption? On the patients unlike its training set? And who answers for it when it's wrong? Any clinician can ask them in a sales meeting. Any honest vendor should be able to answer. The interesting thing — the thing that tells you where this industry actually is — is how often the questions land as a surprise.
+
+---
+
+## Key Takeaways
+
+- Clinical AI is overwhelmingly demonstrated under conditions — clean input, complete data, uninterrupted attention — that do not exist in real clinical work.
+- The five conditions of the ED test: graceful degradation under noisy input, explicit reasoning about missing information, safety under interruption and fragmented use, honest performance on the unselected tail, and output a named clinician can defend.
+- Aggregate accuracy is the most misleading number in healthcare AI; harm lives in the tail and in the degraded case, not in the average.
+- The test generalises because every clinical setting becomes an ED under load — calm-condition validation covers the part of healthcare that needs help least.
+- These are questions any clinician can ask in a procurement meeting; how often vendors are surprised by them is its own finding.

@@ -42,6 +42,13 @@ export const topics: Topic[] = [
       'On reading papers, appraising claims, and writing clearly about complicated science.',
     themes: ['Medical Writing', 'Evidence'],
   },
+  {
+    slug: 'future-of-medicine',
+    title: 'Future of Medicine',
+    description:
+      'On where the profession is heading — AI reordering the workflow, the return of the generalist, and what the job becomes.',
+    themes: ['Future of Medicine'],
+  },
 ]
 
 export function getTopicBySlug(slug: string): Topic | undefined {

@@ -229,6 +229,8 @@
 
   /* ---------- topic cards ---------- */
   .topics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  /* an odd last card spans the full row so 5 topics balance as 2 + 2 + 1 */
+  .topics > :last-child:nth-child(odd) { grid-column: 1 / -1; }
   @media (max-width: 720px) { .topics { grid-template-columns: 1fr; } }
   .topic {
     position: relative; padding: 30px 28px; border-radius: 16px; background: var(--paper-2);

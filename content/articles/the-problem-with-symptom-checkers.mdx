@@ -1,0 +1,69 @@
+---
+title: "The Problem With Symptom Checkers"
+subtitle: "Too cautious, not cautious enough, or uselessly vague — and why the trilemma is built into the product category itself."
+slug: "the-problem-with-symptom-checkers"
+date: "2025-10-14"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "The symptom checker trilemma is structural, not an execution problem: no correct threshold exists at the information level the product operates on."
+featured: false
+clinicalAdjacent: true
+---
+
+Symptom checkers occupy a strange position in digital health. They are among the oldest products in the category, among the most used, and among the least trusted — by clinicians and, revealingly, by their own users, who routinely consult them and then do something else anyway. After more than a decade of iterations, from branching questionnaires to LLM-powered conversation, the complaints have barely changed: the tool either sends everyone to hospital, fails to flag the one person who needed to go, or hedges so thoroughly that its output means nothing.
+
+It's tempting to treat this as an execution problem — the algorithms just need to get better. I want to argue something less comfortable: the trilemma is structural. It follows from what a symptom checker is, what information it can access, and what it can be allowed to risk. Understanding *why* tells you a great deal about clinical reasoning, and about which parts of medicine will resist automation longest.
+
+## The calibration trap
+
+Start with the design decision every symptom checker must make: where to set its threshold of concern.
+
+Set it cautious, and the arithmetic is merciless. Serious causes of common symptoms are rare, but the symptoms themselves are extremely common — so a tool that escalates whenever a dangerous cause is *possible* escalates almost everyone, because almost any symptom *could*, possibly, be something serious. Headache could be a bleed. Tiredness could be cancer. The cautious checker becomes a machine for converting mild symptoms into urgent care attendances — studies of triage-advice tools have repeatedly found exactly this risk-averse skew — and users learn, correctly, that 'seek care now' from this tool carries almost no information.
+
+Set it bolder, and you've accepted that some fraction of serious presentations will be reassured at home, by software, with no examination, no observations, and no one carrying the outcome. No company's lawyers, and no regulator, will hold that position for long — nor should they.
+
+So products retreat to the third corner: vagueness. 'Your symptoms could have several causes. Consider speaking to a healthcare professional.' Safe, defensible, and informationally empty — advice indistinguishable from what the user knew before opening the app. The trilemma isn't a failure to find the right threshold. It's that *no right threshold exists* for a tool working with the information a symptom checker has.
+
+## The missing inputs are the diagnosis
+
+Why is the information so inadequate? Because the questionnaire — however adaptive, however conversational — receives only what the user can articulate about themselves. Clinical assessment runs on channels a symptom checker cannot access, and they are not minor ones.
+
+It cannot see the patient. An enormous amount of acute assessment is visual and instant — pallor, work of breathing, the difference between uncomfortable and unwell. Clinicians act on end-of-the-bed impressions before a word is exchanged; the checker's first and only witness is the patient's own vocabulary.
+
+It cannot examine, and it has no observations. No heart rate, no blood pressure, no temperature worth trusting, no abdomen made rigid under a hand. Entire categories of dangerous-versus-benign distinction live in those channels.
+
+It cannot know the baseline. The same reported symptom means radically different things in different hosts, and the checker meets a demographic form, not a person. The eighty-year-old's 'bit more tired than usual' and the anxious twenty-five-year-old's third check this week arrive as similar text.
+
+And it cannot watch time pass. Clinical assessment uses trajectory — better, worse, evolving — and a single interaction is a photograph of a moving object.
+
+Strip those channels away and what remains is the weakest version of the diagnostic task: classification over self-reported symptoms alone. The product category is not 'diagnosis, automated'. It is 'diagnosis, with most of the diagnostic information removed' — which is why the trilemma is structural. The calibration problem is unsolvable *at that information level*.
+
+## Advice without accountability
+
+There's a second structural problem, less discussed because it's uncomfortable for everyone. When a clinician assesses someone and sends them home, that judgment has a name attached. Accountability doesn't just allocate blame afterwards — it shapes the decision before. The person who must answer for the miss reasons differently, more carefully, about the case in front of them.
+
+A symptom checker's output carries no such weight. The disclaimer underneath it — *this is not medical advice* — formally returns all responsibility to the user at exactly the moment the user came looking for someone to share it. That's the quiet paradox of the category: people consult symptom checkers because uncertainty is frightening and they want guidance with authority behind it; the product is constructed, legally and structurally, to provide guidance while disclaiming authority. The result is advice that cannot afford to be useful in the cases where usefulness matters most.
+
+This, incidentally, is why 'the LLM makes it better' is only half true. Conversational systems gather richer histories than branching questionnaires — a real improvement — and produce fluent, confident-sounding reasoning, which makes the underlying calibration problem more dangerous, not less. The prose got better. The information channels and the accountability structure did not change at all.
+
+## What the category could honestly become
+
+None of this means the things are worthless. It means the honest product is different from the marketed one.
+
+Symptom checkers are at their best not when they answer 'what is this?' but when they do humbler jobs well. Structuring the story — helping someone organise what they're experiencing into a clear account, so the eventual clinical encounter starts further forward. Navigation — not 'you have X' but 'this kind of problem is what that service is for', which in fragmented systems is genuinely valuable. Red-flag literacy — teaching, in general terms, which features of common symptoms change their meaning, so people watch for the right things rather than the frightening ones. And honest escalation of the genuinely unambiguous — the small set of presentations where any system should simply say: this needs assessment, now.
+
+What the category cannot honestly be — at current information levels, perhaps at any — is a reassurance machine: a thing that safely tells unexamined people they are fine. Reassurance is the highest-stakes output in medicine. It ends the search. Clinicians spend careers learning how expensive false reassurance is; a product that dispenses it at scale, sight unseen, has automated the most dangerous sentence in medicine.
+
+## What this means
+
+The symptom checker's decade of stubborn mediocrity is not a story about immature algorithms. It's a lesson about what clinical assessment actually is — multi-channel, contextual, longitudinal, and accountable — dressed up as a story about software. The parts of the assessment that fit in a questionnaire were never the load-bearing parts. That lesson generalises well beyond this product category, and the teams building the next generation of clinical AI would do well to learn it from the symptom checker's failures rather than re-discovering it in their own.
+
+---
+
+## Key Takeaways
+
+- The symptom checker trilemma — over-cautious, under-cautious, or vacuous — is structural: no correct threshold exists at the information level the product operates on.
+- Clinical assessment runs on channels a checker cannot access: visual impression, examination and observations, personal baseline, and trajectory over time.
+- Disclaimed advice inverts the product's promise — users seek shared responsibility for uncertainty, and the category is built to refuse exactly that.
+- LLMs improve the history-taking and the prose while leaving the information and accountability problems untouched — fluency makes miscalibration more persuasive.
+- The honest versions of the product are structuring, navigation, and red-flag literacy; automated reassurance of unexamined people is the one thing the category must not sell.

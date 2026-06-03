@@ -56,7 +56,7 @@ export default function HomePage() {
             <div className="kicker reveal">01 — Fields</div>
             <h2 className="reveal">What I write about</h2>
           </div>
-          <div className="meta reveal">Four through-lines</div>
+          <div className="meta reveal">Five through-lines</div>
         </div>
         <div className="topics">
           {topics.map((topic, i) => (
