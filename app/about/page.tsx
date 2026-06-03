@@ -19,10 +19,9 @@ export default function AboutPage() {
 
         <div className="space-y-6 text-text-primary text-[1.1875rem] leading-[1.7] animate-fade-in-up">
           <p>
-            I&rsquo;m a physician with an Emergency Medicine background, currently
-            practising in T&uuml;rkiye. I&rsquo;m GMC-registered (8126471) and write
-            about the intersection of frontline clinical work, healthcare AI,
-            digital health, and patient safety.
+            I&rsquo;m a physician with an Emergency Medicine background. I&rsquo;m
+            GMC-registered (8126471) and write about the intersection of frontline
+            clinical work, healthcare AI, digital health, and patient safety.
           </p>
 
           <p>

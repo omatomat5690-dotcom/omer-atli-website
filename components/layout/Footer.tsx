@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail } from 'lucide-react'
+import { Mail, Linkedin } from 'lucide-react'
 
 const DISCLAIMER = `This website is for educational, editorial, and professional purposes only. It does not provide medical consultations, diagnosis, treatment, prescribing, or personal medical advice. The content reflects the author's commentary and opinions on clinical, scientific, and healthcare-industry topics, and is not a substitute for individual care from a qualified healthcare provider. If you have a clinical concern, please consult your own GP or other healthcare professional.`
 
@@ -25,6 +25,15 @@ export default function Footer() {
               >
                 <Mail size={16} />
                 dr@omeratli.com
+              </a>
+              <a
+                href="https://www.linkedin.com/in/omer-atli-968a2a3a6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-text-primary text-sm hover:text-accent transition-colors duration-200"
+              >
+                <Linkedin size={16} />
+                LinkedIn
               </a>
               <div className="flex flex-wrap gap-x-6 gap-y-2">
                 {[

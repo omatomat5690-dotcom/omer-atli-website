@@ -23,10 +23,10 @@ export default function NowPage() {
 
         <div className="space-y-6 text-text-primary text-[1.1875rem] leading-[1.7] animate-fade-in-up">
           <p>
-            <strong className="font-semibold">Clinically</strong>, I&rsquo;m
-            working in emergency medicine in T&uuml;rkiye &mdash; the
-            resource-limited, decision-under-uncertainty end of the job that
-            shapes most of what I write.
+            <strong className="font-semibold">Clinically</strong>, my background
+            is in emergency medicine &mdash; the resource-limited,
+            decision-under-uncertainty end of the job that shapes most of what I
+            write.
           </p>
           <p>
             <strong className="font-semibold">Writing</strong>, I&rsquo;m

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Mail } from 'lucide-react'
+import { Mail, Linkedin } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -25,10 +25,20 @@ export default function ContactPage() {
 
         <a
           href="mailto:dr@omeratli.com"
-          className="inline-flex items-center gap-3 mt-8 mb-8 text-text-heading font-sans font-semibold text-xl hover:text-accent transition-colors duration-200 group opacity-0 animate-fade-in-up stagger-1"
+          className="flex w-fit items-center gap-3 mt-8 mb-4 text-text-heading font-sans font-semibold text-xl hover:text-accent transition-colors duration-200 opacity-0 animate-fade-in-up stagger-1"
         >
           <Mail size={22} className="text-accent" />
           dr@omeratli.com
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/omer-atli-968a2a3a6"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex w-fit items-center gap-3 mb-8 text-text-primary font-sans font-medium hover:text-accent transition-colors duration-200 opacity-0 animate-fade-in-up stagger-2"
+        >
+          <Linkedin size={20} className="text-accent" />
+          Connect on LinkedIn
         </a>
 
         <p className="text-text-primary text-[1.1875rem] leading-[1.7] opacity-0 animate-fade-in-up stagger-2">
