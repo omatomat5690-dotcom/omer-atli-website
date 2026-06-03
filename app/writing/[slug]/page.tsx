@@ -4,16 +4,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { ArrowLeft } from 'lucide-react'
 import { getAllArticles, getArticleBySlug } from '@/lib/articles'
 import { formatDate } from '@/lib/format'
-import NewsletterSignup from '@/components/NewsletterSignup'
+import NewsletterBand from '@/components/NewsletterBand'
 
 const DISCLAIMER = `This website is for educational, editorial, and professional purposes only. It does not provide medical consultations, diagnosis, treatment, prescribing, or personal medical advice. The content reflects the author's commentary and opinions on clinical, scientific, and healthcare-industry topics, and is not a substitute for individual care from a qualified healthcare provider. If you have a clinical concern, please consult your own GP or other healthcare professional.`
 
 export async function generateStaticParams() {
-  const articles = getAllArticles()
-  return articles.map((article) => ({ slug: article.slug }))
+  return getAllArticles().map((a) => ({ slug: a.slug }))
 }
 
 export async function generateMetadata({
@@ -24,7 +22,6 @@ export async function generateMetadata({
   const { slug } = await params
   const article = getArticleBySlug(slug)
   if (!article) return {}
-
   return {
     title: article.title,
     description: article.description,
@@ -45,99 +42,109 @@ export default async function ArticlePage({
 }) {
   const { slug } = await params
   const article = getArticleBySlug(slug)
+  if (!article) notFound()
 
-  if (!article) {
-    notFound()
-  }
-
-  // Separate the main body from the Key Takeaways section so the latter can be
-  // rendered in its own styled callout box.
   const [body, takeaways] = article.content.split('## Key Takeaways')
 
   return (
-    <article className="pt-32 md:pt-40 pb-16 md:pb-24 px-6">
-      <div className="max-w-content mx-auto">
-        {/* Back link */}
-        <Link
-          href="/writing"
-          className="inline-flex items-center gap-1.5 font-sans text-sm text-text-muted hover:text-accent transition-colors duration-200 mb-8"
-        >
-          <ArrowLeft size={14} />
-          All writing
-        </Link>
+    <article>
+      <div className="wrap article-head" style={{ paddingBottom: 'clamp(40px, 7vw, 88px)' }}>
+        <div style={{ maxWidth: 680, margin: '0 auto' }}>
+          <Link href="/writing" className="backlink reveal">
+            <span aria-hidden="true">←</span> All writing
+          </Link>
 
-        {/* Header */}
-        <header className="mb-12 animate-fade-in">
-          <span className="font-sans text-xs font-semibold uppercase tracking-[0.15em] text-accent">
-            {article.theme}
-          </span>
-          <h1 className="font-sans font-bold text-text-heading text-3xl md:text-[2.75rem] leading-[1.1] tracking-tight mt-3">
-            {article.title}
-          </h1>
-          {article.subtitle && (
-            <p className="font-serif italic text-text-muted text-xl md:text-[1.375rem] leading-snug mt-3">
-              {article.subtitle}
-            </p>
+          <header className="reveal" style={{ marginTop: 22 }}>
+            <span className="eyebrow">{article.theme}</span>
+            <h1 className="article-title">{article.title}</h1>
+            {article.subtitle && <p className="article-sub">{article.subtitle}</p>}
+            <div className="article-meta">
+              <span>By {article.author}</span>
+              <span className="dot-sep">·</span>
+              <time dateTime={article.date}>{formatDate(article.date)}</time>
+              <span className="dot-sep">·</span>
+              <span>{article.readingTime}</span>
+            </div>
+          </header>
+
+          <div className="prose-article reveal" style={{ marginTop: 38 }}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
+          </div>
+
+          {takeaways && (
+            <div className="key-takeaways reveal">
+              <h2>Key Takeaways</h2>
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{takeaways}</ReactMarkdown>
+            </div>
           )}
-          <div className="flex items-center gap-3 mt-6 font-sans text-sm text-text-muted">
-            <span>By {article.author}</span>
-            <span>&middot;</span>
-            <time dateTime={article.date}>{formatDate(article.date)}</time>
-            <span>&middot;</span>
-            <span>{article.readingTime}</span>
-          </div>
-        </header>
 
-        {/* Article body */}
-        <div className="prose-article animate-fade-in-up">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{body}</ReactMarkdown>
-        </div>
+          {article.clinicalAdjacent && (
+            <div
+              className="reveal"
+              style={{
+                marginTop: 36,
+                background: 'var(--paper-2)',
+                borderLeft: '3px solid var(--line-soft)',
+                padding: '22px 26px',
+                borderRadius: '0 10px 10px 0',
+              }}
+            >
+              <p style={{ fontSize: 13, color: 'var(--ink-faint)', lineHeight: 1.6, fontStyle: 'italic' }}>
+                {DISCLAIMER}
+              </p>
+            </div>
+          )}
 
-        {/* Key Takeaways */}
-        {takeaways && (
-          <div className="key-takeaways mt-12">
-            <h2>Key Takeaways</h2>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{takeaways}</ReactMarkdown>
-          </div>
-        )}
-
-        {/* Disclaimer */}
-        {article.clinicalAdjacent && (
-          <div className="mt-12 bg-bg-subtle border-l-[3px] border-border-strong p-6 rounded-r-lg">
-            <p className="text-text-muted text-sm italic leading-relaxed">
-              {DISCLAIMER}
-            </p>
-          </div>
-        )}
-
-        {/* Author card */}
-        <div className="mt-16 pt-8 border-t border-border-subtle">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full overflow-hidden border border-border-subtle bg-bg-subtle">
+          <div
+            className="reveal"
+            style={{
+              marginTop: 48,
+              paddingTop: 28,
+              borderTop: '1px solid var(--line)',
+              display: 'flex',
+              gap: 16,
+              alignItems: 'center',
+            }}
+          >
+            <div
+              style={{
+                width: 48,
+                height: 48,
+                borderRadius: '50%',
+                overflow: 'hidden',
+                flexShrink: 0,
+                border: '1px solid var(--line)',
+              }}
+            >
               <Image
                 src="/dr-omer-atli.jpg"
                 alt="Dr Omer Atli"
                 width={48}
                 height={48}
-                className="w-full h-full object-cover object-top"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 18%' }}
               />
             </div>
             <div>
-              <p className="font-sans font-semibold text-text-heading text-sm">
-                Dr Omer Atli
-              </p>
-              <p className="font-sans text-text-muted text-xs">
-                Physician &middot; Healthcare AI &middot; Emergency Medicine
+              <p style={{ fontWeight: 600, fontSize: 14 }}>Dr Omer Atli</p>
+              <p
+                style={{
+                  fontFamily: 'var(--mono)',
+                  fontSize: 11.5,
+                  color: 'var(--ink-faint)',
+                  letterSpacing: '0.06em',
+                  marginTop: 2,
+                }}
+              >
+                Physician · Healthcare AI · Emergency Medicine
               </p>
             </div>
           </div>
         </div>
-
-        {/* Newsletter */}
-        <div className="mt-12">
-          <NewsletterSignup />
-        </div>
       </div>
+
+      <section className="section wrap" style={{ paddingTop: 0, paddingBottom: 'clamp(56px, 9vw, 120px)' }}>
+        <NewsletterBand />
+      </section>
     </article>
   )
 }

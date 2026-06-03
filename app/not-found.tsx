@@ -2,21 +2,28 @@ import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <section className="pt-32 md:pt-40 pb-16 md:pb-24 px-6">
-      <div className="max-w-content mx-auto text-center">
-        <h1 className="font-sans font-semibold text-text-heading text-4xl mb-4">
-          404
-        </h1>
-        <p className="text-text-muted text-lg mb-8">
-          This page doesn&rsquo;t exist.
-        </p>
-        <Link
-          href="/"
-          className="font-sans font-medium text-accent underline underline-offset-4 decoration-accent/40 hover:decoration-accent transition-all duration-200"
-        >
-          Back to home
-        </Link>
+    <section
+      className="page-hero wrap"
+      style={{ textAlign: 'center', paddingBottom: 'clamp(64px, 10vw, 128px)' }}
+    >
+      <div
+        style={{
+          fontFamily: 'var(--mono)',
+          fontSize: 13,
+          letterSpacing: '0.18em',
+          textTransform: 'uppercase',
+          color: 'var(--accent-deep)',
+        }}
+      >
+        404
       </div>
+      <h1>Page not found</h1>
+      <p className="lead serif" style={{ margin: '18px auto 34px', maxWidth: '40ch' }}>
+        This page doesn&rsquo;t exist — it may have moved.
+      </p>
+      <Link className="btn btn-primary" href="/">
+        Back to home <span className="arr">→</span>
+      </Link>
     </section>
   )
 }

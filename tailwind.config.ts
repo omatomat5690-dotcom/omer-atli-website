@@ -9,48 +9,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'bg-primary': '#FAFAF7',
-        'bg-elevated': '#FFFFFF',
-        'bg-subtle': '#F2EFE7',
-        'text-primary': '#1A1A1A',
-        'text-heading': '#0F0F0F',
-        'text-muted': '#595959',
-        'text-faint': '#8A8A8A',
-        'accent': '#BE5126',
-        'accent-hover': '#A84A20',
-        'border-subtle': '#E5E1D6',
-        'border-strong': '#C9C5B8',
+        paper: 'var(--paper)',
+        'paper-2': 'var(--paper-2)',
+        'paper-3': 'var(--paper-3)',
+        ink: 'var(--ink)',
+        'ink-soft': 'var(--ink-soft)',
+        'ink-faint': 'var(--ink-faint)',
+        accent: 'var(--accent)',
+        'accent-deep': 'var(--accent-deep)',
+        line: 'var(--line)',
       },
       fontFamily: {
-        serif: ['var(--font-lora)', 'Georgia', 'serif'],
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
+        serif: ['var(--font-newsreader)', 'Georgia', 'serif'],
+        sans: ['var(--font-hanken)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
       maxWidth: {
-        'content': '680px',
-        'wide': '900px',
-        'container': '1200px',
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
-        'fade-in-slow': 'fadeIn 1s ease-out forwards',
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(16px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
+        content: '680px',
+        wide: '900px',
+        container: '1180px',
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [],
 }
 
 export default config

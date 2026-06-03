@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
@@ -9,93 +9,68 @@ const navItems = [
   { href: '/writing', label: 'Writing' },
   { href: '/publications', label: 'Publications' },
   { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => {
-    setMobileOpen(false)
-  }, [pathname])
+  useEffect(() => setOpen(false), [pathname])
+
+  const active = (href: string) => pathname === href || pathname?.startsWith(href + '/')
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 font-sans transition-all duration-300 ${
-        scrolled
-          ? 'bg-bg-primary/95 backdrop-blur-sm border-b border-border-subtle'
-          : 'bg-bg-primary'
-      }`}
-    >
-      <nav className="max-w-container mx-auto px-6 flex items-center justify-between h-16 md:h-20">
-        <Link
-          href="/"
-          className="text-text-heading font-semibold italic tracking-[0.05em] text-lg transition-colors duration-200 hover:text-accent"
-        >
+    <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
+      <div className="nav-inner">
+        <Link className="brand" href="/" aria-label="Omer Atli — home">
+          <span className="dot" aria-hidden="true" />
           OMER ATLI
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="nav-links">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-[0.9375rem] font-medium transition-colors duration-200 ${
-                pathname === item.href || pathname?.startsWith(item.href + '/')
-                  ? 'text-accent'
-                  : 'text-text-primary hover:text-accent'
-              }`}
-            >
+            <Link key={item.href} href={item.href} className={active(item.href) ? 'active' : ''}>
               {item.label}
             </Link>
           ))}
+          <Link className="nav-cta" href="/contact">
+            Contact
+          </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden flex h-11 w-11 -mr-2 items-center justify-center text-text-primary"
-          aria-label="Toggle navigation"
-          aria-expanded={mobileOpen}
+          type="button"
+          className="nav-toggle"
+          aria-label="Toggle menu"
+          aria-expanded={open}
           aria-controls="mobile-menu"
+          onClick={() => setOpen((v) => !v)}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
-      </nav>
-
-      {/* Mobile menu */}
-      <div
-        id="mobile-menu"
-        inert={!mobileOpen}
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          mobileOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <div className="px-6 pb-4 border-t border-border-subtle bg-bg-primary">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`block py-3.5 text-[0.9375rem] font-medium transition-colors duration-200 ${
-                pathname === item.href || pathname?.startsWith(item.href + '/')
-                  ? 'text-accent'
-                  : 'text-text-primary hover:text-accent'
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
       </div>
-    </header>
+
+      <div id="mobile-menu" className={`mobile-menu ${open ? 'open' : ''}`}>
+        {navItems.map((item) => (
+          <Link key={item.href} href={item.href} className={active(item.href) ? 'active' : ''}>
+            {item.label}
+          </Link>
+        ))}
+        <Link href="/now" className={active('/now') ? 'active' : ''}>
+          Now
+        </Link>
+        <Link href="/contact" className={active('/contact') ? 'active' : ''}>
+          Contact
+        </Link>
+      </div>
+    </nav>
   )
 }

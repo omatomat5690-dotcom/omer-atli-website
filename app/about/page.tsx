@@ -1,93 +1,115 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Dr Omer Atli is a physician with an Emergency Medicine background, writing about healthcare AI, clinical safety, and digital health.',
+    'Dr Omer Atli is an emergency physician writing about healthcare AI, clinical safety, and digital health.',
 }
 
-const DISCLAIMER = `This website is for educational, editorial, and professional purposes only. It does not provide medical consultations, diagnosis, treatment, prescribing, or personal medical advice. The content reflects the author's commentary and opinions on clinical, scientific, and healthcare-industry topics, and is not a substitute for individual care from a qualified healthcare provider. If you have a clinical concern, please consult your own GP or other healthcare professional.`
+const facts = [
+  { k: 'Specialty', v: 'Emergency Medicine' },
+  { k: 'Registration', v: 'GMC 8126471 · UK' },
+  { k: 'Writes on', v: 'Healthcare AI & Safety' },
+  { k: 'Member', v: 'BMA · IDF · TMA' },
+]
+
+const focus = [
+  {
+    label: 'Field 01',
+    title: 'Healthcare AI in real workflow',
+    desc: 'Scribes, co-pilots, hallucination risk, and the marketing-to-clinic gap.',
+  },
+  {
+    label: 'Field 02',
+    title: 'Reasoning under uncertainty',
+    desc: 'What frontline medicine teaches about risk and pattern recognition.',
+  },
+  {
+    label: 'Field 03',
+    title: 'Clinical safety & governance',
+    desc: 'Telemedicine, prescribing risk, and safety thinking in healthtech.',
+  },
+  {
+    label: 'Field 04',
+    title: 'Reading the evidence honestly',
+    desc: 'Appraising claims and writing clearly about complicated science.',
+  },
+]
 
 export default function AboutPage() {
   return (
-    <section className="pt-32 md:pt-40 pb-16 md:pb-24 px-6">
-      <div className="max-w-content mx-auto">
-        <h1 className="font-sans font-semibold text-text-heading text-3xl md:text-4xl tracking-tight mb-10 animate-fade-in">
-          About
-        </h1>
-
-        <div className="space-y-6 text-text-primary text-[1.1875rem] leading-[1.7] animate-fade-in-up">
-          <p>
-            I&rsquo;m a physician with an Emergency Medicine background. I&rsquo;m
-            GMC-registered (8126471) and write about the intersection of frontline
-            clinical work, healthcare AI, digital health, and patient safety.
-          </p>
-
-          <p>
-            My clinical experience is mostly in resource-limited emergency
-            medicine &mdash; the kind of setting where diagnostic reasoning, risk
-            calibration, and decision-making under uncertainty are the daily
-            work. That perspective shapes how I think about AI in medicine:
-            which problems it actually solves, which ones it makes worse, and
-            why the gap between healthtech marketing and clinical workflow
-            is wider than most product teams realise.
-          </p>
-
-          <p>
-            I publish writing here on healthcare AI, emergency medicine
-            thinking, clinical safety in digital health, and how to read
-            medical evidence well. The site is editorial &mdash; it doesn&rsquo;t offer
-            personal medical advice.
-          </p>
-
-          <p>
-            If you&rsquo;re working on a healthcare AI or digital health product
-            and want clinical perspective, or if you commission writing on
-            medicine and healthcare technology, you can reach me at{' '}
-            <a
-              href="mailto:dr@omeratli.com"
-              className="text-accent underline underline-offset-2 decoration-accent/40 hover:decoration-accent transition-colors duration-200"
-            >
-              dr@omeratli.com
-            </a>.
-          </p>
+    <section className="section wrap" style={{ paddingTop: 'clamp(48px, 8vw, 104px)' }}>
+      <div className="about-grid">
+        <div className="about-portrait reveal">
+          <Image
+            src="/dr-omer-atli.jpg"
+            alt="Dr Omer Atli"
+            fill
+            priority
+            sizes="(max-width: 880px) 86vw, 360px"
+          />
+          <span className="portrait-frame" />
         </div>
 
-        {/* Headshot */}
-        <div className="mt-12 mb-12 opacity-0 animate-fade-in stagger-2">
-          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-border-subtle">
-            <Image
-              src="/dr-omer-atli.jpg"
-              alt="Dr Omer Atli — professional headshot"
-              width={480}
-              height={480}
-              className="w-full h-full object-cover object-top"
-              priority
-            />
+        <div className="about-body">
+          <div className="kicker reveal">About</div>
+          <h1 className="reveal">Dr Omer Atli</h1>
+          <p className="lead serif reveal">
+            Emergency physician writing at the seam between frontline clinical reality and the
+            technology being built around it.
+          </p>
+          <p className="body reveal">
+            I work in emergency medicine — the part of the system where uncertainty is the default,
+            decisions are made on incomplete information, and the cost of a wrong mental model is
+            measured in patients. That vantage point shapes everything I write.
+          </p>
+          <p className="body reveal">
+            Most healthcare-AI commentary is written by people who have never run a busy department
+            or sat with the consequences of a missed diagnosis. <strong>I write from the other side
+            of that gap</strong> — about where AI scribes actually help, where &ldquo;co-pilot&rdquo;
+            language oversells, and what safety thinking should look like when software starts making
+            clinical suggestions.
+          </p>
+          <p className="body reveal">
+            I&rsquo;m GMC-registered (8126471) and a member of the British Medical Association, the
+            Independent Doctors Federation, and the Turkish Medical Association. My case-report work
+            appears in <Link href="/publications">Oxford Medical Case Reports</Link>.
+          </p>
+
+          <div className="facts reveal">
+            {facts.map((f) => (
+              <div className="fact" key={f.k}>
+                <div className="k">{f.k}</div>
+                <div className="v">{f.v}</div>
+              </div>
+            ))}
           </div>
-        </div>
 
-        {/* Credentials */}
-        <div className="font-sans text-sm text-text-muted mb-12 opacity-0 animate-fade-in stagger-3">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-text-heading mb-3">
-            Credentials
-          </h2>
-          <ul className="space-y-1.5">
-            <li>GMC-registered physician (UK) &mdash; 8126471.</li>
-            <li>
-              Member of the British Medical Association, the Independent Doctors
-              Federation, and the Turkish Medical Association.
-            </li>
-            <li>Published in Oxford Medical Case Reports (2025).</li>
-          </ul>
-        </div>
+          <div className="kicker reveal" style={{ marginTop: 8 }}>
+            What I focus on
+          </div>
+          <div className="creds">
+            {focus.map((f) => (
+              <div className="cred reveal" key={f.label}>
+                <div className="yr">{f.label}</div>
+                <div className="d">
+                  <strong>{f.title}</strong>
+                  <span>{f.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
 
-        {/* Disclaimer */}
-        <div className="border-t border-border-subtle pt-8">
-          <p className="text-text-muted text-sm italic leading-relaxed max-w-2xl">
-            {DISCLAIMER}
-          </p>
+          <div className="about-cta reveal">
+            <Link className="btn btn-primary" data-magnetic="0.25" href="/writing">
+              Read the writing <span className="arr">→</span>
+            </Link>
+            <a className="btn btn-ghost" href="mailto:dr@omeratli.com">
+              Get in touch
+            </a>
+          </div>
         </div>
       </div>
     </section>

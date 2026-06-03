@@ -1,20 +1,22 @@
 import type { Metadata } from 'next'
-import { Lora, Inter, JetBrains_Mono } from 'next/font/google'
+import { Newsreader, Hanken_Grotesk, JetBrains_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import SiteEffects from '@/components/effects/SiteEffects'
 import './globals.css'
 
-const lora = Lora({
+const newsreader = Newsreader({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-lora',
+  variable: '--font-newsreader',
+  style: ['normal', 'italic'],
 })
 
-const inter = Inter({
+const hanken = Hanken_Grotesk({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-hanken',
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -53,19 +55,16 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en-GB"
-      className={`${lora.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${newsreader.variable} ${hanken.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="bg-bg-primary text-text-primary font-serif antialiased">
+      <body>
+        <SiteEffects />
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
         <Analytics />
       </body>
