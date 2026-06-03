@@ -58,11 +58,11 @@ export default function AboutPage() {
         <div className="mt-12 mb-12 opacity-0 animate-fade-in stagger-2">
           <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-border-subtle">
             <Image
-              src="/headshot.jpg"
+              src="/dr-omer-atli.jpg"
               alt="Dr Omer Atli — professional headshot"
               width={480}
               height={480}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
               priority
             />
           </div>

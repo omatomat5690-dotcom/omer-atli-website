@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="max-w-wide mx-auto">
           <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-8 mb-12">
             <div>
-              <div className="text-text-heading font-semibold tracking-[0.05em] text-lg mb-1">
+              <div className="text-text-heading font-semibold italic tracking-[0.05em] text-lg mb-1">
                 OMER ATLI
               </div>
               <p className="text-text-muted text-sm max-w-xs">

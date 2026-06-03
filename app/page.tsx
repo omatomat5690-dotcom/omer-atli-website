@@ -44,12 +44,12 @@ export default function HomePage() {
             <div className="order-1 md:order-2 shrink-0 opacity-0 animate-fade-in stagger-1">
               <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 rounded-full overflow-hidden border border-border-subtle ring-1 ring-border-subtle/60 shadow-sm">
                 <Image
-                  src="/headshot.jpg"
+                  src="/dr-omer-atli.jpg"
                   alt="Dr Omer Atli"
                   width={416}
                   height={416}
                   priority
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>

@@ -115,11 +115,11 @@ export default async function ArticlePage({
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full overflow-hidden border border-border-subtle bg-bg-subtle">
               <Image
-                src="/headshot.jpg"
+                src="/dr-omer-atli.jpg"
                 alt="Dr Omer Atli"
                 width={48}
                 height={48}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
             <div>

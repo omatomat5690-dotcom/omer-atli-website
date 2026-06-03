@@ -38,7 +38,7 @@ export default function Header() {
       <nav className="max-w-container mx-auto px-6 flex items-center justify-between h-16 md:h-20">
         <Link
           href="/"
-          className="text-text-heading font-semibold tracking-[0.05em] text-lg transition-colors duration-200 hover:text-accent"
+          className="text-text-heading font-semibold italic tracking-[0.05em] text-lg transition-colors duration-200 hover:text-accent"
         >
           OMER ATLI
         </Link>
