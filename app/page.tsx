@@ -2,11 +2,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getFeaturedArticles } from '@/lib/articles'
 import { topics } from '@/lib/topics'
+import { getFeaturedMedical, medicalCategories } from '@/lib/medical'
 import KineticHeading from '@/components/effects/KineticHeading'
 import NewsletterBand from '@/components/NewsletterBand'
 
+const medicalCategoryTitle = (slug: string) =>
+  medicalCategories.find((c) => c.slug === slug)?.title ?? 'Medical Topics'
+
 export default function HomePage() {
   const articles = getFeaturedArticles(3)
+  const medicalReads = getFeaturedMedical(3)
 
   return (
     <>
@@ -88,6 +93,40 @@ export default function HomePage() {
             {articles.map((article) => (
               <Link key={article.slug} className="essay reveal" href={`/writing/${article.slug}`}>
                 <div className="e-tag">{article.theme}</div>
+                <div className="e-body">
+                  <h3>{article.title}</h3>
+                  <p>{article.description}</p>
+                </div>
+                <div className="e-read">
+                  <span className="arr">→</span>
+                  {article.readingTime.replace(' read', '')}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* POPULAR MEDICAL READS */}
+      {medicalReads.length > 0 && (
+        <section className="section wrap" id="medical">
+          <div className="shead">
+            <div>
+              <div className="kicker reveal">03 — Health</div>
+              <h2 className="reveal">Popular Medical Reads</h2>
+            </div>
+            <Link className="linkmore reveal" href="/medical-topics">
+              Browse medical topics <span className="arr">→</span>
+            </Link>
+          </div>
+          <div className="essays">
+            {medicalReads.map((article) => (
+              <Link
+                key={article.slug}
+                className="essay reveal"
+                href={`/medical-topics/${article.category}/${article.slug}`}
+              >
+                <div className="e-tag">{medicalCategoryTitle(article.category)}</div>
                 <div className="e-body">
                   <h3>{article.title}</h3>
                   <p>{article.description}</p>
