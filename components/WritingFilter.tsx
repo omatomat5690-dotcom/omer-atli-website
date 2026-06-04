@@ -36,7 +36,9 @@ export default function WritingFilter({
 
   return (
     <>
-      <div className="filters reveal">
+      {/* No `reveal` here: this list re-renders on filter, and the JS scroll-reveal
+          would leave re-rendered rows stuck at opacity 0. Always visible instead. */}
+      <div className="filters">
         <button type="button" className={`chip ${active === 'all' ? 'on' : ''}`} onClick={() => setActive('all')}>
           All <span className="c-n">{articles.length}</span>
         </button>
@@ -55,9 +57,10 @@ export default function WritingFilter({
       {shown.length === 0 ? (
         <div className="empty">No essays in this field yet — check back soon.</div>
       ) : (
-        <div className="essays">
+        // key={active} re-mounts the container per filter, replaying the CSS fade.
+        <div className="essays essays-live" key={active}>
           {shown.map((a) => (
-            <Link key={a.slug} className="essay reveal" href={`/writing/${a.slug}`}>
+            <Link key={a.slug} className="essay" href={`/writing/${a.slug}`}>
               <div className="e-tag">{a.theme}</div>
               <div className="e-body">
                 <h3>{a.title}</h3>

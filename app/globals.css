@@ -281,6 +281,13 @@
     .essay .e-read { margin-top: 6px; }
   }
 
+  /* filtered writing list — CSS-only entrance (replays per filter via key remount) */
+  .essays-live { animation: essaysIn 0.45s var(--ease); }
+  @keyframes essaysIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+  }
+
   /* filter chips (writing) */
   .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0 4px; }
   .chip {
@@ -398,6 +405,7 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1 !important; transform: none !important; }
   .hero h1.name .ch { opacity: 1 !important; transform: none !important; }
+  .essays-live { animation: none !important; }
   #bg-canvas { display: none; }
   .brand .dot { animation: none; }
   html { scroll-behavior: auto; }

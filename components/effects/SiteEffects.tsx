@@ -94,6 +94,13 @@ export default function SiteEffects() {
     })
     cleanups.push(() => io.disconnect())
 
+    // Failsafe: never let `.reveal` content stay hidden. If the observer is slow
+    // or doesn't fire for some element, force everything visible after a moment.
+    const failsafe = window.setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.in)').forEach((el) => el.classList.add('in'))
+    }, 1600)
+    cleanups.push(() => clearTimeout(failsafe))
+
     if (!reduce && window.matchMedia('(pointer:fine)').matches) {
       document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach((el) => {
         const strength = parseFloat(el.dataset.magnetic || '0.3') || 0.3
