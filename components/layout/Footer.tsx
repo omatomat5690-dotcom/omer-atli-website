@@ -13,7 +13,9 @@ export default function Footer() {
         <div>
           <h4>Navigate</h4>
           <div className="f-links">
+            <Link href="/">Home</Link>
             <Link href="/writing">Writing</Link>
+            <Link href="/medical-topics">Medical Topics</Link>
             <Link href="/publications">Publications</Link>
             <Link href="/about">About</Link>
             <Link href="/now">Now</Link>
