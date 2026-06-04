@@ -8,9 +8,12 @@ import {
   getAllMedicalArticles,
   getMedicalArticleBySlug,
   getMedicalCategory,
+  getRelatedMedicalArticles,
 } from '@/lib/medical'
 import { formatDate } from '@/lib/format'
 import NewsletterBand from '@/components/NewsletterBand'
+
+const SITE = 'https://omeratli.com'
 
 const DISCLAIMER = `This website is for educational, editorial, and professional purposes only. It does not provide medical consultations, diagnosis, treatment, prescribing, or personal medical advice. The content reflects the author's commentary and opinions on clinical, scientific, and healthcare-industry topics, and is not a substitute for individual care from a qualified healthcare provider. If you have a clinical concern, please consult your own GP or other healthcare professional.`
 
@@ -26,11 +29,14 @@ export async function generateMetadata({
   const { category, slug } = await params
   const article = getMedicalArticleBySlug(slug)
   if (!article || article.category !== category) return {}
+  const path = `/medical-topics/${category}/${slug}`
   return {
     title: article.title,
     description: article.description,
+    alternates: { canonical: path },
     openGraph: {
       type: 'article',
+      url: `${SITE}${path}`,
       title: article.title,
       description: article.description,
       publishedTime: article.date,
@@ -49,9 +55,48 @@ export default async function MedicalArticlePage({
   if (!article || article.category !== category) notFound()
 
   const cat = getMedicalCategory(article.category)
+  const related = getRelatedMedicalArticles(slug)
+  const url = `${SITE}/medical-topics/${category}/${slug}`
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'MedicalWebPage',
+        '@id': `${url}#webpage`,
+        url,
+        name: article.title,
+        headline: article.title,
+        description: article.description,
+        inLanguage: 'en-GB',
+        datePublished: article.date,
+        dateModified: article.date,
+        isPartOf: { '@id': `${SITE}/#website` },
+        author: { '@id': `${SITE}/#person` },
+        publisher: { '@id': `${SITE}/#person` },
+        mainEntityOfPage: url,
+        ...(cat ? { about: { '@type': 'Thing', name: cat.title } } : {}),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Medical Topics', item: `${SITE}/medical-topics` },
+          ...(cat
+            ? [{ '@type': 'ListItem', position: 3, name: cat.title, item: `${SITE}/medical-topics/${category}` }]
+            : []),
+          { '@type': 'ListItem', position: cat ? 4 : 3, name: article.title, item: url },
+        ],
+      },
+    ],
+  }
 
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="wrap article-head" style={{ paddingBottom: 'clamp(40px, 7vw, 88px)' }}>
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
           <Link href={`/medical-topics/${article.category}`} className="backlink reveal">
@@ -63,7 +108,15 @@ export default async function MedicalArticlePage({
             <h1 className="article-title">{article.title}</h1>
             {article.subtitle && <p className="article-sub">{article.subtitle}</p>}
             <div className="article-meta">
-              <span>By {article.author}</span>
+              <span>
+                By{' '}
+                <Link
+                  href="/about"
+                  style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}
+                >
+                  {article.author}
+                </Link>
+              </span>
               <span className="dot-sep">·</span>
               <time dateTime={article.date}>{formatDate(article.date)}</time>
               <span className="dot-sep">·</span>
@@ -120,7 +173,11 @@ export default async function MedicalArticlePage({
               />
             </div>
             <div>
-              <p style={{ fontWeight: 600, fontSize: 14 }}>Dr Omer Atli</p>
+              <p style={{ fontWeight: 600, fontSize: 14 }}>
+                <Link href="/about" style={{ color: 'inherit' }}>
+                  Dr Omer Atli
+                </Link>
+              </p>
               <p
                 style={{
                   fontFamily: 'var(--mono)',
@@ -136,6 +193,39 @@ export default async function MedicalArticlePage({
           </div>
         </div>
       </div>
+
+      {related.length > 0 && (
+        <section className="section wrap" style={{ paddingTop: 0 }}>
+          <div className="shead">
+            <div>
+              <div className="kicker reveal">More in {cat?.title ?? 'Medical Topics'}</div>
+              <h2 className="reveal">Related reading</h2>
+            </div>
+            <Link className="linkmore reveal" href={`/medical-topics/${article.category}`}>
+              All {cat?.title ?? 'topics'} <span className="arr">→</span>
+            </Link>
+          </div>
+          <div className="essays">
+            {related.map((a) => (
+              <Link
+                key={a.slug}
+                className="essay reveal"
+                href={`/medical-topics/${a.category}/${a.slug}`}
+              >
+                <div className="e-tag">{cat?.title ?? 'Medical Topics'}</div>
+                <div className="e-body">
+                  <h3>{a.title}</h3>
+                  <p>{a.description}</p>
+                </div>
+                <div className="e-read">
+                  <span className="arr">→</span>
+                  {a.readingTime.replace(' read', '')}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="section wrap" style={{ paddingTop: 0, paddingBottom: 'clamp(56px, 9vw, 120px)' }}>
         <NewsletterBand />

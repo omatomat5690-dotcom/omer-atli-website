@@ -58,6 +58,39 @@ export const metadata: Metadata = {
   },
 }
 
+const siteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://omeratli.com/#person',
+      name: 'Dr Omer Atli',
+      url: 'https://omeratli.com/about',
+      jobTitle: 'Physician',
+      description:
+        'Physician writing on healthcare AI, emergency and primary care, clinical safety, and medical content review.',
+      sameAs: ['https://www.linkedin.com/in/omer-atli-968a2a3a6'],
+      identifier: { '@type': 'PropertyValue', propertyID: 'GMC', value: '8126471' },
+      knowsAbout: [
+        'Healthcare AI',
+        'Emergency Medicine',
+        'Primary Care',
+        'Clinical Safety',
+        'Medical content review',
+        'Evidence-based medicine',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://omeratli.com/#website',
+      url: 'https://omeratli.com',
+      name: 'Omer Atli',
+      inLanguage: 'en-GB',
+      publisher: { '@id': 'https://omeratli.com/#person' },
+    },
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -65,6 +98,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${newsreader.variable} ${hanken.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
         <SiteEffects />
         <Header />
         <main>{children}</main>

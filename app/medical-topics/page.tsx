@@ -5,7 +5,8 @@ import { medicalCategories, getMedicalCategoryCounts } from '@/lib/medical'
 export const metadata: Metadata = {
   title: 'Medical Topics',
   description:
-    'Clear, evidence-based explainers on the health topics people actually search for — metabolic health, weight-loss medicines, menopause, hair loss, supplements, heart risk, and how health content is reviewed.',
+    'Clear, evidence-based explainers on the health topics people actually search for — metabolic health, weight-loss medicines, menopause, hair loss, supplements, heart risk, and how health content is reviewed. By Dr Omer Atli, GMC-registered physician.',
+  alternates: { canonical: '/medical-topics' },
 }
 
 export default function MedicalTopicsPage() {

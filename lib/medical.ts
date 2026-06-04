@@ -143,6 +143,17 @@ export function getFeaturedMedical(limit = 3): MedicalArticleMeta[] {
     .slice(0, limit)
 }
 
+/**
+ * Other articles in the same category (for in-cluster internal linking).
+ * Sorted by `order`, current article excluded.
+ */
+export function getRelatedMedicalArticles(slug: string, limit = 4): MedicalArticleMeta[] {
+  const all = getAllMedicalArticles()
+  const current = all.find((a) => a.slug === slug)
+  if (!current) return []
+  return all.filter((a) => a.category === current.category && a.slug !== slug).slice(0, limit)
+}
+
 /** Number of articles in each category, keyed by category slug. */
 export function getMedicalCategoryCounts(): Record<string, number> {
   const counts: Record<string, number> = {}

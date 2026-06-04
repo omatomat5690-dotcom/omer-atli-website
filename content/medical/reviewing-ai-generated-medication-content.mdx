@@ -1,0 +1,87 @@
+---
+title: "Reviewing AI-Generated Medication Content: A Working Standard"
+subtitle: "A concrete protocol for verifying machine-written content about medicines"
+category: "medical-content-review"
+order: 9
+date: "2026-06-04"
+author: "Dr Omer Atli"
+description: "A working protocol for reviewing AI-generated medication content: claim-level verification, source-existence checks, dose verification against BNF-class references, safety-netting, currency, accountability."
+featured: false
+---
+
+My companion piece on AI-generated health content argues *why* machine-written medicine needs human review: the fluency that used to signal competence now camouflages error, and a model has no concept of which sentence is dangerous. This piece is the other half — the *how*. If you accept that AI-drafted medication content must be reviewed, what does the review actually consist of? Not a sentiment, but a protocol you could hand to someone and have them run.
+
+What follows is a working standard. It is specific to medication content, the highest-stakes category and the one where AI's characteristic failures do the most damage. It assumes the draft is fluent and plausible — they always are — and treats that fluency as the thing to read past, not the thing to be reassured by.
+
+## The premise: generation is not verification
+
+The whole standard rests on one principle. A language model produces the most *plausible-looking* text, which is not the same as the most correct text. Everything below exists because the model cannot tell the difference between a real dose and an invented one that has the right shape, and neither can the reader. So the review does not improve the writing — the writing is already good. It verifies the claims the writing makes, one at a time, against reality.
+
+That reframes the reviewer's job from editor to auditor. An editor asks "is this clear?" An auditor asks "is this specific claim true, and how would I know?" For AI medication content, only the second question matters.
+
+## Step 1: Claim-level extraction and verification
+
+Strip the prose away and list every discrete clinical claim the draft makes — every assertion about what a medicine does, who it is for, what it interacts with, what it must not be combined with, what happens if you stop. Then verify each one independently against a current authoritative source. Not the document as a whole — each claim, on its own.
+
+This is laborious by design. The model assembles claims from patterns in its training data, and a confidently stated interaction can be real, exaggerated, or wholly invented. The only defence is to check each individually, because a paragraph that is 90% correct and 10% fabricated reads exactly like one that is wholly correct.
+
+## Step 2: Source-existence checks
+
+Where the draft cites a study, guideline, statistic or trial name, confirm that the source *exists* and *says what is claimed* — two separate checks that both routinely fail. Models confabulate citations with unnerving fluency: a plausible author, a credible-sounding title, a journal that exists, a year that fits. Open it. Often there is nothing there. Often there is something there that says something narrower, or different, or the opposite.
+
+A citation that cannot be located is not a formatting problem to tidy. It is a fabrication to delete, along with the claim it was propping up.
+
+## Step 3: Dose and number verification against BNF-class references
+
+Every dose, frequency, threshold, maximum and numeric risk figure is checked against a current formulary-grade reference — in the UK, the BNF and its class. Not against another website, and never against the model's own confidence, which carries no information about whether the number is right.
+
+This is where AI medication content fails most dangerously, because a wrong dose has the exact shape of a right one. "10mg twice daily" and "10mg once daily" are equally fluent; only one may be safe. Treat every number as a claim to be sourced, never as a detail to be trusted because it reads plausibly.
+
+## Step 4: Safety-netting insertion
+
+A model optimises for a complete, satisfying answer, not for the unsatisfying caveat that protects a reader. It will describe a medicine thoroughly and never mention which symptoms mean *stop and seek help today*, because nothing in its training rewards that line.
+
+The review does not just check whether safety-netting is present — it usually has to add it. For each medicine, the named red-flag symptoms, the specific circumstances warranting urgent assessment, and a clear route to a prescriber rather than an implied green light from the page. This is the most reliable *addition* an AI medication review makes, precisely because the model never makes it unprompted.
+
+## Step 5: Currency check
+
+A model's knowledge is anchored to its training data, and medicine moves faster than training cycles. It will state a first-line treatment, a threshold or a safety position with total confidence, unaware that the position was revised after its cut-off. It has no internal sense that guidance has a date.
+
+So every clinical position is checked against *present* guidance — current NICE, current royal-college or specialist-society guidance, and the latest regulatory safety updates. The check is not "was this ever true?" but "is this true now?" Superseded advice delivered confidently is one of the model's signature failures, and currency is the only defence.
+
+## Step 6: The human accountability line
+
+The standard ends where it must: a named, qualified human takes responsibility for the published result, regardless of what drafted it. A model cannot be accountable. It cannot be struck off, cannot be questioned, cannot stand behind a claim. "The AI wrote it" describes a process; it is not a defence.
+
+Concretely, this means a real reviewer's name and relevant expertise attached to the piece, an honest record that AI was involved in drafting where editorial standards call for disclosure, and a person who can be asked about any claim and answer for it. The accountability line is not paperwork. It is the thing that makes the previous five steps mean something.
+
+## Putting it together
+
+Run in sequence — extract and verify claims, check sources exist, verify numbers against a formulary, insert safety-netting, check currency, attach accountability — these six steps turn "we used AI and a doctor looked at it" into something defensible. The order matters: there is no point checking currency on a claim that turns out to be fabricated, so existence and verification come first. None of it improves the prose, and that is the point. The prose was never the problem. The unverified specifics underneath it were.
+
+## Practical takeaways
+
+- Generation is not verification: a model produces the most plausible text, not the most correct, and the review audits claims rather than improving prose.
+- Verify each clinical claim independently — a paragraph that is 90% correct reads identically to one that is fully correct.
+- Confirm every cited source both exists and supports the claim; confabulated citations are fluent and common.
+- Check every dose and number against a current formulary-grade reference, never against the model's confidence.
+- Safety-netting usually has to be *added*, not merely checked — the model never volunteers it.
+- A named, accountable human stands behind the result; "the AI wrote it" is not a defence.
+
+## What this doesn't mean
+
+It doesn't mean AI has no place in medication writing. Used as a drafting partner under this kind of review, it can be fast and genuinely useful, freeing a clinician to spend attention on exactly the verification only they can do. The standard is not anti-tool. It is anti-shortcut: it insists that the easy part being automated does not mean the hard part can be skipped.
+
+## A closing thought
+
+The reassuring thing about a human writer's bad medication draft is that it tends to look rough where it is weak. The unnerving thing about an AI draft is that it looks most confident exactly where it is most likely to be invented. A working standard is not a sign of distrust in the tool. It is the recognition that fluency and accuracy have come apart, and that someone has to put them back together — claim by claim, number by number, with their name at the end of it.
+
+## Further reading and sources
+
+- British National Formulary (BNF) — the currency benchmark for UK dosing and interactions
+- MHRA — Drug Safety Updates (the moving target a model cannot keep pace with)
+- NICE — guidance library, for verifying current UK clinical positions
+- International Committee of Medical Journal Editors (ICMJE) — recommendations on authorship, accountability and AI disclosure
+- Patient Information Forum — PIF TICK criteria, including emerging guidance on AI in health information
+- Peer-reviewed literature on large language model confabulation and accuracy in clinical contexts
+- This site's companion piece — *AI-Generated Health Content: What Review Looks Like Now*

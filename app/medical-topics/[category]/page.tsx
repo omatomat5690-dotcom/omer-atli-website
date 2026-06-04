@@ -19,7 +19,11 @@ export async function generateMetadata({
   const { category } = await params
   const cat = getMedicalCategory(category)
   if (!cat) return {}
-  return { title: cat.title, description: cat.description }
+  return {
+    title: cat.title,
+    description: cat.description,
+    alternates: { canonical: `/medical-topics/${category}` },
+  }
 }
 
 export default async function MedicalCategoryPage({
