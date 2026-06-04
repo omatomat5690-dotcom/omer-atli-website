@@ -9,10 +9,12 @@ export const metadata: Metadata = {
 }
 
 const facts = [
-  { k: 'Specialty', v: 'Emergency Medicine' },
+  { k: 'Background', v: 'Emergency & Primary Care' },
   { k: 'GMC (UK)', v: '8126471' },
   { k: 'Also registered', v: 'Turkish Ministry of Health' },
+  { k: 'Also works as', v: 'Medical Reviewer' },
   { k: 'Member', v: 'BMA · IDF · TMA' },
+  { k: 'Writes on', v: 'Healthcare AI & Safety' },
 ]
 
 const focus = [
@@ -61,9 +63,10 @@ export default function AboutPage() {
             technology being built around it.
           </p>
           <p className="body reveal">
-            I work in emergency medicine — the part of the system where uncertainty is the default,
-            decisions are made on incomplete information, and the cost of a wrong mental model is
-            measured in patients. That vantage point shapes everything I write.
+            I work across emergency medicine and primary care — the parts of the system where
+            undifferentiated problems arrive first, decisions are made on incomplete information, and
+            the cost of a wrong mental model is measured in patients. That vantage point shapes
+            everything I write.
           </p>
           <p className="body reveal">
             Most healthcare-AI commentary is written by people who have never run a busy department
@@ -75,7 +78,9 @@ export default function AboutPage() {
           <p className="body reveal">
             I&rsquo;m registered with the UK General Medical Council (GMC 8126471) and the Turkish
             Ministry of Health, and a member of the British Medical Association, the Independent
-            Doctors Federation, and the Turkish Medical Association. My case-report work appears in{' '}
+            Doctors Federation, and the Turkish Medical Association. Alongside clinical work I work as
+            a <strong>medical reviewer</strong> — appraising clinical and drug-related content for
+            accuracy and safety — and my case-report work appears in{' '}
             <Link href="/publications">Oxford Medical Case Reports</Link>.
           </p>
 

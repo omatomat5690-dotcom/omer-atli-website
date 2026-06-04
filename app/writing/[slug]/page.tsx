@@ -135,7 +135,7 @@ export default async function ArticlePage({
                   marginTop: 2,
                 }}
               >
-                Physician · Healthcare AI · Emergency Medicine
+                Physician · Healthcare AI · Emergency &amp; Primary Care
               </p>
             </div>
           </div>

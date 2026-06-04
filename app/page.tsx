@@ -14,10 +14,10 @@ export default function HomePage() {
       <header className="hero wrap">
         <div className="hero-grid">
           <div className="hero-copy">
-            <div className="hero-kicker kicker reveal">Dr — Emergency Medicine · Healthcare AI</div>
+            <div className="hero-kicker kicker reveal">Dr — Emergency &amp; Primary Care · Healthcare AI</div>
             <KineticHeading text="OMER ATLI" className="name" />
             <div className="role reveal">
-              Emergency Physician <i>·</i> Clinical Safety <i>·</i> Digital Health
+              Emergency &amp; Primary Care <i>·</i> Medical Reviewer <i>·</i> Clinical Safety
             </div>
             <p className="hero-lead lead serif reveal">
               I write about the clinical reality behind modern medicine — emergency care,
