@@ -6,7 +6,9 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getAllArticles, getArticleBySlug } from '@/lib/articles'
 import { formatDate } from '@/lib/format'
-import NewsletterBand from '@/components/NewsletterBand'
+import Enquiry from '@/components/Enquiry'
+
+const SITE = 'https://omeratli.com'
 
 const DISCLAIMER = `This website is for educational, editorial, and professional purposes only. It does not provide medical consultations, diagnosis, treatment, prescribing, or personal medical advice. The content reflects the author's commentary and opinions on clinical, scientific, and healthcare-industry topics, and is not a substitute for individual care from a qualified healthcare provider. If you have a clinical concern, please consult your own GP or other healthcare professional.`
 
@@ -25,8 +27,10 @@ export async function generateMetadata({
   return {
     title: article.title,
     description: article.description,
+    alternates: { canonical: `/writing/${slug}` },
     openGraph: {
       type: 'article',
+      url: `${SITE}/writing/${slug}`,
       title: article.title,
       description: article.description,
       publishedTime: article.date,
@@ -46,8 +50,42 @@ export default async function ArticlePage({
 
   const [body, takeaways] = article.content.split('## Key Takeaways')
 
+  const url = `${SITE}/writing/${slug}`
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        '@id': `${url}#article`,
+        url,
+        headline: article.title,
+        description: article.description,
+        inLanguage: 'en-GB',
+        datePublished: article.date,
+        dateModified: article.updated ?? article.date,
+        isPartOf: { '@id': `${SITE}/#website` },
+        author: { '@id': `${SITE}/#person` },
+        publisher: { '@id': `${SITE}/#person` },
+        mainEntityOfPage: url,
+        ...(article.theme ? { articleSection: article.theme } : {}),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Writing', item: `${SITE}/writing` },
+          { '@type': 'ListItem', position: 3, name: article.title, item: url },
+        ],
+      },
+    ],
+  }
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="wrap article-head" style={{ paddingBottom: 'clamp(40px, 7vw, 88px)' }}>
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
           <Link href="/writing" className="backlink reveal">
@@ -143,7 +181,7 @@ export default async function ArticlePage({
       </div>
 
       <section className="section wrap" style={{ paddingTop: 0, paddingBottom: 'clamp(56px, 9vw, 120px)' }}>
-        <NewsletterBand />
+        <Enquiry />
       </section>
     </article>
   )

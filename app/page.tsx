@@ -4,7 +4,7 @@ import { getFeaturedArticles } from '@/lib/articles'
 import { topics } from '@/lib/topics'
 import { getFeaturedMedical, medicalCategories } from '@/lib/medical'
 import KineticHeading from '@/components/effects/KineticHeading'
-import NewsletterBand from '@/components/NewsletterBand'
+import Enquiry from '@/components/Enquiry'
 
 const medicalCategoryTitle = (slug: string) =>
   medicalCategories.find((c) => c.slug === slug)?.title ?? 'Medical Topics'
@@ -141,9 +141,9 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* NEWSLETTER */}
-      <section className="section wrap">
-        <NewsletterBand />
+      {/* PROFESSIONAL ENQUIRIES */}
+      <section className="section wrap" style={{ paddingTop: 0 }}>
+        <Enquiry />
       </section>
     </>
   )

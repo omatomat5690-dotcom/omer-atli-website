@@ -37,8 +37,27 @@ export default async function MedicalCategoryPage({
 
   const articles = getMedicalArticlesByCategory(category)
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://omeratli.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Medical Topics', item: 'https://omeratli.com/medical-topics' },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: cat.title,
+        item: `https://omeratli.com/medical-topics/${category}`,
+      },
+    ],
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <header className="page-hero wrap">
         <div style={{ marginBottom: 18 }}>
           <Link href="/medical-topics" className="backlink reveal">

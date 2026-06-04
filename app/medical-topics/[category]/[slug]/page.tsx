@@ -11,7 +11,7 @@ import {
   getRelatedMedicalArticles,
 } from '@/lib/medical'
 import { formatDate } from '@/lib/format'
-import NewsletterBand from '@/components/NewsletterBand'
+import Enquiry from '@/components/Enquiry'
 
 const SITE = 'https://omeratli.com'
 
@@ -228,7 +228,7 @@ export default async function MedicalArticlePage({
       )}
 
       <section className="section wrap" style={{ paddingTop: 0, paddingBottom: 'clamp(56px, 9vw, 120px)' }}>
-        <NewsletterBand />
+        <Enquiry />
       </section>
     </article>
   )

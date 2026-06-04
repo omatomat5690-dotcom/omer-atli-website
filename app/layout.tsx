@@ -65,6 +65,7 @@ const siteSchema = {
       '@type': 'Person',
       '@id': 'https://omeratli.com/#person',
       name: 'Dr Omer Atli',
+      honorificPrefix: 'Dr',
       url: 'https://omeratli.com/about',
       jobTitle: 'Physician',
       description:
