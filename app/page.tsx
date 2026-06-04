@@ -42,7 +42,6 @@ export default function HomePage() {
                 priority
                 sizes="(max-width: 880px) 86vw, 460px"
               />
-              <span className="portrait-tag">GMC 8126471 · UK</span>
               <span className="portrait-frame" />
             </div>
           </div>

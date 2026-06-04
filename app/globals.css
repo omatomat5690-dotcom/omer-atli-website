@@ -211,12 +211,6 @@
     content: ""; position: absolute; inset: 0;
     background: linear-gradient(180deg, transparent 55%, oklch(0.3 0.04 50 / 0.28)); mix-blend-mode: multiply;
   }
-  .portrait-tag {
-    position: absolute; left: 16px; bottom: 16px; z-index: 2;
-    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: oklch(0.98 0.01 80); background: oklch(0.25 0.02 50 / 0.5);
-    backdrop-filter: blur(6px); padding: 7px 12px; border-radius: 999px; border: 1px solid oklch(0.99 0.01 80 / 0.18);
-  }
   .portrait-frame { position: absolute; inset: 0; border-radius: 18px; border: 1px solid oklch(0.99 0.01 80 / 0.14); z-index: 3; pointer-events: none; }
 
   /* ---------- section heading ---------- */
