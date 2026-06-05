@@ -1,0 +1,63 @@
+---
+title: "Who Answers When the Model Is Wrong?"
+subtitle: "When an AI-influenced clinical decision goes bad, the accountability lands on the one person in the chain with the least insight into how the system works — and that arrangement is living on borrowed time."
+slug: "who-answers-when-the-model-is-wrong"
+date: "2026-05-16"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "When an AI-influenced clinical decision goes bad, the accountability lands on the one person in the chain with the least insight into how the system works — and that arrangement is living on borrowed time."
+featured: false
+clinicalAdjacent: true
+---
+
+A clinician follows a machine's recommendation, and the outcome is bad. Whose error was it? Hold that question. Now run it the other way: the same clinician overrules the machine, and the outcome is still bad. Notice that the answer doesn't change. In both directions, the name on the record is the same — the human who acted. The model that nudged the decision, the company that built the model, the committee that bought it, the framework that approved it: none of them are in the box marked *responsible*. The clinician is. That symmetry is not a coincidence. It is the entire design, and it is the subject of this essay.
+
+## The liability sandwich
+
+Consider the chain that produces an AI-influenced decision. At the top, a vendor builds the system and sells it on the strength of what it can do. In the middle, an institution evaluates, procures, and deploys it. At the bottom, a clinician uses it on a Tuesday afternoon with a waiting room backing up behind them. Four parties — and the order in which they understand the system is almost the exact reverse of the order in which they carry the consequences.
+
+The vendor understands the model best and answers for it least. Read the terms that travel with most clinical AI and a familiar phrase appears: the output is for information only, a support to clinical judgement, not a substitute for it. The clinician remains responsible for the decision. That sentence is doing an enormous amount of load-bearing work. It converts a system that was sold for its judgement into a system that, the moment something goes wrong, was never offering judgement at all — merely information, which a qualified human was always free to ignore.
+
+The institution sits in the middle. It chose the tool, set the conditions under which it runs, and decided which clinicians would use it with what training. But when the decision is made at the bedside, the institution's choices have receded into the background like the wallpaper. The clinician inherits the choice without having made it.
+
+And at the bottom sits the person the law has long called the learned intermediary — the qualified professional who stands between a product and a patient and is presumed competent to weigh what the product offers. It is a sensible doctrine. It is also being asked to carry weight it was never designed for. The learned intermediary framework assumes the intermediary can actually learn the thing they are intermediating — can inspect it, understand it, form an independent view. With a drug, broadly, they can. With a model whose reasoning is opaque, whose training data they will never see, and whose failure modes are not documented anywhere they can read, the intermediary is learned in name and blind in practice. They are responsible by default and informed by the least. That is the sandwich, and the clinician is the filling.
+
+## Why "the human decides" is doing too much work
+
+The reassurance that holds the whole arrangement together is four words long: *the human decides*. As long as a clinician signs off, the system is merely advisory, oversight is preserved, and accountability has found its natural home. It is a clean story. It is also, increasingly, a fiction dressed as a safeguard.
+
+Meaningful oversight is not a signature. It is the capacity to interrogate — to ask why the system produced this output, to see what it weighed, to form a view about whether it is right *here*, in this case, with this patient. Strip that capacity away and "the human decides" decays into "the human clicks accept". The decision is nominally theirs and substantively the machine's, and the only thing the human has genuinely contributed is liability.
+
+Three forces push oversight from real to nominal. The first is opacity: a clinician cannot meaningfully override reasoning they cannot see. A recommendation that arrives without its workings is not a second opinion to be weighed; it is an assertion to be obeyed or defied on instinct. The second is time. Genuine interrogation costs minutes the working day does not contain. Under load, review compresses toward the default, and the default is to accept — the same automation drift that lets a confident output go unchallenged precisely when challenge matters most. The third is asymmetry, and it is the quiet one. Agreeing with the machine costs nothing and demands no justification. Overruling it demands a reason, a documented one, that will look either prescient or reckless depending on an outcome the clinician cannot yet see. The system is right most of the time, which makes the override feel like arrogance — right up until the once it isn't. We have built a structure in which the easy path is deference and the courageous path is doubt, then we call the deference "human oversight" and act surprised when it bends.
+
+## What the aviation and pharma comparisons get right and wrong
+
+Two industries get wheeled out whenever this conversation starts, and both are worth taking seriously — for what they offer and for where the analogy snaps.
+
+Aviation is the usual first reach, and the appeal is obvious. Cockpit automation is heavily certified before it flies. When something goes wrong, the investigation is blameless by design — it hunts for the systemic fault, not the scapegoat — and accountability is shared across manufacturer, operator, regulator, and crew rather than dumped on the last hand on the controls. That is a genuinely better model than a vacuum, and medicine could learn from all of it. But the analogy strains under the differences. A cockpit has two trained pilots, redundancy built in, and a deeply standardised environment. A clinician at speed has none of those luxuries: no co-pilot cross-checking the call, no clean and bounded operating envelope, and patients who decline to behave like aircraft. Borrow aviation's culture of shared, blameless accountability. Don't pretend the cockpit and the clinic are the same room.
+
+Pharma maps onto a different joint. The deal there is reasonably clear: the manufacturer answers for the *product* — its design, its safety profile, its honest labelling — and the prescriber answers for the *use*, for whether deploying it in this patient was sound. Two distinct accountabilities for two distinct failures, and crucially, the manufacturer cannot disclaim its way out of a defective product simply by noting that a qualified professional was the one who handed it over. That is precisely the split clinical AI is missing. But the comparison has its own crack: a drug's effects, once studied, are relatively stable, whereas a model can shift behind an update, behave differently on a population it was never validated against, and fail in ways that surface only at the bedside. Pharma's clean line between product and use blurs when the product keeps changing and nobody can fully say why. Neither analogy fits cleanly. Both, tellingly, beat the arrangement we have — which assigns the manufacturer's share to no one and quietly tops up the clinician's.
+
+## What a fair accountability chain would need
+
+The aim is not to absolve clinicians. The clinician who switches off their judgement and lets a machine think for them has failed at the job, and no chain should pretend otherwise. The aim is narrower and harder: to make sure the responsibility lands on the parties who could actually have prevented the failure, in rough proportion to their power to prevent it. A few principles follow.
+
+**Vendor accountability should track the autonomy the marketing claims.** A product cannot be sold to procurement on the promise that it reasons like a clinician and then, in its terms of use, demoted to a pocket calculator the instant a patient is harmed. Pick a lane. If the pitch deck says judgement, the liability should hear it. The gap between what is claimed to the buyer and what is disclaimed to the lawyer is not a technicality — it is the whole mechanism by which risk gets transferred downhill, and closing it would do more than any other single change.
+
+**Institutional accountability should attach to deployment.** The body that chose the tool, set the thresholds, and decided who could use it under what conditions owns those decisions — including the decision to deploy something into a workflow too rushed for the oversight the tool assumes. You cannot procure a system on the premise that a human will carefully supervise it and then staff the floor so thinly that careful supervision is a fantasy. The conditions of use are themselves a choice, and choices have owners.
+
+**The interaction has to be reconstructable.** When a decision goes wrong, someone needs to be able to rebuild what the human saw, what the system offered, what it withheld, and what the human did with it — legibly enough to tell deference apart from judgement. Without that record, every post-incident inquiry collapses by default onto the clinician, because they are the only node in the chain that leaves fingerprints. An audit trail of the human-machine exchange is the precondition for distributing blame fairly rather than assigning it to whoever held the mouse.
+
+**And the labelling has to be honest.** A system that shapes clinical decisions is not "for information only", however firmly the contract insists. Influence is not neutral; a tool engineered to move a clinician's reasoning has, by design, taken a hand in the outcome. Calling that influence mere information is the verbal move that lets accountability evaporate, and it should be retired. If a thing changes what clinicians decide, the framework around it should say so out loud.
+
+## What this means
+
+The question was never whether AI-influenced decisions will sometimes go wrong. Some will; that is what it means to make decisions under uncertainty, with or without a machine in the room. The real question is where the consequence comes to rest when they do — and right now it rests, almost by gravity, on the clinician, because they are the convenient terminus of a chain everyone above them has been careful to insulate. That arrangement is comfortable for the vendor who disclaims, the institution that procures, and the framework that lags. It is comfortable for everyone except the person it lands on. It will hold, as these things do, right up until the first cluster of serious incidents forces the chain open and asks each link what it actually knew and actually controlled. Better to ask that question now, in an essay, than later, in an inquiry. Accountability that tracks who signed last is an accident waiting to be discovered. Accountability that tracks who could have prevented the harm is the only version that survives contact with the real world — and the only version worth defending before the world insists.
+
+## Key Takeaways
+
+- Today's arrangements load AI risk onto the clinician by default — the party with the least visibility into how the system works and the least power to fix it.
+- "The human decides" is only a safeguard if the human can actually interrogate the system in the time available; opacity, time pressure, and the asymmetry of overruling reduce most oversight to a signature.
+- The marketing claims autonomy while the terms of use disclaim it, and that gap is the engine that transfers risk downhill — close it and most of the unfairness closes with it.
+- Aviation (shared, blameless accountability) and pharma (manufacturer answers for the product, prescriber for the use) each map imperfectly onto medicine, but both beat the current vacuum that assigns the manufacturer's share to no one.
+- A fair chain tracks who could have prevented the failure, not who acted last — which requires vendor liability proportional to claimed autonomy, institutional ownership of deployment conditions, reconstructable audit trails, and honest labelling.

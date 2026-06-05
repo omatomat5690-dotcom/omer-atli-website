@@ -1,0 +1,69 @@
+---
+title: "The Update Is a Clinical Intervention"
+subtitle: "When a medicine changes, a process begins. When clinical software changes, a release note nobody reads gets filed — and the same patients are affected anyway."
+slug: "the-update-is-a-clinical-intervention"
+date: "2026-05-02"
+theme: "Clinical Safety"
+author: "Dr Omer Atli"
+description: "When a medicine changes, a process begins. When clinical software changes, a release note nobody reads gets filed — and the same patients are affected anyway."
+featured: false
+clinicalAdjacent: true
+---
+
+On a Tuesday morning the sepsis flag fired on a patient the same tool had waved through on Monday. Same observations, near enough; same thresholds, the clinicians assumed. Nobody had been told otherwise. Over the weekend the model behind the flag had been retrained on fresh data, the decision boundary had shifted by a margin no human would notice in any single case, and the only artefact recording the event was a line in a changelog written for the integration team. The tool that influenced a clinical decision on Tuesday was not, in any meaningful sense, the tool that had been validated, trained on, and trusted on Monday. And no one in the building experienced that as an event.
+
+That is the quiet scandal at the centre of digital health, and it has nothing to do with bugs. It is this: when a system that shapes clinical decisions changes its behaviour, clinical care changes — at the scale of every patient who touches that system — and we have built almost no machinery to treat that change as the intervention it is. Version change is the most under-governed event in the sector. We pour governance into how software is *built* and how it is *bought*, and almost none into the moment it quietly becomes a different thing in the field.
+
+## Software change is behaviour change
+
+Start with the thing everyone half-knows and rarely follows to its conclusion: the design of a clinical tool shapes clinical decisions, so changing the design changes the decisions. This is not a claim about catastrophic redesigns. It is a claim about the ordinary knobs.
+
+A threshold moves and a cohort of borderline patients crosses from "below the line" to "flagged", or the reverse. A default value changes and, because defaults are where tired humans live, the modal choice across thousands of encounters moves with it. The order in which options appear on a screen is not cosmetic — the option at the top of the list is selected more often than the one buried beneath a scroll, and reordering a menu is, functionally, a nudge applied to every clinician who uses it. None of this requires anyone to behave irrationally. It requires only that clinical work happens under load, where the interface's path of least resistance becomes the path most travelled.
+
+So a change that looks purely technical from the engineering side — a retuned parameter, a redesigned form, a reworded prompt — can shift prescribing or referral or escalation patterns across a population, in the same way a formulary change or a new default dose would. The difference is that the formulary change goes through a committee and the interface change goes through a sprint.
+
+And there is a second, subtler casualty: the clinician's mental model of the tool. People build an internal sense of what a system does — when it tends to flag, when it stays quiet, how far to trust it. That model is calibrated against the version they learned. When the system changes beneath them without announcement, the model silently goes stale. The clinician keeps trusting the tool exactly as much as before, while the tool has become something that no longer earns precisely that trust. The miscalibration is invisible from the inside, which is the most dangerous place for it to be.
+
+## The locked-model fiction
+
+Here the AI era sharpens an old problem into a new one. Regulators, sensibly, prefer algorithms that are locked — fixed at the point of evaluation, so that the thing assessed is the thing deployed. Vendors, just as sensibly from their vantage, want continuous improvement: models that keep learning from new data, that get better month over month, that are never frozen at the moment of their early ignorance. Both positions are defensible. They are also in direct tension, and that tension tends to be resolved quietly, in favour of improvement, without anyone deciding it out loud.
+
+The fiction is in the word *improvement*. A retrained model is, for clinical purposes, a new product wearing the old product's reputation. It may well be better on average. But "better on average" is a population statement that conceals its own footnotes. Retraining shifts performance unevenly: a model that gains accuracy overall can lose it on a subgroup that happened to be underrepresented in the new data, and that subgroup is a real set of patients who are now served worse by a system everyone agrees just got better. Regression rides shotgun with every improvement. The aggregate metric goes up and a particular kind of patient quietly falls through a gap that did not exist last week.
+
+Silent improvement, in other words, is still silent change. The comforting frame — *we only ever make it better* — treats the direction of the average as if it settled the safety question, when the safety question was never about the average. It was about who the new version fails that the old one didn't, and whether anyone is positioned to notice. Continuous learning without continuous scrutiny is not a locked model. It is an unlocked one with the anxiety removed.
+
+## Why nobody governs the update
+
+If this is so obvious once stated, why is the update the orphan of clinical safety? Not through negligence. Through a set of arrangements each of which looks reasonable in isolation.
+
+Release notes are written for the wrong reader. They are authored by and for the people who keep the system running — they speak of versions, dependencies, endpoints, fixes — and they answer the question "what changed in the software?" rather than "what changed for the patient in front of you?". A clinician could read the entire changelog and learn nothing about how their decisions might now play out differently, because the document was never built to carry that meaning.
+
+Re-validation, where it happens at all, is rarely scaled to the change. The instinct is to validate thoroughly at first deployment and then to treat subsequent updates as variations on an approved thing — a patch is a patch. But the size of a change in clinical consequence has almost no relationship to its size in engineering effort. A one-line threshold adjustment can move more patients than a six-month rebuild that happens to preserve behaviour. When re-validation is triggered by how a change is *labelled* rather than by what it actually does to outputs, the labelling becomes the safety control, and labelling is not a control.
+
+And the bodies meant to oversee change are mostly looking elsewhere. Change governance in most deploying organisations grew out of IT operations, where the question is whether a release will destabilise the system — uptime, rollback, server risk. That is a real question. It is simply a different question from whether the release will alter clinical behaviour in a way that helps or harms. A board can sign off a change as low-risk to the infrastructure and entirely miss that it is a meaningful intervention on care, because clinical-behaviour risk was never the thing it was constituted to see.
+
+Each of these is a sincere accommodation to how organisations are actually built. Together they produce a system in which the most consequential event — the moment the tool becomes a different tool — passes through the lightest-touch process in the building.
+
+## What proportionate update governance looks like
+
+The remedy is not to freeze every system forever or to drown improvement in ceremony. It is to make the governance of a change proportional to its clinical consequence rather than its technical convenience. A few practices, none exotic, describe the shape of it.
+
+**Clinical change-impact statements, in the clinician's language.** Alongside the engineering changelog, a plain account of what is now different for care: which decisions this update could push in a new direction, for which patients, and what to watch for. Not "model v-whatever, retrained corpus, threshold delta" — but "this tool will now flag a wider group as high-risk; expect more alerts; here is what has changed about when it stays silent". A change nobody can understand in clinical terms is a change nobody can be safe around.
+
+**Re-validation triggered by what changed, not by what it was called.** The question that decides how much scrutiny an update earns is whether, and how much, it moves the outputs that influence care — measured, where it matters, against the actual behaviour of the previous version. A change that shifts the decision boundary deserves the scrutiny of a new thing, whatever the version number suggests, and a change that genuinely moves nothing can be waved through. The trigger lives in the behaviour, not the label.
+
+**A surveillance window after the change — the pharmacovigilance instinct.** Medicine long ago accepted that evaluation before release cannot catch everything, and so it watches what happens after, especially in the period right after something new reaches a population. Deployed clinical software deserves the same reflex: a defined window after a significant update during which someone is actively looking for the behaviour that the pre-release checks could not have surfaced — the subgroup now served worse, the alert volume that tipped into fatigue, the pattern that only emerges at the scale of real use. Watching after the change should be as ordinary as watching after a new medicine reaches the shelf.
+
+**A version history a clinician can actually read.** Not a buried technical log, but a legible record of how this tool's clinical behaviour has shifted over time — so that a clinician's mental model can be re-calibrated deliberately rather than left to drift, and so that, when something does go wrong, it is possible to ask which version was in the room.
+
+## What this means
+
+The principle underneath all of this is almost embarrassingly simple, and we mostly refuse to act on it. If a system influences clinical decisions, then changing that system changes clinical care. A retrained model, a moved threshold, a redesigned screen — delivered to a whole population at once, without consent, often without monitoring, frequently without anyone experiencing it as an event — is an intervention on care by any honest definition of the word. We would never accept that a medicine could change its formulation overnight and reach every patient on it with nothing but a note for the warehouse. We accept exactly that for the software that increasingly stands between clinicians and their decisions, because the change arrives as code rather than as a substance, and code has been allowed to feel weightless. It is not weightless. The update is the intervention. The only question is whether we govern it like one before a patient teaches us that we should have.
+
+## Key Takeaways
+
+- Updates to deployed clinical software — retrained models, moved thresholds, redesigned interfaces — change clinical behaviour at population scale; technical changes and clinical interventions are the same event seen from two sides.
+- "Continuous improvement" is a population claim that hides its footnotes: a model better on average can be worse for a specific subgroup, so regression travels with every retrain and silent improvement is still silent change.
+- Release notes written for the integration team are not clinical change communication; a clinician can read the whole changelog and learn nothing about how their decisions might now differ.
+- Re-validation should be triggered by how much an update moves the outputs that influence care, not by how the change is labelled — a one-line threshold edit can affect more patients than a six-month rebuild.
+- Post-update surveillance should be as routine as post-market drug surveillance: a defined window after a significant change in which someone is actively watching the real-world behaviour the pre-release checks could not surface.

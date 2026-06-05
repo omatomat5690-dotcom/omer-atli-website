@@ -1,0 +1,72 @@
+---
+title: "The Missing Denominator: Why Healthcare AI Reports Numerators and Calls It Evidence"
+subtitle: "Every triumphant AI success story is a number on top of a fraction whose bottom half nobody will print."
+slug: "the-missing-denominator"
+date: "2026-05-24"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "Every triumphant AI success story is a number on top of a fraction whose bottom half nobody will print."
+featured: false
+clinicalAdjacent: true
+---
+
+A press release lands, and it has a hero. An algorithm flagged a deteriorating patient overnight, a nurse acted on the alert, and a life was saved on a ward where, the implication runs, it would otherwise have been lost. The hospital is named. The patient, suitably anonymised, is given a face. There is a quote about the future of care. It is a genuinely moving story, and it may even be true.
+
+
+It is also half a fraction. The release reports the catch — one deterioration, correctly flagged, acted upon. It does not report how many times the same system fired that week. It does not say that the algorithm raised, for the sake of argument, four hundred other alerts on that ward in the same period, that the overwhelming majority resolved to nothing, and that somebody — a nurse, a registrar, a tired human with a finite number of minutes — had to look at each one to find out. That number is the denominator. And in healthcare AI, the denominator is almost never in the press release. A field that reports numerators without denominators is not reporting evidence. It is reporting anecdotes with venture funding.
+
+## Numerator journalism
+
+There is a house style to AI marketing in medicine, and once you see it you cannot unsee it. A single save. A named hospital. A clinician quoted saying the thing finally works. A patient who went home to their family. The structure is not accidental; it is the most persuasive structure available, because human beings are built to be moved by the story of the one and bored by the statistics of the many.
+
+This is availability bias doing its quiet work. We judge how common something is by how easily an example comes to mind, and a vivid rescue comes to mind very easily indeed. One legible save, with a face attached, overwrites a thousand invisible non-events. The story beats the statistic every time, not because readers are foolish but because that is how attention is wired. Marketing departments know this. The case study is not a lazy format. It is a precision instrument.
+
+What is striking is how closely the shape of this material mirrors a far older and more disreputable genre: the miracle-cure testimony. The structure is identical — a sufferer, a turning point, a deliverance, a grateful quote. Only the aesthetics have changed. Where the patent-medicine advertisement had a woodcut and a fevered adjective, the AI case study has a clean sans-serif and the word *deployment*. The testimony economy did not die. It bought a design system and learned to say *clinically validated*.
+
+None of this means the underlying technology is worthless. Some of these systems are genuinely good. The point is narrower and harder to wriggle out of: the *format* of the claim is identical whether the technology is excellent or useless, which means the format carries no information about which one you are looking at. A single dramatic save is exactly what you would expect to see from a brilliant system and from a coin-flip with a marketing budget. To tell them apart, you have to ask for the part that was left out.
+
+## What the denominator reveals
+
+The missing bottom half of the fraction is where all the clinically meaningful information lives, and there are three figures hiding in it.
+
+The first is the alert burden — the raw volume of times the system interrupts a human to say *look at this*. An alert is not free. Each one is a small withdrawal from a clinician's attention, and attention on a ward is the scarcest resource there is. A system that fires constantly does not simply add value when it is right. It imposes a tax every time it is wrong, paid in the currency of human focus, drawn from a pool that was already overdrawn.
+
+The second figure is the one that does the most damage when it is hidden: positive predictive value. Of all the times the system shouted, what fraction of the time was it shouting about something real? This is not the accuracy quoted in the glossy deck, which is usually some altogether friendlier number measured under altogether friendlier conditions. It is the question the clinician lives with at three in the morning: when this thing fires, should I believe it? A system can have superb sensitivity — it catches nearly everything — and a dismal positive predictive value, drowning every true catch in a flood of false ones, and the press release will quote the first number and bury the second, because the first number is the hero and the second is the bill.
+
+Medicine already has a piece of machinery for thinking about exactly this, and it is worth borrowing wholesale. We do not evaluate an intervention by celebrating the patients it helped. We ask how many patients had to receive it for one to benefit — the number needed to treat — precisely because that single figure refuses to let us forget everyone who got the intervention and gained nothing from it. Healthcare AI needs the same discipline turned on alerts. Call it, loosely, the number needed to alert: how many flags must fire to change the management of one patient? It is the same intellectual move — putting the unhelped back into the denominator where they belong — and its absence from AI marketing is not an oversight. The number needed to treat exists to keep the unhelped visible. Numerator journalism exists to keep them off the page.
+
+And then there is the third thing the denominator reveals, which is rarely framed as a number at all: workload displacement. Somebody reviews the noise. Every false alarm is a unit of clinical labour spent confirming that nothing was wrong, and that labour was not conjured from nowhere — it was taken from somewhere else, from another patient, another task, another moment of thought that did not happen. The honest question is never just *what did the system catch?* It is *what was the person not doing while they cleared the things it caught by mistake?* That cost is real, it is borne by humans, and it appears in no case study ever written.
+
+## Survivorship in the case-study economy
+
+Here is the deeper problem, the one that survives even a scrupulously honest press release. You are only ever hearing from the deployments that worked.
+
+Consider what does not generate a press release. The pilot that was switched off after six weeks because the false-alarm rate exhausted the staff. The rollout that was quietly discontinued when nobody could show it changed an outcome. The trust that paid, deployed, struggled, and walked away saying nothing, because nobody issues a statement to announce that the future did not arrive. These deployments are not rare. They are simply silent. The graveyard is large and unmarked, and you are being asked to estimate the survival rate by interviewing the survivors.
+
+This is survivorship bias wearing a lanyard. The conference talk describes a system that worked, because the people whose systems failed did not submit an abstract about it. The vendor case study features the site that succeeded, because the sites that failed are not in the brochure. Every channel through which you learn about healthcare AI is filtered, at the source, to show you the winners — and a sample pre-sorted to remove the failures cannot tell you how often the thing fails. It can only tell you that success is possible, which you already knew.
+
+Medicine has a name for this too, and spent decades learning to hate it. Publication bias — the tendency for positive results to reach print while null results die in a drawer — distorted the evidence base so badly that we built entire institutions, registries and mandatory trial registration and systematic review, specifically to drag the negative findings back into the light. Healthcare AI has reinvented publication bias, stripped of every safeguard medicine painfully constructed against it, and renamed it the customer success story. There is no registry of failed deployments. There is no requirement to report the pilot that died. There is only the brochure, and the brochure has never lost.
+
+## The questions that summon the denominator
+
+You do not need a statistics degree to defend yourself against this. You need a small set of questions, asked out loud, and the nerve to notice when they are not answered.
+
+Of all the flags the system raised, what fraction actually changed what anyone did? Not what fraction were technically correct — what fraction altered a decision. A system can be right constantly and useless entirely, if it is only ever right about things the clinician already knew or would have caught anyway. Correctness is not the same as contribution, and only the second one is worth paying for.
+
+What is the false-positive workload per true positive? For every real catch, how many false alarms did a human clear to get there? This is the alert burden and the positive predictive value collapsed into a single, brutally practical figure, and it is the one a ward sister can feel in her bones long before anyone publishes it. If the answer is a handful, the system may be a gift. If the answer is hundreds, it is a hidden tax wearing the costume of a saviour, and somebody is paying it whether or not the deck admits the cost.
+
+And the sharpest question of all, the one that turns the survivorship problem inside out: what happened at the sites that stopped using it? Not the reference sites. The ones who walked away. Their absence from the story is not neutral information — it is the most informative thing in the room, and the fact that nobody can answer the question is, itself, the answer.
+
+## What this means
+
+The discipline underneath all of this is unglamorous and entirely portable. Medicine learned, slowly and at real cost, that a treatment is not evaluated by the patients it saved but by what happened to everyone who received it. Healthcare AI is being sold, right now, on precisely the logic that lesson was built to defeat — the moving individual case, the rescue with a face, the numerator held up to the light while the denominator stays in the dark where it cannot embarrass anyone.
+
+So when the next release lands with its hero and its happy ending, you do not have to be a cynic to remain unmoved. You only have to finish the fraction. Every impressive numerator in this field — every catch, every save, every early flag — deserves exactly one question in reply, and it costs nothing to ask: out of how many?
+
+## Key Takeaways
+
+- Healthcare AI success stories are numerators — the single catch, the named save — reported without the denominator of how many alerts fired and how many were noise; a numerator without a denominator is an anecdote, not evidence.
+- The figures marketing systematically omits are alert burden and positive predictive value: not the accuracy in the deck, but how often the system is right *when it fires*, and how much human attention the wrong firings consume.
+- Borrow the number-needed-to-treat logic: ask how many flags must fire to change one patient's management. The discipline exists to keep the unhelped visible — which is exactly why it is missing.
+- Failed deployments generate no press release, no abstract, no brochure entry — survivorship bias with a lanyard, and publication bias reinvented without any of the safeguards medicine built against it.
+- "Out of how many?" is the single most useful question in healthtech evaluation, and the inability to answer "what happened at the sites that stopped using it?" is itself the answer.

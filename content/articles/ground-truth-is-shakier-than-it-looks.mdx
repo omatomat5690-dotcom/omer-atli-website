@@ -1,0 +1,71 @@
+---
+title: "Ground Truth Is Shakier Than It Looks"
+subtitle: "Every medical AI accuracy figure is measured against a label, and the label is mostly opinion plus administration, frozen at an arbitrary moment."
+slug: "ground-truth-is-shakier-than-it-looks"
+date: "2026-04-14"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "Every medical AI accuracy figure is measured against a label, and the label is mostly opinion plus administration, frozen at an arbitrary moment."
+featured: false
+clinicalAdjacent: true
+---
+
+Hand two radiologists the same hundred films and they will disagree on more of them than any model card admits. Not the easy ones — the easy ones everyone gets. The hard ones, the borderline nodule, the equivocal opacity, the line that might be a fracture and might be a vessel. On those, two competent readers diverge, and they diverge in a way that is not noise to be averaged away but the irreducible texture of judgement at the edge of what an image can tell you. Now train a model on one of those readers' reads. The model is not learning the disease. It is learning the disease *and* the reader's particular way of being uncertain about it — and then it gets a number, to two decimal places, certifying how well it reproduces that blend.
+
+That number is the foundation everything else in medical AI is built on. Accuracy, sensitivity, specificity, the ROC curve in the pitch deck, the "matches expert performance" line in the press release — all of it rests on the assumption that there exists, somewhere, a true answer the model is being compared against. The assumption is doing enormous work, and it does not survive contact with how medical labels are actually made. The ground truth wobbles. And anything you build on a wobbling foundation inherits the wobble, however precise your measuring instrument.
+
+## Where labels actually come from
+
+Ask where a medical AI's ground truth came from and you rarely get a satisfying answer, because the honest answer is unflattering.
+
+A great deal of it comes from discharge codes. These look like clinical truth — a tidy alphanumeric statement of what was wrong with the patient — and they are nothing of the kind. Coding is a billing and administrative exercise, performed after the fact, optimised for reimbursement and reporting rather than for capturing what a clinician actually thought. A code records what was documented in a way the system could bill for, which is a different thing from what happened, which is a different thing again from what was true. Train a model to predict the code and you have built something very good at predicting an administrative artefact. People then describe it as predicting the disease.
+
+Much of the rest comes from single-reader annotation, often under time pressure, often for money, often by people working through thousands of cases on a screen with none of the context the original clinician had. One person's opinion, captured once, becomes the immovable truth against which a model is graded forever. There was no second reader. There was no adjudication. There was a deadline.
+
+Then there is the subtler corruption: outcomes that depend on which tests were ordered. A "confirmed" diagnosis is only confirmed if someone went looking. The patient who was scanned gets a definitive label; the patient who was sent home with reassurance gets recorded as not having the thing nobody checked for. This is verification bias, and it quietly poisons the denominator — the apparent truth is shaped by the workup, and the workup was shaped by the very suspicion the model is now being trained to form. The label and the clinical hunch are not independent. They are entangled at the source.
+
+And all of it shares one structural flaw: the label freezes when the record closes. The encounter ends, the notes are signed, the data is extracted, and at that instant the "truth" is fixed. But illness does not respect the moment the record closed. The patient labelled well at discharge who deteriorated the following week. The "benign" finding that declared itself eighteen months later. The final impression that was simply the last opinion anyone wrote down before the file went quiet. The record stops. The biology continues. The label remembers only the pause.
+
+## Disagreement is the norm, not the exception
+
+The instinct, hearing all this, is to treat reader disagreement as a quality problem — sloppy work, fixable with better training or clearer protocols. That instinct is wrong, and it matters that it is wrong.
+
+Inter-clinician agreement, measured properly, is lower than most people building these systems would find comfortable, and it is lower across the board — imaging, electrocardiograms, histopathology, the reading of almost anything that requires judgement rather than measurement. This is not a secret. The reliability literature has documented it for decades, in the unglamorous statistics that quantify how often two experts shown the same thing reach the same conclusion. The numbers are humbling, and they are humbling precisely in the domains where AI is most loudly claiming to match or beat the expert.
+
+The point worth holding onto is that this disagreement is not incompetence. At the centre of the distribution, agreement is high; the clear cases are clear. Disagreement concentrates at the boundary — the ambiguous, the early, the atypical — and that is exactly where it should be, because the boundary is where the underlying reality is genuinely uncertain. Two excellent clinicians disagreeing about an equivocal film are not both failing. They are correctly representing that the film is equivocal. The disagreement is information about the world, not error to be scrubbed out of it.
+
+Which leaves the model in an awkward position nobody likes to state plainly. A model graded against a single reader is being graded against a single opinion — and not even a representative one, just whichever clinician happened to annotate that dataset. Score it against a different reader and the accuracy figure moves, not because the model changed but because the ruler did. When the ground truth is itself a matter of legitimate disagreement, "accuracy against ground truth" quietly becomes "agreement with one particular person." Those are not the same claim, and only the first one sells.
+
+## What this does to the accuracy figure
+
+Once you take the wobble seriously, a hard ceiling comes into view, and it is one the marketing never mentions.
+
+A model cannot meaningfully be more reliable than the labels it was trained and tested on. If the people generating the ground truth agree with each other only so often, then "agreement with the ground truth" is bounded by the reliability of that ground truth itself. You cannot exceed the consistency of your own ruler. A reported accuracy that sails above the rate at which expert humans agree with *each other* is not necessarily evidence of brilliance. It may be evidence that the model has learned to reproduce one labelling process very faithfully — including that process's quirks, shortcuts, and systematic leanings.
+
+This is what makes "superhuman performance" the phrase to distrust most. Superhuman against what? If the benchmark labels were made by humans, then the ceiling for measured performance is, in a real sense, human-shaped. A model that beats the benchmark may simply have overfit to the benchmark's particular flavour of being human — its house style, its blind spots, the way its annotators resolved ambiguity. That is not superhuman. That is an excellent impression of one specific room of people, scored against the room that taught it.
+
+There is a clinical version of test-set contamination lurking here too, and it is more insidious than the usual kind. The ordinary worry is that training data leaks into the test set. The deeper worry is that the labels on both sets were generated by the very process the model is learning to imitate. When the model and the ground truth are products of the same fallible pipeline — same coding conventions, same documentation habits, same diagnostic culture — high agreement between them is partly the system grading its own homework. The model and the truth are correlated because they share an upbringing, and the accuracy figure mistakes that shared upbringing for correctness.
+
+## What better looks like
+
+None of this is an argument for despair, and it is certainly not an argument that the models are useless. It is an argument for honesty about what the number means — and there are concrete ways to earn a better one.
+
+The first is to stop treating a single annotation as truth. Multi-reader consensus, explicit adjudication of the cases where readers diverge, labels that carry their own uncertainty rather than pretending it away — these cost more, slow everything down, and produce a ground truth that actually deserves the name. A label that records "three of five readers agreed, the case was genuinely borderline" is worth more than a clean binary that hides the same disagreement behind false confidence. Uncertainty in the label is not a defect to be smoothed over. It is the most truthful thing the label can tell you.
+
+The second is to anchor to outcomes wherever outcomes exist. What happened to the person is harder to argue with than what someone wrote about them. Did the patient deteriorate, recover, return? Outcome-anchored truth is not always available, and it brings its own confounders — but where it can be had, it is closer to reality than any annotation, because it is reality, not an opinion about it. The discharge code says what was billed. The outcome says what occurred. Only one of those is ground.
+
+The third is the cheapest and the rarest: say where the labels came from. A model card that reports label provenance — who annotated, how many of them, how they handled disagreement, whether the "truth" is a code, a single read, a consensus, or an outcome — tells a clinician what the accuracy figure is actually worth. Most model cards report the figure and bury the provenance, which is precisely backwards. The figure without the provenance is a number floating free of its meaning. The provenance is the meaning.
+
+## What this means
+
+The seductive question about a clinical model is "how accurate is it?" — because accuracy comes as a number, and numbers feel like the end of an argument rather than the start of one. The better question is quieter and more uncomfortable: *accurate against what, and who decided?* A model that matches the label perfectly has told you it matches the label. Whether the label was ever true is a separate question, and usually an unasked one.
+
+This is not a reason to reject medical AI. It is a reason to read its claims the way you would read a study with an unstated methods section — with the specific suspicion that the most important decisions were made before any measurement began. Ground truth in medicine was never bedrock. It was opinion, plus administration, plus the accident of when the record happened to close. Build on it by all means. Just know what you are building on, and stop quoting the wobble to two decimal places as though the precision had made it solid.
+
+## Key Takeaways
+
+- Medical "ground truth" is largely opinion plus administration — single reads, billing codes, and outcomes shaped by which tests were ordered — frozen at the arbitrary moment the record closed.
+- Expert clinicians disagree most exactly where reality is genuinely ambiguous; that disagreement is information about the world, not incompetence to be scrubbed out.
+- A model cannot reliably exceed the consistency of its labels, so "superhuman" performance against human-made benchmarks is the claim to distrust first.
+- When model and labels come from the same fallible pipeline, high agreement is partly the system grading its own homework — a clinical cousin of test-set contamination.
+- Better truth costs more: multi-reader consensus, uncertainty-aware labels, outcome anchoring where possible, and label provenance stated plainly in every model card.

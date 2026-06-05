@@ -1,0 +1,63 @@
+---
+title: "Alert Fatigue Is a Design Failure, Not a User Failure"
+subtitle: "When a clinician clicks through a warning without reading it, the system has not been ignored. It has been understood."
+slug: "alert-fatigue-is-a-design-failure"
+date: "2026-04-16"
+theme: "Clinical Safety"
+author: "Dr Omer Atli"
+description: "When a clinician clicks through a warning without reading it, the system has not been ignored. It has been understood."
+featured: false
+clinicalAdjacent: true
+---
+
+A clinician dismisses a drug-interaction warning in under a second, without reading it, and a safety committee somewhere decides the answer is more training. Teach them to slow down. Remind them that alerts exist for a reason. Add it to the mandatory module. The framing is so automatic that almost nobody stops to ask the obvious question: if a professional has learned to dismiss your warning on sight, what exactly did your warning teach them?
+
+Because it did teach them. A system that interrupts a clinician again and again with warnings that almost never matter has run a long, patient training programme, and the curriculum was *ignore me*. The clicking-through is not a lapse in attention. It is a learned, rational response to a channel that has cried wolf so many times that treating every alert as wolf would make the job impossible. Alert fatigue is the system working exactly as designed. The design is the failure.
+
+## The arithmetic of crying wolf
+
+Start with the numbers, because the numbers are where the user-failure story falls apart. Override rates for the most common clinical decision-support alerts are not high in the way a worrying statistic is high. They are high in the way a verdict is high. The well-documented finding across health informatics is that the great majority of interruptive medication alerts are dismissed — overridden, clicked past, closed — and that clinicians are, most of the time, *correct* to dismiss them. The alert fired on a combination they had already considered, or on a risk that did not apply to this patient, or on a threshold set so conservatively that it flags the routine as if it were the dangerous.
+
+This is not a story about careless clinicians. It is a story about signal detection. Any warning system trades two errors against each other: missing the real thing, and firing on the false one. Tune a system to catch every conceivable hazard and you flood the channel with false positives. And a human on the receiving end of a channel that is overwhelmingly false positives does the mathematically sensible thing — they stop attending to it. Not consciously, not as a decision, but the way anyone stops hearing a car alarm. The base rate teaches the behaviour. If the warning is wrong nine times out of ten, reading all ten carefully is not diligence. It is a tax the day cannot afford.
+
+So the dismissal is rational, and here is the part that should worry the people designing these systems: it is rational *in aggregate* and dangerous *in the particular*. The clinician who has learned to wave through the noise will, eventually, wave through the one alert that was real — not because they are reckless, but because the system spent their attention on a thousand false alarms and had nothing left in the account when it finally mattered. Every unjustified alert is a small withdrawal from a balance the justified alert will one day need. Over-alerting does not add safety on top of safety. It spends the credibility the whole mechanism runs on, and then acts surprised when the cheque bounces.
+
+## Why systems over-alert anyway
+
+If over-alerting is so clearly self-defeating, why is it everywhere? Because the incentives that govern what gets added to a clinical system are almost perfectly designed to produce it.
+
+Consider the asymmetry of blame. When a system fails to warn about a genuine hazard and a patient is harmed, the absence of that warning is visible, investigable, and damning. It appears in the incident report. It is the kind of failure that ends up in front of a coroner. But when a system fires a thousand needless warnings and a clinician, worn down by the noise, misses something — that failure is diffuse, deniable, and conveniently attributable to the human at the keyboard. Nobody is ever called to account for the false positives. There is no review board for wasted attention. So the rational move for a risk-averse vendor or a defensive committee is to add the warning, every warning, because the cost of the missed alert lands on *them* and the cost of the noise lands on *someone else* — the clinician, downstream, invisibly.
+
+Then there is the simple physics of the thing. Alerting is cheap to add and expensive to remove. Adding a warning is an afternoon's work and a satisfying sense of having Done Something About Safety. Removing one is a fight: someone has to argue, on the record, that a particular warning is not worth its noise — and if they are wrong, even once, their name is on the deletion. So warnings accumulate the way regulations accumulate, by ratchet. Every safety committee, every incident review, every well-meaning specialist who notices a gap, adds. Nobody owns subtraction. There is no role whose job is to walk the system and ask which alerts have earned their place. The result is sedimentary: layer on layer of well-intentioned interruption, each defensible in isolation, collectively catastrophic, and structurally protected against anyone ever clearing it out.
+
+This is how you arrive at a system that fires constantly and warns effectively never. Not through any single bad decision. Through a thousand reasonable ones, each made by someone who was, locally, doing their job.
+
+## The comfort of blaming the user
+
+Against all this, retraining is an almost irresistibly attractive response — and it is worth being honest about why, because the attraction is the problem.
+
+Retraining is cheap. It is visible. It produces an artefact — a completed module, a signed attendance sheet, a slide that says *awareness raised* — that can be pointed to when someone asks what was done. It locates the fault in a place that requires no engineering, no redesign, no awkward conversation with the vendor, no admission that the system itself is the hazard. It is, in every respect except the one that matters, an excellent solution. The one respect it fails on is that it does not work, because it is aimed at the wrong target. You cannot train a human out of a response that the system is actively, continuously training *into* them. The module ends; the alerts continue; the base rate reasserts itself within a week. Behaviour follows incentives, and the incentive — read everything or get through the day, pick one — has not moved an inch.
+
+What retraining really does is relocate responsibility. It takes a systems problem and reframes it as a personal failing, which is administratively convenient and analytically false. This is the same move that turns every complex failure into "human error" and stops looking — the move that mistakes the name of the person nearest the harm for the cause of it. Blaming the clinician's attention for alert fatigue is not an analysis. It is the decision to stop analysing, dressed up as a corrective. And it has a tell: if the proposed fix would survive the original designers being replaced by a different, equally competent team who would face the same noisy system and learn the same dismissal — then the fix has not touched the actual cause. A different clinician on the same system fatigues identically. The constant is the design.
+
+## What good alerting actually looks like
+
+The alternative is not to stop warning. It is to treat interruption as the scarce, expensive, finite resource it actually is — and to spend it like one.
+
+The governing idea is the alert budget. A clinician's attention during a shift is a fixed quantity, and every interruption draws it down. Once you accept that the budget is real and small, the design discipline writes itself: not every concern earns an interruption. Most belong in the passive layer — visible if looked for, surfaced in context, available without seizing control of the screen. Only the genuinely action-critical, the things that would change what the clinician does in the next moment and would plausibly be missed otherwise, get to interrupt. Tiering is not a nicety. It is the rationing the budget forces, and a system that makes everything interruptive has simply refused to do the rationing, and pushed the cost onto the only part of the system that cannot say no.
+
+Then the warnings have to earn their continued existence. Every alert type should be measured: how often it fires, how often it is overridden, how often the override turns out to have been wrong. An alert overridden ninety-nine times in a hundred is not a safety barrier; it is noise wearing a high-visibility jacket, and it should be re-tuned or retired. This is the role nobody currently owns — the steward of the budget, whose job is to walk the system and ask of each interruption whether it still pays its rent in attention. Yield monitoring turns "could this warning help?" — a question to which the answer is always, trivially, yes — into "does this warning help enough to justify what it costs the others?", which is the only question that protects the channel.
+
+And this is exactly where the next decade's pressure is about to land. Every new model, every clever predictive layer, every AI tool bolted onto the clinical record arrives wanting to tell the clinician something. A new sepsis predictor, a deterioration score, a flag for the missed diagnosis — each genuinely useful, each desperate for an interruption. If these are allowed to fire for free, on top of the existing sediment, the budget collapses entirely and the most sophisticated tools we have ever built will achieve nothing except teaching clinicians to ignore a richer class of warning faster. The discipline is non-negotiable: a new model does not get a fresh, unlimited line of credit. It buys its interruptions from the same budget as everything else, at the same price, and it has to be *more* valuable than whatever it crowds out. An alert that cannot prove its yield does not earn the screen, and "but it's AI" is not a yield.
+
+## What this means
+
+The deepest error in the user-failure framing is that it asks the wrong question about every warning. The question that built the noise was *could this help?* — and the answer is always yes, which is precisely why it builds noise without limit. The question that fixes it is harder and almost never asked: *what does this cost the warnings already here?* Attention is not free, it does not refill on demand, and a warning that spends it without earning it has made every other warning a little quieter. A system that interrupts hundreds of times a shift to be right twice has not been over-cautious. It has dismantled its own ability to be heard, one defensible alert at a time, and then blamed the people it deafened. Alert fatigue is not a failure of clinicians to pay attention. It is a failure of design to deserve it.
+
+## Key Takeaways
+
+- High override rates are not carelessness — they are the rational response to a channel that is mostly false positives. A warning ignored most of the time has trained its own dismissal.
+- Over-alerting is driven by blame asymmetry: a missed warning is visible and damning, while the cost of a thousand needless ones lands invisibly on the clinician downstream. So systems add, and nobody owns subtraction.
+- Retraining is cheap, visible, and useless against a problem the system itself creates — it relocates responsibility onto the user instead of fixing the design, which is the decision to stop analysing.
+- Good alerting treats attention as a fixed budget: tiered, interruptive only when action-critical, and continuously measured so every alert earns its place by yield or gets retired.
+- AI does not get a free line of credit. Every new model must buy its interruptions from the same attention budget as everything else and prove it is worth more than what it displaces.

@@ -1,0 +1,75 @@
+---
+title: "The Demo Is Not the Deployment"
+subtitle: "Healthcare AI is bought on its best day and used on its worst, and the distance between the two is where most of the failures live."
+slug: "the-demo-is-not-the-deployment"
+date: "2026-04-06"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "Healthcare AI is bought on its best day and used on its worst, and the distance between the two is where most of the failures live."
+featured: false
+clinicalAdjacent: true
+---
+
+The demo runs in a quiet meeting room. The audio is clean because there is one speaker and no corridor behind him. The history is textbook because the case was chosen to be textbook. The patient is cooperative, articulate, and internally consistent, because the patient is the sales engineer, and he has run this script forty times. The note that appears on screen is immaculate. Everyone nods. Someone says the word seamless.
+
+Now run the same product at three in the morning. There is a fan running, a monitor alarming two bays over, and a relative answering questions the patient was asked. The presenter's story changes twice in four minutes, then a third time once the pain settles. The user has not read the manual, will never read the manual, and is doing three things at once because that is the job. The note that appears is plausible, fluent, and subtly wrong in a way no one will notice until later. Nobody says seamless, because nobody is watching the screen.
+
+These are not two performances of the same system. They are two different systems that happen to share a logo — and the entire commercial and clinical case for the product was built on the first one.
+
+## What a demo selects for
+
+A demo is an existence proof. It establishes that the product can, under some conditions, do the thing. That is genuinely worth knowing; a product that cannot clear even the curated bar is not ready for anything. But an existence proof is routinely mistaken for an evidence base, and the slide from one to the other is where buyers start paying for a performance they will never see again.
+
+Look at what the demo quietly controls. The inputs are curated — the acoustics are good, the data is complete, the case was picked because the product handles it. The operator knows the happy path by muscle memory and steers around the soft spots without anyone noticing he is steering. The cases shown are the cases that work; the ones that don't are, reasonably enough, not on the reel. None of this is deception. A demo is supposed to show the product at its best, the same way a job interview shows the candidate at theirs. The error is not the demo. The error is treating it as representative.
+
+What the demo cannot show is variance, because variance is precisely what it was built to exclude. And in clinical use, variance is not noise around the signal. Variance is the signal. The interesting question is never how the product performs on the case the vendor chose. It is how the product performs on the case nobody chose — the one that walks through the door at an inconvenient hour and refuses to read the script.
+
+## What deployment selects for
+
+Deployment selects for the opposite of everything a demo curates, and it does so relentlessly, every shift, by design.
+
+It selects for the worst hour of the worst day, not the average one. Nobody experiences the average. They experience the surge, the short-staffed night, the moment three things go wrong together — and that moment is over-represented in memory and in incident reports precisely because it is when systems are leaned on hardest. A product that holds up on a calm afternoon and quietly degrades under load has not been tested where it matters. It has been tested where it doesn't.
+
+It selects for the user who never read the manual. Real users do not invoke the happy path. They mumble, they interrupt, they trail off, they use the tool in ways its designers never modelled because they are improvising around a busy room. The product meets people at their most distracted, not their most attentive, and a system that only works when the human is careful has misunderstood who the human is and what the day is doing to them.
+
+And it selects for the edge case, daily, because medicine is edge cases at volume. Every clinician knows the unsettling truth that the textbook presentation is the exception. The atypical, the comorbid, the patient whose chief complaint is not their actual problem — these are not rare events the system will occasionally meet. They are the standing condition of the work. A product evaluated on typical cases has been evaluated on the part of medicine that was never the hard part.
+
+There is a tidy asymmetry here. The demo is built from the cases a product handles; the deployment is built from the cases reality hands it. One is a flattering self-portrait; the other is a stranger arriving at four in the morning. Buying the first and deploying the second is the original sin of healthcare AI procurement, and most of what then gets blamed on the model was decided long before the model ran.
+
+## The gap is measurable, so measure it
+
+The consoling thing about this distance is that it is not mystical. It is a quantity. It can be measured, and the fact that it so rarely is tells you more about how these products are bought than about how they work.
+
+Start with the obvious comparison nobody runs: performance on curated cases versus performance on consecutive, unselected ones. Not the cases someone picked — the next hundred that come through the door, in order, including the messy and the ambiguous and the frankly annoying. The number that matters is not how well a product does on its showreel. It is how far that number falls when the showreel stops and the corridor begins. That drop is the demo-deployment gap expressed as a figure, and it is the single most useful figure a buyer could ask for.
+
+Then watch time-to-abandonment. There is a moment, weeks after the contract is signed and the enthusiasm has cooled, when a user quietly stops bothering — toggles the thing off mid-encounter, goes back to typing, never files a complaint because complaining is also work. That silent attrition is the truest verdict a clinical tool ever receives, far more honest than any satisfaction survey, because it is a behaviour rather than an opinion. A product can demo brilliantly and be dead on the ward within a month, and the only evidence will be a usage graph quietly bending towards zero that nobody thought to plot.
+
+And distinguish loud failures from silent ones. A loud failure announces itself — the tool crashes, the audio drops, someone notices. A silent failure produces a fluent, confident, plausible output that is wrong, and gets believed. Loud failures are an irritation. Silent failures are the dangerous ones, because they spend clinical trust without ever triggering the alarm that would let someone catch them. A system's silent-failure rate is harder to measure than its accuracy and matters considerably more, because accuracy counts the times it was right and silent failure counts the times it was wrong while sounding right.
+
+All of which points at one unglamorous request a buyer can make: ask for deployment data, not pilot data. Consecutive-case performance from somewhere the product is actually in use, under load, on the unselected stream. The answer is informative either way. If it exists, it is the most useful thing in the room. If it doesn't — if the conversation slides back towards the pilot, the curated set, the friendly site that ran it as a favour — then the gap has not been measured, which means it has been hoped about, and a hope is not a safety case. The silence is the finding.
+
+## Designing for the distance
+
+For the people building these systems, the lesson is not to demo less honestly. It is to treat the distance between the demo and the deployment as the actual design problem, rather than an embarrassment to be managed once the product is live.
+
+That starts with building for the distracted user instead of the attentive one. The attentive, careful, manual-reading user is a fiction the designer invents to make the system look good to himself. The real user is interrupted, tired, and parallel-tasking, and a product that assumes otherwise is optimising for a person who does not work here. Design for the night, and the day takes care of itself.
+
+It means failing loudly and legibly. A system that does not know something should say so, plainly and in time — before a decision rather than in a retrospective audit — rather than dressing a guess in the same confident register it uses for the things it actually knows. The most useful clinical instrument is not the one that is right most often. It is the one that is honest about when it is not.
+
+It means instrumenting real usage from the first day. If you cannot see how the product behaves in the wild — where it is quietly switched off, which cases make it stumble, how its outputs hold up when nobody is grading them — you are flying on the demo, and the demo already told you everything it was built to tell you, which is not much. The whole point of instrumentation is to keep learning after the part you controlled has ended.
+
+And it means writing the gap down as a named risk. The distance between curated and consecutive performance is not a marketing inconvenience. It is a hazard in the proper sense — a way the system can contribute to harm — and it belongs in the safety case as an explicit, owned line, not as an optimistic assumption tucked under a number nobody examined. A team that has named the gap can manage it. A team that has not has simply agreed not to look at it.
+
+## What this means
+
+The whole problem reduces to a single mismatch. Healthcare AI is evaluated in conditions it will never encounter again the moment the contract is signed, and then everyone is surprised when conditions it was never shown defeat it. The demo was real. It was just answering a question — can this work at its best — that has very little to do with the question the ward asks every night, which is whether it still works at its worst.
+
+So the discipline cuts both ways. Buyers should stop assessing products in a room the product will never see again, and start asking what happens on the consecutive stream, under load, in the hands of someone who never read the manual. Builders should stop being startled that the corridor is not the meeting room, and start treating the distance between the two as the thing they are actually being paid to close. The model is rarely the part that failed. The failure was deciding, somewhere between the demo and the deployment, that the two were the same — and then never going back to check.
+
+## Key Takeaways
+
+- A demo is an existence proof under curated conditions, not an evidence base; treating the first as the second is where healthcare AI procurement goes wrong.
+- Demos select for best-case inputs and a guided operator; deployment selects for the worst hour, the distracted user, and the atypical case that arrives daily because medicine is edge cases at volume.
+- The gap is a measurable quantity: curated versus consecutive-case performance, time-to-abandonment, and silent-failure rate tell you more than any demo accuracy figure.
+- Silent failures — fluent, confident, wrong, and believed — spend clinical trust without ever tripping an alarm, which makes them more dangerous than the loud kind.
+- Ask vendors for consecutive-case deployment data rather than pilot data; if the answer slides back to the curated set, the gap has been hoped about rather than measured, and the silence is itself the finding.

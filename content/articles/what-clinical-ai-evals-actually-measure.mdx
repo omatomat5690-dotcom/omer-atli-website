@@ -1,0 +1,76 @@
+---
+title: "What Clinical AI Evals Actually Measure"
+subtitle: "A model that aces the membership exam has proven one thing: that the exam was automatable. Nobody's shift got safer."
+slug: "what-clinical-ai-evals-actually-measure"
+date: "2026-04-22"
+theme: "Healthcare AI"
+author: "Dr Omer Atli"
+description: "A model that aces the membership exam has proven one thing: that the exam was automatable. Nobody's shift got safer."
+featured: false
+clinicalAdjacent: true
+---
+
+Every few months a new model clears a medical licensing exam and the headline writes itself: *AI passes the test doctors dread*. The score is real. The achievement is narrower than it sounds. What the model has demonstrated is that a multiple-choice exam — a format designed to be sat in silence, against a clock, with every fact you need already on the page — can be answered by a machine. That is a fact about the exam. It tells you the exam was automatable. It tells you almost nothing about whether the thing would be safe on a single real patient, because the exam and the patient have almost nothing in common.
+
+This matters because deployment decisions are increasingly justified by exactly these scores. A benchmark number gets quoted in a pitch, a procurement meeting, a board paper, and stands in for a claim it cannot support: that the system can do the job. So it pays to be precise about what these evaluations measure, what they quietly delete, and what a serious clinical evaluation would have to contain before anyone should lean on it.
+
+## The benchmark inheritance problem
+
+Medical AI inherited its yardsticks from human examinations. That was the path of least resistance — the questions already existed, they were already graded, they already carried the imprimatur of the colleges and boards that wrote them. So the field measured models against licensing-style multiple-choice questions, vignette banks, the standard format of professional exams. The benchmarks were lying around, validated by decades of use on humans, and free.
+
+But those exams were never built to certify clinical competence. They were built to test one slice of it — knowledge retrieval under artificial constraint — because that slice is the part you *can* test cheaply at national scale, on paper, marked by a machine. An exam is a proxy. For a human candidate it's a defensible proxy, because passing it correlates with years of supervised practice the exam never sees: the wards, the nights, the consultant watching you take a history. The score rides on top of all that hidden training. Hand the same exam to a model and the scaffolding isn't there. The proxy gets measured directly, with nothing underneath it, and the correlation that made the exam meaningful for humans simply doesn't transfer.
+
+Then there's saturation. When models start clustering near the ceiling of a benchmark, the natural reading is that the problem is nearly solved. The more honest reading is that the benchmark is nearly exhausted — it has stopped discriminating between systems, which means it has stopped telling you anything except that everyone can now do the automatable part. A saturated benchmark is not a finish line. It's a measuring instrument that has run out of range. Past that point the score tells you about the test, not the world.
+
+## What the quiz format quietly removes
+
+The deepest problem isn't that the questions are too easy. It's everything the quiz format strips out to make a question gradeable in the first place. Each deletion is invisible on the page and load-bearing in the work.
+
+**Information arrives pre-packaged.** An exam question hands you the relevant history, the pertinent negatives, the salient examination finding, tidied and sequenced. Real clinical work begins one step earlier and harder: nobody hands you the relevant facts, because deciding which facts are relevant *is* the task. The patient gives you a symptom they can name, in the order it occurs to them, wrapped in detail that may or may not matter. Choosing the next question — and noticing the thing nobody mentioned — is most of the skill. The quiz starts after that work is already done, by the examiner, for free.
+
+**Exactly one answer is correct.** The format requires it; you cannot mark a paper otherwise. Real presentations frequently admit several defensible moves, and competence often lives not in picking the one right action but in holding two reasonable paths open while you gather what would distinguish them. A format that demands a single keyed answer cannot represent that, and so it cannot test it. It quietly trains both the model and its evaluators to believe medicine has the shape of a test, when its actual shape is a decision under uncertainty that the next hour may revise.
+
+**Nothing is at stake and nothing interrupts.** No pager. No second patient deteriorating down the corridor. No fatigue at hour nine, no incomplete record, no family in the room. The exam is a clean-room measurement of a process that never runs in a clean room. A system that performs beautifully in silence has been tested under the one condition guaranteed never to hold.
+
+**There is no follow-up.** This is the quiet one, and the most important. The question ends the moment an answer is given — which is the precise moment clinical responsibility actually begins. Real medicine is what happens after the first decision: the result that comes back odd, the patient who doesn't improve as expected, the story that shifts overnight. An evaluation that terminates at the answer measures the one slice of the work that carries no consequences, and skips the entire part that does.
+
+Strip a presentation of information-gathering, plural valid moves, pressure, and consequence, and you have removed the conditions that make clinical work clinical. What's left is a vocabulary test in a lab coat.
+
+## What a real clinical eval would have to measure
+
+If the quiz deletes the job, a serious evaluation has to put it back. That means measuring behaviours most current benchmarks never look at — harder to score, but the only ones that map onto safety.
+
+**Information-seeking.** Given a deliberately incomplete picture, does the system ask the right next question, or commit to a confident conclusion from too little? Premature closure is one of the oldest and most dangerous failure modes in medicine, and the quiz cannot detect it because the quiz never withholds anything. An eval that hands the system an under-specified case and watches what it reaches for tests something the exam structurally cannot.
+
+**Calibration.** Not just whether the system is right, but whether its stated confidence tracks how right it actually is. A model that is correct often but equally assertive when wrong is more dangerous than one that is less accurate but signals its own uncertainty, because the human leaning on it can only see the confidence, not the underlying truth. Most benchmarks score the answer and ignore the certainty stapled to it — which, in a deployed system, is half of what determines harm.
+
+**Abstention.** Does the system know the edge of its own competence, and hand over rather than improvise across it? Knowing when not to answer is a clinical skill — arguably the foundational one — and it is invisible to any benchmark that rewards only the production of answers. A format that scores every response and never rewards a well-judged "this needs a human" selects against precisely the behaviour you most want in the field.
+
+**Robustness.** Does performance survive the small perturbations of reality — the same case paraphrased, the patient who presents atypically, the record with a section missing, demographic variation that shouldn't change the medicine but routinely changes the output? A score that holds on the canonical phrasing and collapses on a reworded version of the same problem is measuring fluency with the benchmark, not grip on the task.
+
+**Longitudinal coherence.** Almost every benchmark is a snapshot: one question, one answer, no memory. Care is a trajectory. Does the system stay coherent across a whole episode — the admission, the ward round, the result three days later, the deterioration overnight — or does it treat each moment as unrelated to the last? The single most consequential clinical question is often not "what is this?" but "is this the same problem as yesterday, getting better or worse?" A snapshot eval cannot ask it, and so it never does.
+
+None of these is exotic. They're just expensive — they resist a tidy single number, they need cases built to withhold and evolve rather than to resolve, and they reward judgement over recall. Which is exactly why the field reached for the multiple-choice bank instead, and exactly why the multiple-choice bank tells you so little.
+
+## Who should be doing this
+
+Here is the structural reason clinical evals look the way they do: they are mostly designed by people who evaluate models, and only checked afterwards by people who do the work. Clinicians get consulted late — asked to sanity-check a leaderboard, sign off a question set someone else has already shaped. By then the format is fixed, and the format is where the deletions happened. Reviewing the questions cannot recover what the structure threw away.
+
+The two cultures that need to meet here each hold half the answer and rarely sit in the same room. Machine-learning evaluation is rigorous about reproducibility, scale, and the discipline of a held-out test set — strengths clinical research often lacks. Clinical-trial culture is rigorous about what decides whether evidence means anything in a human being: defined endpoints that matter, predefined populations, harm taken as seriously as benefit, the long humility about how far a result generalises. ML evaluation knows how to measure a system precisely. Clinical methodology knows what is worth measuring and what a measurement is allowed to claim. Most current clinical AI evaluation has the first without the second — exquisite precision aimed at the wrong target.
+
+Closing that gap isn't a matter of adding a clinician to the acknowledgements. It means treating evaluation design itself as clinical work: deciding what to measure, how to withhold information realistically, which failures are dangerous rather than merely incorrect, what a passing score is actually licensing the system to do. That is a clinical judgement before it is a technical one, and it belongs to people who have carried the consequences — not as a courtesy review at the end, but with their hands on the design from the first decision.
+
+## What this means
+
+A benchmark score is a measurement, and like any measurement it's only as good as the correspondence between the test and the world. The current generation of medical AI benchmarks has a weak correspondence and a strong headline, which is the worst combination: it understates the problem and overstates the readiness in the same breath. The danger isn't that models pass these exams. It's that passing gets read as competence, the gap goes unmentioned, and somewhere downstream a deployment decision is made on a quiz score by people who assumed the quiz was the job.
+
+Until evaluations look like the work — incomplete information, evolving presentations, real consequences, and the discipline to abstain — they are not measuring clinical competence. They're measuring how well a system takes a test that was only ever a proxy, and that has now been automated. That is a genuine result. It is just not the one being sold. The honest move is to keep saying so, and to keep the word *competence* for the thing the benchmark hasn't measured yet.
+
+## Key Takeaways
+
+- Acing a medical exam proves the exam is automatable, not that the system is clinically competent — the score is a fact about the test, not the work.
+- Medical AI inherited human-exam benchmarks, but those exams only ever tested a thin proxy that rode on hidden clinical training a model doesn't have; saturation means the benchmark is exhausted, not the problem solved.
+- The quiz format deletes the job itself: pre-packaged information, a single correct answer, no pressure, and no follow-up — removing exactly the information-seeking, plural judgement, and consequences that make clinical work clinical.
+- A serious clinical eval has to measure information-seeking, calibration, abstention, robustness, and longitudinal coherence — behaviours that resist a single tidy number, which is precisely why benchmarks skip them.
+- Calibration and well-judged abstention matter more than raw accuracy in a deployed system, because the human can only see the confidence, not the truth underneath it.
+- Evaluation design is clinical work and needs clinicians shaping it from the first decision — not consulted after the format, and the deletions, are already locked in.

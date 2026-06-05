@@ -1,0 +1,61 @@
+---
+title: "Worst-First Thinking: How Emergency Medicine Reasons Backwards From Catastrophe"
+subtitle: "The emergency physician is not trying to work out what you have. They are trying to work out what you'd better not have."
+slug: "worst-first-thinking"
+date: "2026-04-18"
+theme: "Emergency Medicine"
+author: "Dr Omer Atli"
+description: "The emergency physician is not trying to work out what you have. They are trying to work out what you'd better not have."
+featured: false
+clinicalAdjacent: true
+---
+
+A man in his forties comes in with chest pain. By the time anyone has taken a proper history, the smart money already knows the answer: it is almost certainly nothing dangerous — a strained muscle, reflux, the chest wall complaining after a bad night's sleep. Those are the odds, and the odds are usually right. And yet the entire encounter is built around the one explanation the odds say won't be true. Bloods that look for a heart starved of oxygen. A tracing that hunts for a rhythm going wrong. A quiet, deliberate consideration of a clot sitting in the lungs. Most of that machinery will come back clean, in this patient and the next ten like him. It runs anyway. That is not inefficiency. It is the whole method.
+
+The method has a name, more or less: worst-first thinking. It inverts the question ordinary reasoning asks. Not *what is most likely* but *what is the most dangerous thing this could be, and have I done enough to exclude it?* It looks wasteful from the outside, because it spends most of its effort on possibilities that don't materialise. But it is the correct strategy in any setting where the costs of being wrong are wildly lopsided — where missing the rare killer costs incomparably more than over-checking for it. Emergency medicine lives at the extreme of that asymmetry. It is worth being precise about why the inversion is rational, where it earns its keep, and where it turns on the people using it.
+
+## Probability against consequence
+
+Most reasoning, most of the time, optimises for the average case. This is sensible. If you want to be right as often as possible, you bet on the likeliest explanation and you will win the great majority of your bets. A doctor who diagnosed every cough as a viral illness would have an enviable accuracy rate. The approach fails only on the cases that matter, which is the entire problem.
+
+Worst-first reasoning optimises for something else: it minimises the damage of the wrong answer rather than the frequency of it. It accepts being needlessly thorough thousands of times in exchange for not being catastrophically wrong once. Both strategies are rational. Neither is universally correct. What decides between them is not temperament but the shape of the cost — specifically, whether the price of a miss is symmetric with the price of a false alarm.
+
+In most of life it roughly is. Guess wrong about which restaurant is good and you have a mediocre dinner; the downside of caution and the downside of error are in the same ballpark, so betting on the likely answer is fine. Emergency medicine is the opposite. The cost of investigating a benign headache that turns out to be benign is an afternoon, some anxiety, a small bill to the system. The cost of sending home a benign-looking headache that was a bleed in the brain is a life. When the loss function is that asymmetric, reasoning from likelihood is not merely suboptimal — it is solving the wrong problem. You do not want the answer that is probably right. You want to have ruled out the answer you cannot afford to be wrong about. The setting chooses the logic, and this setting chooses worst-first.
+
+## How it works on the floor
+
+In practice the inversion is less mystical than it sounds. For most presentations that come through the door, an experienced clinician is carrying, somewhere in the back of the mind, a short list — not of the likely causes but of the lethal ones. Chest pain has its catalogue of ways to kill: the heart, the great vessel tearing, the clot in the lung. Headache has its own. Abdominal pain, the back that suddenly gives way, the patient who simply collapsed — each comes attached to a small, grim inventory of the things you must not miss. The likely diagnoses look after themselves. The rule-out list is what the reasoning actually grips.
+
+This reorders everything downstream. A test ordered to confirm a hunch is a different instrument from a test ordered to exclude a killer, even when it is the same test. The worst-first clinician reaches for investigations chosen for their power to rule *out* — for the ones that, when negative, genuinely close a door, rather than the ones that merely nudge a probability. The question driving the request is not "will this tell me what's wrong?" but "will this let me stop worrying about the thing I'm most afraid of?"
+
+And it quietly splits one question into two that ordinary reasoning keeps fused. "What is the diagnosis?" and "Is this person safe to send home?" feel like the same enquiry. They are not. You can answer the second without ever answering the first — and emergency medicine does so constantly, by design. A great many people leave having had the dangerous explanations reasonably excluded and the benign one never confirmed, which is a perfectly coherent place to stop. The diagnosis would be nice. The exclusion is the job. Discharge, properly understood, is its own clinical decision, and worst-first thinking is the engine underneath it.
+
+## The bill, stated honestly
+
+None of this is free, and pretending otherwise is where the method gets a bad name. Reasoning from catastrophe, run without restraint, has a failure mode as real as the misses it prevents.
+
+Every test cast wide to exclude a rare disaster also trawls up things nobody was looking for. The scan ordered to rule out a bleed finds a shadow of no consequence that now demands its own scan to disprove. The incidental finding — the nodule, the cyst, the harmless anatomical quirk dressed up as a question — generates its own cascade of follow-up, anxiety, and occasionally genuine harm from the investigation of a non-problem. Worst-first thinking, left to run hot, manufactures these. The pursuit of the rare killer has its own body count, quieter and more diffuse, and an honest account of the method has to put it on the page.
+
+Pushed further still, the inversion curdles into defensive medicine: testing not because the danger is plausible but because the clinician cannot bear the residual uncertainty, or fears the conversation that follows a miss more than the harm of the workup. At that point the reasoning has stopped tracking the patient's risk and started managing the clinician's discomfort. The cost matrix that justified worst-first thinking in the first place — lopsided, but real — has been replaced by one that simply refuses any exposure at all, and that version helps no one.
+
+So the skill was never "always assume the worst." Anyone can order every test. The actual competency, the thing that takes years to build and cannot be written into a protocol, is calibration: knowing when the killer has been excluded *enough*. When the door is closed firmly enough to walk away, against a danger that can never be reduced to absolute zero. Worst-first thinking without that judgement is not safe practice. It is just expensive anxiety with a stethoscope.
+
+## The same shape, elsewhere
+
+The structure is not medicine's private property. Strip it of the clinical vocabulary and worst-first thinking is simply the right way to reason about any system where failure is rare, asymmetric, and unforgiving — and once you see the shape, it turns up everywhere the stakes are lopsided.
+
+The engineer running a pre-mortem on a bridge or an aircraft is not asking what will probably happen; almost certainly nothing will. They are asking what would be catastrophic, and whether it has been designed out. The security team building a threat model does not defend against the average user; it reasons from the worst plausible adversary, because the cost of the breach dwarfs the cost of the precaution. Same inversion, same justification: where loss is asymmetric, you reason from the catastrophe backwards, not from the base rate forwards. Most disciplines that genuinely need this logic have had to discover it the hard way, usually after a disaster taught them the cost of reasoning from likelihood.
+
+Which is exactly why it is worth noticing what current artificial intelligence does instead. The dominant systems are, by construction, likely-first machines. A model that predicts the most probable next token is optimising for the average case in the purest possible form — it returns the answer that best fits the pattern, the plausible completion, the thing that is usually right. That is a superb engine for the common case and a structurally poor one for the asymmetric tail, because nothing in "most probable" knows that one of the improbable answers is the one you cannot afford to miss. A tool built to be usually right and a clinician trained to rule out the rare disaster are not differently skilled at the same task. They are pointed at different problems. And the judgement that matters most — knowing *when* a situation has stopped being an average-case problem and become an asymmetric one, when to abandon likely-first and switch to worst-first — is precisely the part that resists being automated, because it is a judgement about which game you are even playing.
+
+## What this means
+
+Worst-first thinking reads, to outsiders, like pessimism — a profession permanently braced for the worst, seeing tumours in headaches and clots in calf pain. It is nothing of the kind. The emergency physician knows, better than anyone, that the headache is almost always benign. The discipline is not in expecting catastrophe. It is in refusing to let the overwhelming likelihood of the benign answer excuse you from excluding the lethal one — because the stakes are not symmetric, and reasoning that ignores the shape of the stakes is not optimism or realism but negligence wearing the costume of common sense. That is the whole of it. Not gloom. Just an honest respect for what it costs to be wrong in the rare direction, and the discipline to organise your thinking around the cost rather than the odds. Most fields would be better for borrowing it. A few, where the wrong answer is irreversible, cannot afford not to.
+
+## Key Takeaways
+
+- Emergency medicine inverts ordinary reasoning: it optimises against the catastrophic miss, not for the most likely answer — the question is "what must I exclude?", not "what is this probably?"
+- The inversion is rational wherever error costs are asymmetric. Where a missed rare killer costs incomparably more than an unnecessary check, reasoning from likelihood solves the wrong problem.
+- It splits two questions ordinary reasoning fuses: "what is the diagnosis?" and "is this person safe to leave?" — the second can be answered, correctly, without ever answering the first.
+- Its failure mode is uncalibrated defensiveness — incidental findings, cascading workups, testing to soothe the clinician rather than the risk. The hard-won skill is knowing when the danger is excluded *enough*.
+- Most AI systems are likely-first by construction; worst-first clinical reasoning is a different shape entirely. Knowing *when* to switch between the two is the judgement that resists automation.

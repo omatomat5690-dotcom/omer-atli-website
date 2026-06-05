@@ -1,0 +1,69 @@
+---
+title: "Data Quality Is a Patient Safety Issue"
+subtitle: "A wrong allergy entered as a precaution a decade ago is still quietly removing the best drug from every decision made since — and nobody filed that as harm."
+slug: "data-quality-is-a-patient-safety-issue"
+date: "2026-05-26"
+theme: "Clinical Safety"
+author: "Dr Omer Atli"
+description: "A wrong allergy entered as a precaution a decade ago is still quietly removing the best drug from every decision made since — and nobody filed that as harm."
+featured: false
+clinicalAdjacent: true
+---
+
+Somewhere in a patient's record, a penicillin allergy was entered during a feverish week years ago. Maybe there was a rash. Maybe the rash was the infection, not the drug. The clinician who typed it was careful, hedging against a risk they couldn't rule out at 2am, and they moved on. The label stayed. Every prescriber since has read it, believed it, and reached past the obvious first-line antibiotic for something broader, costlier, and a little more likely to do collateral harm. The allergy was never real, or never confirmed, and it has shaped a hundred decisions. Nobody made an error. The record did.
+
+We have a comfortable category for events like that: data quality. It sounds like an IT concern — a tidiness problem, a thing for a governance committee and a quarterly dashboard. It is filed alongside duplicate addresses and misspelt surnames, somewhere safely downstream of medicine. This is a serious miscategorisation. The clinical record is not a description of care that happened elsewhere. It *is* the substrate that every future decision runs on. And a defect in a substrate is not a tidiness problem. It is a latent clinical hazard, lying in wait for the decision it will distort.
+
+## The record is the substrate, not the paperwork
+
+Watch how a clinical decision actually gets made and you notice it is almost never made from first principles. It is made from the record. What are they allergic to, what are they already on, what did the last person find, what was the trend. The chart is read far more often than the patient is freshly examined, because the chart is supposed to be the examined patient, accumulated and carried forward. Every decision is an act of trust in data somebody else entered, under pressures you will never see, with a confidence you cannot reconstruct.
+
+That trust compounds, and so do its defects. A decision made on a wrong fact becomes a note, and that note becomes a fact for the next reader, who reasons from it in good faith and writes another. The error doesn't sit still; it breeds. By the time it surfaces — if it ever does — it has descendants throughout the record, each wearing the authority of having been written down by a professional. Nobody can easily find the original mistake, because it no longer looks like a mistake. It looks like history.
+
+And the chart outlives everyone who built it. The clinician who entered the unconfirmed allergy has moved hospitals, or retired, and the context that would let someone challenge the entry — *was this ever real?* — left with them. What remains is a free-standing assertion with no author in the room, accreting authority precisely because it is old. Longevity, in a record, often means the opposite of reliability: it means nobody has had the time, or the standing, to question the thing in years.
+
+## How records rot
+
+Records do not degrade through dramatic corruption. They rot the way most institutional things rot — through small, individually reasonable accommodations to time pressure, each defensible, cumulatively corrosive.
+
+**Copy-paste inheritance.** The single most recognisable mechanism to anyone who has worked a ward. The previous note is carried forward and lightly edited, because re-deriving the whole picture from scratch on a busy take is a luxury nobody is given. Most of what gets pulled forward is fine. But errors ride along with the truth, indistinguishable, and they gain a year of seniority with every copy. A line that was a tentative impression on Monday is, after a fortnight of inheritance, a fixed and unquestioned part of the patient's identity. Note bloat is the visible symptom — pages of dense text restating yesterday — and the real cost is hidden inside it: the one new, important sentence is now buried in inherited filler that nobody has time to read past.
+
+**Stale problem lists and unreconciled medications.** A problem list is only useful if it tracks the patient, and tracking takes maintenance that is allocated to no one. So conditions linger on it long after they resolved, and active problems never make it on. Medication lists are worse, because they are edited in fragments — one prescriber stops a drug in their own notes but not on the list, another starts one that never propagates — until the list is a sediment of every decision ever half-made, accurate as a whole at no single moment in time. Reconciliation, the deliberate work of making the list match reality, is the most safety-critical clerical task in medicine and is treated as the most skippable.
+
+**Defensive documentation crowding out signal.** A great deal of what is written in a modern record is written to be read by a lawyer who will never come, rather than a clinician who will. The reflexive padding — the boilerplate, the cover-everything templates, the documenting *that* you considered something rather than *what* you concluded — produces a record optimised for defensibility and hostile to comprehension. The signal a future reader needs is real, but it is now suspended in a solution of text written for an entirely different audience.
+
+**Structured fields filled to dismiss the box.** Build a mandatory field and you will get it filled; you will not necessarily get it filled truthfully. Faced with a required dropdown standing between them and the next patient, people choose the option that makes the box go away — the default, the nearest-enough, the *unknown* that isn't quite true. The data looks immaculate: complete, structured, machine-readable, and quietly wrong in a way that free text at least wears on its sleeve. We built the structured field to improve data quality and, where it is resented, taught it to manufacture confident noise.
+
+None of this is malpractice. Every shortcut is a rational response to a system that demands documentation but resources it as an afterthought, squeezed into the cracks between the things that are actually counted. The record rots because keeping it accurate is everyone's responsibility and no one's job.
+
+## The AI multiplier
+
+For most of medicine's history, bad data had a saving grace: it was inert. A wrong allergy could only do harm when a human happened to read that specific line at the moment of a relevant decision. The defect was real but its blast radius was small, gated by human attention. That gate is now being removed.
+
+Feed a record into a model and every defect in it becomes training signal or reasoning input, at a scale and speed no human reader ever achieved. A model does not know that one line was a careful confirmed finding and the next was a box dismissed under pressure; they arrive as identical tokens, equally weighted, equally true. Systems learned from accumulated records inherit the accumulated rot — the copy-paste artefacts, the never-reconciled lists, the defensive boilerplate — and learn it as the shape of normal medicine. The ground truth these tools are built on is shakier than the polished output ever admits, and nothing in the output reveals the shake.
+
+Summarisation makes this worse in a particular and dangerous way. The signal use case — collapse this sprawling, bloated record into a clean paragraph — is genuinely useful, which is what makes it hazardous. The tool compresses, and compression cannot distinguish a load-bearing fact from an inherited error; it can only make both fluent. A stale problem and an active one, flattened into the same confident sentence. The contradictions and hedges that might have warned a careful human reader — *this doesn't quite fit, why are they still on that* — are precisely the texture that summarisation smooths away. You receive certainty where the record held doubt.
+
+And automation gives stale data a fresh voice. An error that had been quietly ageing in a record for a decade, increasingly ignorable, is suddenly retrieved, restated in crisp present-tense prose, and presented at the top of the screen as a current finding. The machine launders provenance. It strips the one cue a human had left to be suspicious — *this note is old and unsigned* — and hands back the same wrong fact looking newly minted and freshly authoritative. We are about to discover that a great deal of what we assumed was settled in our records was only ever unchallenged, and that there is a difference.
+
+## Treating data like a clinical asset
+
+If the record is a clinical asset, then its accuracy is clinical work, and the fixes follow from taking that sentence literally rather than rhetorically.
+
+**Reconciliation is clinical work with time attached.** The act of making a medication list, a problem list, an allergy record match reality is not administration to be done in the gaps; it is a safety-critical task that prevents harm as directly as any monitoring. Resourcing it as clerical residue — the thing you do if there's time left, which there never is — is a decision about how much harm is acceptable, made by omission. A system serious about its data would protect time for reconciliation the way it protects time for the procedures whose risks are more legible.
+
+**Provenance is part of the fact.** A datum without provenance is half a datum. *Penicillin allergy* tells you far less than *penicillin allergy, entered 2014, source uncertain, never confirmed* — the second is challengeable, the first is gospel. Knowing when a fact was last verified, and by whom, is what lets a future reader weigh it rather than merely obey it. Records that carry only the assertion and discard its history strip out exactly the metadata that would let the assertion be safely doubted. Stale facts are dangerous in proportion to how confidently they are stripped of their age.
+
+**Make correcting the record easier than working around it.** When fixing the source of an error is slow and bureaucratic but routeing around it is fast, clinicians will rationally route around it — and the workaround becomes the real workflow, leaving the wrong fact in place for the next person, who has no idea a workaround is even happening. The uncorrected record is the most expensive thing in the building, and we keep it that way by making correction harder than coping. Tools that make the act of fixing a record genuinely easier than the act of tolerating it would do more for data quality than any audit, because they would finally align the incentive with the truth.
+
+## What this means
+
+There is a quiet decision buried in how an institution treats its records, and almost nobody experiences making it. A health system that will not invest in the accuracy of its data has decided, by default and without minutes, to make every future decision slightly worse — to let a small population of wrong facts sit in the substrate and distort care, indefinitely, untraceably, for as long as the records endure. It feels like thrift. It is deferral. The cost doesn't vanish; it is paid later, in dispersed and deniable instalments, by patients who never learn that the best option was removed from their care a decade before they arrived, by a clinician who reached past the right drug in perfect good faith. Data quality is not the boring part of safety that happens after the clinical part. It is the clinical part, written down and waiting. Treating it as paperwork is how we agree, in advance, to keep being wrong.
+
+## Key Takeaways
+
+- The clinical record is the substrate every future decision runs on, not an administrative by-product of care; a defect in it is a latent clinical hazard, not a tidiness problem.
+- Records rot through reasonable shortcuts — copy-paste inheritance, unreconciled lists, defensive boilerplate, structured fields filled to dismiss the box — and a single error, once written down, breeds descendants that wear the authority of history.
+- AI removes the saving grace that bad data was inert: models weight a confirmed finding and a dismissed box identically, summarisation compresses errors into fluent certainty, and automation hands a decade-old mistake back in fresh, authoritative prose.
+- Provenance is part of the fact — when it was last verified, and by whom — and records that keep only the assertion strip out exactly what would let a future reader safely doubt it.
+- Verifying data is clinical work and should be resourced as such; until correcting the record is easier than working around it, clinicians will rationally route around it and leave the wrong fact for the next person.
