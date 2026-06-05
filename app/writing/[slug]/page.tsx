@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { getAllArticles, getArticleBySlug } from '@/lib/articles'
+import { getAllArticles, getArticleBySlug, getRelatedArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/format'
 import Enquiry from '@/components/Enquiry'
 
@@ -51,6 +51,7 @@ export default async function ArticlePage({
   const [body, takeaways] = article.content.split('## Key Takeaways')
 
   const url = `${SITE}/writing/${slug}`
+  const related = getRelatedArticles(slug)
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -179,6 +180,35 @@ export default async function ArticlePage({
           </div>
         </div>
       </div>
+
+      {related.length > 0 && (
+        <section className="section wrap" style={{ paddingTop: 0 }}>
+          <div className="shead">
+            <div>
+              <div className="kicker reveal">More on {article.theme}</div>
+              <h2 className="reveal">Related writing</h2>
+            </div>
+            <Link className="linkmore reveal" href="/writing">
+              All writing <span className="arr">→</span>
+            </Link>
+          </div>
+          <div className="essays">
+            {related.map((a) => (
+              <Link key={a.slug} className="essay reveal" href={`/writing/${a.slug}`}>
+                <div className="e-tag">{a.theme}</div>
+                <div className="e-body">
+                  <h3>{a.title}</h3>
+                  <p>{a.description}</p>
+                </div>
+                <div className="e-read">
+                  <span className="arr">→</span>
+                  {a.readingTime.replace(' read', '')}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="section wrap" style={{ paddingTop: 0, paddingBottom: 'clamp(56px, 9vw, 120px)' }}>
         <Enquiry />

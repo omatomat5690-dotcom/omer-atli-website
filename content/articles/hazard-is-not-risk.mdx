@@ -1,0 +1,69 @@
+---
+title: "Hazard Is Not Risk — and Confusing Them Is How Digital Health Ships Harm"
+subtitle: "Two words that digital health teams use interchangeably mean very different things. The confusion isn't pedantic — it's the mechanism by which real harm gets reasoned away."
+slug: "hazard-is-not-risk"
+date: "2026-06-04"
+theme: "Clinical Safety"
+author: "Dr Omer Atli"
+description: "Two words that digital health teams use interchangeably mean very different things. The confusion isn't pedantic — it's the mechanism by which real harm gets reasoned away."
+featured: false
+clinicalAdjacent: true
+---
+
+Sit in enough clinical safety discussions in digital health and you notice a recurring slippage. Someone identifies a way the product could hurt a patient, and someone else responds, reasonably, that it is "low risk". The conversation moves on. What just happened, almost invisibly, is that a *hazard* was raised and a *risk* judgement was used to dismiss it — and the two are not the same thing, and the substitution is one of the most common ways a genuine source of harm gets quietly filed away rather than engineered out.
+
+This sounds like terminology pedantry. It is not. The distinction between hazard and risk is the conceptual spine of clinical risk management, and teams that blur it end up making a specific, repeatable error: they let a comfortable risk estimate excuse them from dealing with a real hazard. Getting the two words straight is one of the highest-leverage things a digital health team can do, precisely because the confusion is so easy and so consequential.
+
+## The actual distinction
+
+A hazard is a potential source of harm — a property of the system that *could* lead to a patient being hurt. "The system can display the wrong patient's results" is a hazard. It describes a way the world could go wrong.
+
+Risk is something layered on top of the hazard: the combination of how likely that harm is to occur and how severe it would be if it did. "Wrong-patient display is unlikely and would usually be caught before it mattered" is a risk judgement.
+
+The relationship between them is the whole point. The hazard exists whether or not your risk estimate is correct. Risk is your *belief* about the hazard's likelihood and severity — and beliefs can be wrong, optimistic, or based on assumptions that do not survive contact with a real ward. When a team responds to a hazard by asserting it is low risk and stops there, they have not removed the hazard. They have appended an opinion to it. If that opinion is wrong, the hazard is still fully present, now with a reassuring label attached.
+
+## How the confusion ships harm
+
+The damage from blurring these follows a predictable shape.
+
+The first failure is **dismissal by estimate**. A hazard is raised; someone judges it unlikely; the judgement is treated as a resolution. But "unlikely" is not "addressed". The hazard is still in the system, and the only thing standing between it and a patient is the accuracy of a probability guess made by people with every incentive to guess low. Low-probability, high-severity hazards are exactly where this goes most wrong, because the rarity makes the optimistic estimate feel vindicated right up until the day it isn't.
+
+The second is **likelihood estimated from the wrong world**. Risk judgements in digital health are routinely made by imagining the system used as designed — by an unhurried clinician, one patient at a time, reading every screen. Real likelihood lives in the actual world of use: interruptions, fatigue, parallel tasks, the 4am edge of a shift. A hazard that is genuinely low-likelihood in the demo can be substantially higher-likelihood in the workflow, and a risk estimate anchored to the demo systematically understates it. The hazard didn't change; the estimate was just calibrated against a world that doesn't exist.
+
+The third is **severity quietly minimised**. The severity half of risk gets the same optimistic treatment as the likelihood half. "It would be caught" is a severity-reducing assumption, and it is doing enormous work — usually resting on a clinician noticing, in time, under load, something the system itself failed to flag. When the catch is assumed rather than engineered, the severity estimate is borrowing against a safety barrier that may not hold.
+
+The fourth, and most corrosive, is that **the risk estimate becomes the mitigation**. This is the subtle one. A hazard log entry reads: hazard identified, risk assessed as low, no further action. Nothing about the system changed. The "control" for the hazard is, in effect, the team's confidence that it won't happen. That is not a control. It is a hazard with a sticker on it — and stickers do not stop harm.
+
+## Why the slippage is so natural
+
+It is worth being fair about why competent, well-meaning teams do this constantly. Calling something low risk genuinely feels like dealing with it. It closes the open loop, satisfies the meeting, lets the roadmap proceed. It is also frequently *correct in expectation* — most low-risk hazards genuinely don't cause harm most of the time, which trains everyone to trust the move. The reinforcement is relentless: every hazard dismissed as low risk that then doesn't bite confirms the habit, and the rare time it does bite arrives long after the decision, dispersed and deniable.
+
+There is also a structural pull. Treating a hazard as a real engineering problem implies work — redesign, constraints, testing. Treating it as a risk to be estimated implies a judgement, which is faster and cheaper. Under deadline pressure, the cheaper move wins, and it wears the costume of diligence: a risk assessment was done, after all. The slippage is not laziness. It is the path of least resistance dressed as rigour.
+
+## What handling the distinction properly looks like
+
+The fix is not to abandon risk estimation — likelihood and severity genuinely matter for prioritisation. The fix is to stop letting a risk estimate substitute for dealing with the hazard. A few observable practices separate teams that get this right.
+
+**Hazards are tracked as hazards, independent of their risk rating.** The existence of a way the system can cause harm is recorded and owned regardless of how unlikely it is judged to be. A low risk rating changes the priority, not the reality of the hazard. The hazard is not "closed" by an estimate; it is closed by a change to the system or by an explicit, accountable decision to accept it.
+
+**Likelihood is estimated against the real world of use.** The question is not "how often would this happen if the system were used as we imagine?" but "how often would this happen given how clinicians actually work — interrupted, parallel, fatigued?" This single recalibration moves a lot of estimates upward, which is the point: it surfaces hazards the demo-world estimate would have buried.
+
+**Severity assumptions are named and tested, not assumed.** When a severity estimate rests on "it would be caught", the catch is treated as a barrier to be examined — does it actually exist, has anyone tested whether it holds under load — rather than a comforting clause. A barrier you are relying on but have never tested is a hypothesis, not a control.
+
+**The mitigation hierarchy is applied to the hazard, not the estimate.** Can the hazard be eliminated by design? Constrained by engineering? Only when those are genuinely exhausted does "warn, train, accept" become legitimate — and accepting a residual risk is written down as an explicit, owned decision, not implied by a low rating in a spreadsheet. "We accept this hazard, here is why, here is what we are watching" is honest. "Low risk, no action" is the slippage in its final form.
+
+**Acceptance is a decision someone makes, not a number a process produces.** The most important cultural marker is that accepting a hazard is treated as an accountable human choice — a named person deciding the residual risk is tolerable and saying so — rather than an automatic consequence of the risk score falling below a threshold. Numbers can inform that decision. They cannot make it, because the moment a low number is allowed to make the decision, the estimate has once again become the mitigation.
+
+## What this means
+
+Underneath the vocabulary is a discipline of intellectual honesty. A hazard is a fact about your system. A risk estimate is your belief about that fact — useful for deciding what to tackle first, dangerous the moment it is mistaken for the tackling itself. Teams ship harm not usually because they failed to *find* a hazard, but because they found it, estimated it as low risk, and let the estimate stand in for action. The hazard waited, exactly as present as the day it was logged, for the world to disagree with the estimate.
+
+Keeping the two words distinct is a small habit with a large payoff: it denies the team the comfortable move of reasoning a real hazard out of existence, and forces the harder, more honest question every time — not "how likely do we think this is?" but "what have we actually done about it?"
+
+## Key Takeaways
+
+- A hazard is a potential source of harm — a real property of the system; risk is your *belief* about its likelihood and severity, and beliefs can be wrong.
+- Harm ships when a risk estimate is used to dismiss a hazard: the hazard stays fully present, now with a reassuring label and no actual control.
+- Likelihood is routinely estimated against an imagined world of unhurried, single-tasking users; the real world of interruption and fatigue makes many estimates too low.
+- "It would be caught" is a severity assumption that borrows against a safety barrier no one has tested.
+- Handle hazards as hazards: track them independent of rating, apply the mitigation hierarchy, and make acceptance an explicit, owned decision — never an automatic output of a low score.

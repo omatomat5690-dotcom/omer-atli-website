@@ -76,6 +76,14 @@ export const medicalCategories: MedicalCategory[] = [
     intro:
       'The invisible work behind trustworthy health writing: what clinical review actually checks, and how to spot content that hasn’t had it.',
   },
+  {
+    slug: 'aesthetic-medicine',
+    title: 'Aesthetic Medicine',
+    description:
+      'Commentary from the emergency-medicine lens — the complications that reach A&E, the evidence behind the marketing, and the regulation behind cosmetic procedures.',
+    intro:
+      'Editorial commentary on aesthetic medicine from an emergency physician’s vantage point — the complications that arrive in acute care, evidence versus hype, and the regulatory picture. Nothing here offers, recommends, or implies the availability of any treatment.',
+  },
 ]
 
 export interface MedicalArticleMeta {

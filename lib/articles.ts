@@ -76,3 +76,11 @@ export function getFeaturedArticles(limit = 3): ArticleMeta[] {
     .filter((article) => article.featured)
     .slice(0, limit)
 }
+
+/** Other essays sharing this article's theme — for in-pillar internal linking. */
+export function getRelatedArticles(slug: string, limit = 3): ArticleMeta[] {
+  const all = getAllArticles()
+  const current = all.find((a) => a.slug === slug)
+  if (!current) return []
+  return all.filter((a) => a.theme === current.theme && a.slug !== slug).slice(0, limit)
+}

@@ -1,0 +1,69 @@
+---
+title: "A Safety Case Is an Argument, Not a Folder"
+subtitle: "Most \"safety cases\" in digital health are collections of documents that prove activity occurred. A real one is a reasoned, falsifiable argument that a specific system is acceptably safe — and the difference is everything."
+slug: "the-safety-case-is-an-argument"
+date: "2026-06-04"
+theme: "Clinical Safety"
+author: "Dr Omer Atli"
+description: "Most \"safety cases\" in digital health are collections of documents that prove activity occurred. A real one is a reasoned, falsifiable argument that a specific system is acceptably safe — and the difference is everything."
+featured: false
+clinicalAdjacent: true
+---
+
+If you ask a digital health team to show you their safety case, you will usually be handed a folder. Inside: a hazard log, a clinical risk management plan, a clinical safety officer's sign-off, perhaps a clinical safety report. Every artefact the relevant standard mentions is present and correct. The folder is complete. And complete is exactly the wrong word for what a safety case is supposed to be — because a safety case is not a set of documents that exist. It is an argument that holds.
+
+This distinction is the difference between two fundamentally different things wearing the same name. One is a compliance deliverable: evidence that the required activities were performed. The other is an intellectual position: a reasoned, evidence-backed, defeasible claim that *this system, in this context, is acceptably safe, and here is why*. The first can be assembled by anyone who can follow a template. The second can only be built by people who genuinely understand how their system could hurt someone and have done the work to argue, honestly, that it won't — or that where it still might, the residual danger is named, bounded, and accepted on purpose.
+
+## What an argument is, that a folder isn't
+
+An argument has a structure a folder lacks. It makes a claim, offers reasons for the claim, supports those reasons with evidence, and — crucially — remains open to being wrong. A safety case worthy of the name has all four properties.
+
+The **claim** is specific: not "we did clinical risk management" but "this system, used by these people in this setting for these purposes, is acceptably safe to deploy." The specificity matters because safety is contextual. A tool that is safe in one workflow can be hazardous in another, and a claim that doesn't name its context is not actually claiming anything testable.
+
+The **reasoning** connects the system's design to that claim. It traces how the identified hazards have been eliminated, constrained, or controlled, and explains why what remains is tolerable. This is the part folders most conspicuously lack: a hazard log lists hazards, but listing is not arguing. The argument is the connective tissue that says *because we did this, that hazard can no longer reach a patient in this way* — and folders are almost always missing the connective tissue, because assembling artefacts does not require it.
+
+The **evidence** supports the reasoning rather than substituting for it. Test results, design records, and analysis matter insofar as they back specific links in the argument. Evidence piled up without an argument it supports is just volume — and volume is frequently mistaken for rigour precisely because it is heavy.
+
+And the argument is **defeasible**: it can be defeated by new information. A real safety case names what would prove it wrong, and treats post-deployment incident and near-miss data as the live continuation of the analysis, not as operational noise. A claim that cannot in principle be falsified is not a safety argument; it is a statement of faith with appendices.
+
+## How folders masquerade as cases
+
+The folder version persists because it satisfies the visible requirements while skipping the invisible work. Several patterns give it away.
+
+**The artefacts exist but don't reference each other.** A genuine argument is woven — the hazard analysis informs the design decisions, which are evidenced by the test records, which feed the safety report's conclusion. A folder is stacked: each document complete in itself, none actually depending on another. You can tell them apart by pulling one thread. In an argument, pulling a hazard leads you to the design decision that addresses it and the evidence that it works. In a folder, pulling a hazard leads you nowhere — it sits in its log, referenced by nothing and changing nothing.
+
+**The conclusion doesn't follow from the contents.** A safety report ends with "the system is acceptably safe", but nothing in the preceding pages actually argues for that conclusion as opposed to its opposite. The conclusion was the goal, not the finding — written first, with the documents assembled beneath it to fill the required space. The test is simple and brutal: could the same folder, with the same contents, have supported the conclusion "this system is not yet safe to deploy"? If yes, the folder isn't deciding anything; the conclusion was predetermined.
+
+**The residual risks are absent or sanitised.** A real argument names what it could not eliminate — the hazards still present, controlled but not removed, accepted with reasons. A folder tends to read as though everything was resolved, because admitting residual risk feels like admitting failure. But a safety case with no named residual risk is not a triumphantly safe system; it is an argument that hasn't been honest with itself. Every real system carries residual risk. A case that doesn't state its residuals is concealing the most important part of the argument.
+
+**No one could be wrong.** The deepest tell is that the folder admits no possibility of error. There is no statement of what would change the conclusion, no description of what is being watched after deployment, no acknowledgement that the argument is provisional. A position that cannot be wrong cannot be right either, in any meaningful sense — it has opted out of the truth-tracking that makes an argument worth anything.
+
+## Why this matters more than it sounds
+
+It would be easy to read this as a complaint about documentation quality. It is not. The folder-versus-argument distinction has direct consequences for whether patients are harmed.
+
+A folder finds nothing, because it was never trying to. Assembling artefacts to satisfy a template does not require anyone to think hard about how the system could fail, so it doesn't surface the failures that thinking hard would surface. The hazards that hurt people are disproportionately the ones nobody reasoned through — and a process whose actual function is to produce documents rather than to interrogate the system will reliably miss them. The folder is complete and the system is unexamined, and those two facts coexist comfortably.
+
+An argument, by contrast, is a forcing function. You cannot construct a genuine argument that a system is safe without confronting the ways it isn't, because the argument has to address them to be credible. The very act of reasoning toward the claim drags the hazards into the light, including the awkward ones the team would rather not dwell on. The argument's honesty about residual risk is not a weakness in the deliverable; it is the evidence that the work was actually done.
+
+There is also an accountability dimension. A folder diffuses responsibility — many documents, many authors, no single coherent position anyone owns. An argument concentrates it: someone is making a claim, on the record, with reasons, that this system is acceptably safe. That person can be wrong, and knows it, and has said what would change their mind. That is a far more uncomfortable and far more valuable thing to possess than a complete folder, because discomfort is the feeling of safety work actually happening.
+
+## What to build instead
+
+The practical shift is to write the argument first and let it demand the documents, rather than assembling documents and asserting a conclusion. Start from the claim you need to defend — this system, these users, this context, acceptably safe — and ask what would have to be true for that to hold. The hazards that would defeat it. The design decisions that address them. The evidence that those decisions work. The residual risks that remain, why they are tolerable, who has accepted them, and what you will watch after launch that could prove the whole thing wrong.
+
+Done that way, the artefacts the standard asks for fall out naturally as the supporting material of a real argument — the hazard log is where the defeating hazards live, the safety report is where the argument is stated, the post-deployment monitoring is where the defeasibility is honoured. The documents end up looking similar to the folder version. The difference is that they now mean something, because there is an argument underneath holding them together. The standards, read as intended, ask for exactly this.[^1] The folder is what you get when you read them as a checklist instead.
+
+## What this means
+
+A safety case is a claim that can be wrong, made by people willing to be wrong, supported by reasons and evidence, and held open to defeat by what the world reveals after deployment. A folder is a stack of artefacts that proves activity happened. The tragedy is that the two are easily confused — they contain the same documents and pass the same procurement gates — and that the confusion is invisible right up until a hazard nobody reasoned through reaches a patient. Build the argument. Let it summon the folder. Never mistake the folder for the argument.
+
+[^1]: In the NHS context, the relevant clinical risk management standards are [DCB0129 (manufacture of health IT systems)](https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0129-clinical-risk-management-its-application-in-the-manufacture-of-health-it-systems) and [DCB0160 (deployment and use)](https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/dcb0160-clinical-risk-management-its-application-in-the-deployment-and-use-of-health-it-systems), published by NHS England. See also [NHS England: digital clinical safety assurance](https://www.england.nhs.uk/long-read/digital-clinical-safety-assurance/). Both standards are currently under review by NHS England.
+
+## Key Takeaways
+
+- A safety case is a reasoned, falsifiable argument that a specific system in a specific context is acceptably safe — not a complete set of documents.
+- A real argument has a specific claim, reasoning that links design to safety, evidence supporting that reasoning, and openness to being proven wrong.
+- Folders give themselves away: artefacts that don't reference each other, conclusions that don't follow from contents, missing residual risks, and no statement of what could change the conclusion.
+- A folder finds nothing because it never interrogates the system; an argument is a forcing function that drags hazards into the light.
+- Write the argument first and let it summon the documents — the artefacts end up similar, but only the argument actually decides whether the system is safe.
