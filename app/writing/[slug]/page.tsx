@@ -98,7 +98,15 @@ export default async function ArticlePage({
             <h1 className="article-title">{article.title}</h1>
             {article.subtitle && <p className="article-sub">{article.subtitle}</p>}
             <div className="article-meta">
-              <span>By {article.author}</span>
+              <span>
+                By{' '}
+                <Link
+                  href="/about"
+                  style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: 2 }}
+                >
+                  {article.author}
+                </Link>
+              </span>
               <span className="dot-sep">·</span>
               <time dateTime={article.date}>{formatDate(article.date)}</time>
               <span className="dot-sep">·</span>
@@ -164,7 +172,11 @@ export default async function ArticlePage({
               />
             </div>
             <div>
-              <p style={{ fontWeight: 600, fontSize: 14 }}>Dr Omer Atli</p>
+              <p style={{ fontWeight: 600, fontSize: 14 }}>
+                <Link href="/about" style={{ color: 'inherit' }}>
+                  Dr Omer Atli
+                </Link>
+              </p>
               <p
                 style={{
                   fontFamily: 'var(--mono)',

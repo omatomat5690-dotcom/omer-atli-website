@@ -123,6 +123,7 @@ export function getAllMedicalArticles(): MedicalArticleMeta[] {
 }
 
 export function getMedicalArticleBySlug(slug: string): MedicalArticle | null {
+  if (!/^[a-z0-9-]+$/.test(slug)) return null
   const filePath = path.join(MEDICAL_DIR, `${slug}.mdx`)
   if (!fs.existsSync(filePath)) return null
 

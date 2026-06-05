@@ -49,6 +49,7 @@ export function getAllArticles(): ArticleMeta[] {
 }
 
 export function getArticleBySlug(slug: string): Article | null {
+  if (!/^[a-z0-9-]+$/.test(slug)) return null
   const filePath = path.join(ARTICLES_DIR, `${slug}.mdx`)
 
   if (!fs.existsSync(filePath)) {

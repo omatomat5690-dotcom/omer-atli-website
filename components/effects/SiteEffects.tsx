@@ -126,45 +126,6 @@ export default function SiteEffects() {
       })
     }
 
-    // newsletter node-network canvas
-    const nc = document.getElementById('news-canvas') as HTMLCanvasElement | null
-    if (nc && !reduce) {
-      const ctx = nc.getContext('2d')
-      if (ctx) {
-        let w = 0, h = 0, raf = 0
-        let pts: { x: number; y: number; vx: number; vy: number }[] = []
-        const d = Math.min(window.devicePixelRatio || 1, 2)
-        const rs = () => {
-          const r = nc.parentElement!.getBoundingClientRect()
-          w = nc.width = r.width * d
-          h = nc.height = r.height * d
-          nc.style.width = r.width + 'px'
-          nc.style.height = r.height + 'px'
-          pts = Array.from({ length: 40 }, () => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - 0.5) * 0.12 * d, vy: (Math.random() - 0.5) * 0.12 * d }))
-        }
-        const f = () => {
-          ctx.clearRect(0, 0, w, h)
-          const ac = getComputedStyle(document.documentElement).getPropertyValue('--accent-glow').trim()
-          const inner = ac.startsWith('oklch(') ? ac.slice(6, -1).trim() : null
-          const line = inner ? `oklch(${inner} / 0.16)` : 'rgba(220,160,120,0.16)'
-          const node = inner ? `oklch(${inner} / 0.5)` : 'rgba(220,160,120,0.5)'
-          for (const p of pts) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > w) p.vx *= -1; if (p.y < 0 || p.y > h) p.vy *= -1 }
-          const lim = 130 * d
-          for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
-            const a = pts[i], b = pts[j], dist = Math.hypot(a.x - b.x, a.y - b.y)
-            if (dist < lim) { ctx.strokeStyle = line; ctx.lineWidth = 1; ctx.globalAlpha = 1 - dist / lim; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke() }
-          }
-          ctx.globalAlpha = 1; ctx.fillStyle = node
-          for (const p of pts) { ctx.beginPath(); ctx.arc(p.x, p.y, 1.4 * d, 0, 7); ctx.fill() }
-          raf = requestAnimationFrame(f)
-        }
-        rs()
-        window.addEventListener('resize', rs)
-        f()
-        cleanups.push(() => { cancelAnimationFrame(raf); window.removeEventListener('resize', rs) })
-      }
-    }
-
     return () => cleanups.forEach((fn) => fn())
   }, [pathname])
 
