@@ -4,7 +4,6 @@ import { getFeaturedArticles } from '@/lib/articles'
 import { topics } from '@/lib/topics'
 import { getFeaturedMedical, medicalCategories } from '@/lib/medical'
 import KineticHeading from '@/components/effects/KineticHeading'
-import Enquiry from '@/components/Enquiry'
 
 const medicalCategoryTitle = (slug: string) =>
   medicalCategories.find((c) => c.slug === slug)?.title ?? 'Medical Topics'
@@ -19,7 +18,7 @@ export default function HomePage() {
       <header className="hero wrap">
         <div className="hero-grid">
           <div className="hero-copy">
-            <div className="hero-kicker kicker reveal">Dr — Emergency &amp; Primary Care · Healthcare AI</div>
+            <div className="hero-kicker kicker reveal">Emergency &amp; Primary Care · Healthcare AI</div>
             <KineticHeading text="OMER ATLI" className="name" />
             <div className="role reveal">
               Emergency &amp; Primary Care <i>·</i> Medical Reviewer <i>·</i> Clinical Safety
@@ -140,11 +139,6 @@ export default function HomePage() {
           </div>
         </section>
       )}
-
-      {/* PROFESSIONAL ENQUIRIES */}
-      <section className="section wrap" style={{ paddingTop: 0 }}>
-        <Enquiry />
-      </section>
     </>
   )
 }

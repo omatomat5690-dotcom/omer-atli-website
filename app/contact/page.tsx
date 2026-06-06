@@ -1,9 +1,20 @@
 import type { Metadata } from 'next'
 
+const CONTACT_DESC =
+  'Get in touch with Dr Omer Atli for editorial commissions, healthcare AI consulting, podcast or media enquiries, or writing collaborations.'
+
 export const metadata: Metadata = {
   title: 'Contact',
-  description:
-    'Get in touch with Dr Omer Atli for editorial commissions, healthcare AI consulting, podcast or media enquiries, or writing collaborations.',
+  description: CONTACT_DESC,
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    type: 'website',
+    url: 'https://omeratli.com/contact',
+    title: 'Contact',
+    description: CONTACT_DESC,
+    siteName: 'Omer Atli',
+  },
+  twitter: { card: 'summary_large_image', title: 'Contact', description: CONTACT_DESC },
 }
 
 export default function ContactPage() {
@@ -55,9 +66,9 @@ export default function ContactPage() {
           maxWidth: '60ch',
         }}
       >
-        Note: this website is for editorial and professional purposes only and does not provide
-        medical advice. For clinical concerns, please consult your own GP or other healthcare
-        professional.
+        Note: This website is for editorial and professional purposes only and does not provide
+        medical consultations or personal medical advice. For clinical concerns, please contact
+        your GP.
       </p>
     </section>
   )

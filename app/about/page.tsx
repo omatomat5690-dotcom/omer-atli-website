@@ -2,10 +2,21 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const ABOUT_DESC =
+  'Dr Omer Atli is an emergency physician writing about healthcare AI, clinical safety, and digital health.'
+
 export const metadata: Metadata = {
   title: 'About',
-  description:
-    'Dr Omer Atli is an emergency physician writing about healthcare AI, clinical safety, and digital health.',
+  description: ABOUT_DESC,
+  alternates: { canonical: '/about' },
+  openGraph: {
+    type: 'website',
+    url: 'https://omeratli.com/about',
+    title: 'About',
+    description: ABOUT_DESC,
+    siteName: 'Omer Atli',
+  },
+  twitter: { card: 'summary_large_image', title: 'About', description: ABOUT_DESC },
 }
 
 const facts = [

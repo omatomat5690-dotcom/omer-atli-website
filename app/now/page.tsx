@@ -1,10 +1,21 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+const NOW_DESC =
+  'What Dr Omer Atli is currently focused on — clinical work across emergency and primary care, medical review, writing, and reading.'
+
 export const metadata: Metadata = {
   title: 'Now',
-  description:
-    'What Dr Omer Atli is currently focused on — clinical work across emergency and primary care, medical review, writing, and reading.',
+  description: NOW_DESC,
+  alternates: { canonical: '/now' },
+  openGraph: {
+    type: 'website',
+    url: 'https://omeratli.com/now',
+    title: 'Now',
+    description: NOW_DESC,
+    siteName: 'Omer Atli',
+  },
+  twitter: { card: 'summary_large_image', title: 'Now', description: NOW_DESC },
 }
 
 export default function NowPage() {

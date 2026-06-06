@@ -11,7 +11,6 @@ import {
   getRelatedMedicalArticles,
 } from '@/lib/medical'
 import { formatDate } from '@/lib/format'
-import Enquiry from '@/components/Enquiry'
 
 const SITE = 'https://omeratli.com'
 
@@ -42,6 +41,11 @@ export async function generateMetadata({
       publishedTime: article.date,
       authors: [article.author],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
+    },
   }
 }
 
@@ -65,6 +69,7 @@ export default async function MedicalArticlePage({
         '@type': 'MedicalWebPage',
         '@id': `${url}#webpage`,
         url,
+        image: `${url}/opengraph-image`,
         name: article.title,
         headline: article.title,
         description: article.description,
@@ -226,10 +231,6 @@ export default async function MedicalArticlePage({
           </div>
         </section>
       )}
-
-      <section className="section wrap" style={{ paddingTop: 0, paddingBottom: 'clamp(56px, 9vw, 120px)' }}>
-        <Enquiry />
-      </section>
     </article>
   )
 }

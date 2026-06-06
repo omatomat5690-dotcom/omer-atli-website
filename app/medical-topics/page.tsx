@@ -2,11 +2,21 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { medicalCategories, getMedicalCategoryCounts } from '@/lib/medical'
 
+const MEDICAL_DESC =
+  'Clear, evidence-based explainers on the health topics people actually search for — metabolic health, weight-loss medicines, menopause, hair loss, supplements, heart risk, and how health content is reviewed. By Dr Omer Atli, GMC-registered physician.'
+
 export const metadata: Metadata = {
   title: 'Medical Topics',
-  description:
-    'Clear, evidence-based explainers on the health topics people actually search for — metabolic health, weight-loss medicines, menopause, hair loss, supplements, heart risk, and how health content is reviewed. By Dr Omer Atli, GMC-registered physician.',
+  description: MEDICAL_DESC,
   alternates: { canonical: '/medical-topics' },
+  openGraph: {
+    type: 'website',
+    url: 'https://omeratli.com/medical-topics',
+    title: 'Medical Topics',
+    description: MEDICAL_DESC,
+    siteName: 'Omer Atli',
+  },
+  twitter: { card: 'summary_large_image', title: 'Medical Topics', description: MEDICAL_DESC },
 }
 
 export default function MedicalTopicsPage() {
@@ -21,6 +31,11 @@ export default function MedicalTopicsPage() {
           Clear, evidence-based explainers on the health questions people actually
           search for — grounded in UK guidance and kept honest about uncertainty.
           These are educational articles, not personal medical advice.
+        </p>
+        <p className="body reveal" style={{ marginTop: 16, maxWidth: '62ch' }}>
+          These are different from the <Link href="/writing">essays</Link>: Medical Topics are
+          educational explainers of common health questions, written in plain language and grounded
+          in UK guidance; the essays are commentary on medicine, AI, and safety.
         </p>
       </header>
 

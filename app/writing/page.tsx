@@ -1,12 +1,24 @@
 import type { Metadata } from 'next'
-import { getAllArticles } from '@/lib/articles'
+import Link from 'next/link'
+import { getAllArticles, type ArticleMeta } from '@/lib/articles'
 import { topics } from '@/lib/topics'
 import WritingFilter, { type EssayItem, type FilterDef } from '@/components/WritingFilter'
 
+const WRITING_DESC =
+  'Long-form thinking on healthcare AI, emergency medicine, clinical safety, and how to read evidence honestly.'
+
 export const metadata: Metadata = {
   title: 'Writing',
-  description:
-    'Long-form thinking on healthcare AI, emergency medicine, clinical safety, and how to read evidence honestly.',
+  description: WRITING_DESC,
+  alternates: { canonical: '/writing' },
+  openGraph: {
+    type: 'website',
+    url: 'https://omeratli.com/writing',
+    title: 'Writing',
+    description: WRITING_DESC,
+    siteName: 'Omer Atli',
+  },
+  twitter: { card: 'summary_large_image', title: 'Writing', description: WRITING_DESC },
 }
 
 const SHORT_LABELS: Record<string, string> = {
@@ -17,14 +29,29 @@ const SHORT_LABELS: Record<string, string> = {
   'future-of-medicine': 'Future of Medicine',
 }
 
+// One flagship essay per field, in pillar order.
+const START_HERE = [
+  'ai-scribes-are-not-the-endgame',
+  'why-vague-symptoms-are-where-medicine-gets-dangerous',
+  'clinical-safety-is-not-a-checkbox',
+  'how-to-read-a-medical-paper',
+  'why-doctors-need-to-understand-ai',
+]
+
 export default function WritingPage() {
-  const articles: EssayItem[] = getAllArticles().map((a) => ({
+  const all = getAllArticles()
+
+  const articles: EssayItem[] = all.map((a) => ({
     slug: a.slug,
     title: a.title,
     description: a.description,
     theme: a.theme,
     readingTime: a.readingTime,
   }))
+
+  const startArticles = START_HERE.map((s) => all.find((a) => a.slug === s)).filter(
+    (a): a is ArticleMeta => Boolean(a)
+  )
 
   const filters: FilterDef[] = topics.map((t) => ({
     slug: t.slug,
@@ -43,7 +70,32 @@ export default function WritingPage() {
         </p>
       </header>
 
-      <section className="section wrap" style={{ paddingTop: 12 }}>
+      {startArticles.length > 0 && (
+        <section className="section wrap" style={{ paddingTop: 12, paddingBottom: 0 }}>
+          <div className="shead">
+            <div>
+              <div className="kicker reveal">Start here — one essay per field</div>
+            </div>
+          </div>
+          <div className="essays">
+            {startArticles.map((a) => (
+              <Link key={a.slug} className="essay reveal" href={`/writing/${a.slug}`}>
+                <div className="e-tag">{a.theme}</div>
+                <div className="e-body">
+                  <h3>{a.title}</h3>
+                  <p>{a.description}</p>
+                </div>
+                <div className="e-read">
+                  <span className="arr">→</span>
+                  {a.readingTime.replace(' read', '')}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section className="section wrap" style={{ paddingTop: 28 }}>
         <WritingFilter articles={articles} filters={filters} />
       </section>
     </>

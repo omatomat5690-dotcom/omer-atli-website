@@ -6,7 +6,6 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getAllArticles, getArticleBySlug, getRelatedArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/format'
-import Enquiry from '@/components/Enquiry'
 
 const SITE = 'https://omeratli.com'
 
@@ -36,6 +35,11 @@ export async function generateMetadata({
       publishedTime: article.date,
       authors: [article.author],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: article.description,
+    },
   }
 }
 
@@ -59,6 +63,7 @@ export default async function ArticlePage({
         '@type': 'Article',
         '@id': `${url}#article`,
         url,
+        image: `${url}/opengraph-image`,
         headline: article.title,
         description: article.description,
         inLanguage: 'en-GB',
@@ -221,10 +226,6 @@ export default async function ArticlePage({
           </div>
         </section>
       )}
-
-      <section className="section wrap" style={{ paddingTop: 0, paddingBottom: 'clamp(56px, 9vw, 120px)' }}>
-        <Enquiry />
-      </section>
     </article>
   )
 }

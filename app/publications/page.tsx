@@ -1,10 +1,21 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+const PUBLICATIONS_DESC =
+  'Selected peer-reviewed work by Dr Omer Atli, alongside the essays on healthcare AI, emergency medicine, and clinical safety.'
+
 export const metadata: Metadata = {
-  title: 'Publications & Press',
-  description:
-    'Peer-reviewed publications, writing, and media by Dr Omer Atli on healthcare AI, emergency medicine, and clinical safety.',
+  title: 'Publications',
+  description: PUBLICATIONS_DESC,
+  alternates: { canonical: '/publications' },
+  openGraph: {
+    type: 'website',
+    url: 'https://omeratli.com/publications',
+    title: 'Publications',
+    description: PUBLICATIONS_DESC,
+    siteName: 'Omer Atli',
+  },
+  twitter: { card: 'summary_large_image', title: 'Publications', description: PUBLICATIONS_DESC },
 }
 
 interface Entry {
@@ -12,6 +23,7 @@ interface Entry {
   venue: string
   year: string
   links?: { label: string; href: string }[]
+  note?: string
 }
 
 // Edit these lists as new work is published.
@@ -28,6 +40,8 @@ const publications: Entry[] = [
       },
       { label: 'PubMed', href: 'https://pubmed.ncbi.nlm.nih.gov/41311431/' },
     ],
+    note:
+      'A case report on diagnosing a rare congenital condition in a resource-limited emergency department — the setting that shapes much of the writing here.',
   },
 ]
 
@@ -51,6 +65,19 @@ function EntryList({ items }: { items: Entry[] }) {
                 ))}
               </div>
             )}
+            {item.note && (
+              <p
+                style={{
+                  marginTop: 12,
+                  fontSize: 14.5,
+                  color: 'var(--ink-soft)',
+                  lineHeight: 1.6,
+                  maxWidth: '62ch',
+                }}
+              >
+                {item.note}
+              </p>
+            )}
           </div>
         </div>
       ))}
@@ -62,10 +89,10 @@ export default function PublicationsPage() {
   return (
     <>
       <header className="page-hero wrap">
-        <div className="kicker reveal">Publications &amp; Press</div>
+        <div className="kicker reveal">Publications</div>
         <h1 className="reveal">Publications</h1>
         <p className="lead serif reveal">
-          Peer-reviewed work and selected media, alongside the essays.
+          Selected peer-reviewed work, alongside the essays.
         </p>
       </header>
 
