@@ -70,7 +70,7 @@ const siteSchema = {
       jobTitle: 'Physician',
       description:
         'Physician writing on healthcare AI, emergency and primary care, clinical safety, and medical content review.',
-      sameAs: ['https://www.linkedin.com/in/omer-atli-968a2a3a6'],
+      sameAs: ['https://www.linkedin.com/in/dromeratli'],
       identifier: { '@type': 'PropertyValue', propertyID: 'GMC', value: '8126471' },
       knowsAbout: [
         'Healthcare AI',

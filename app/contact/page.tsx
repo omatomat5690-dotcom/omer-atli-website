@@ -33,7 +33,7 @@ export default function ContactPage() {
         </a>
         <a
           className="btn btn-ghost"
-          href="https://www.linkedin.com/in/omer-atli-968a2a3a6"
+          href="https://www.linkedin.com/in/dromeratli"
           target="_blank"
           rel="noopener noreferrer"
         >

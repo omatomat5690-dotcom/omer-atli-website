@@ -25,7 +25,7 @@ export default function Footer() {
           <h4>Elsewhere</h4>
           <div className="f-links">
             <a href="mailto:dr@omeratli.com">dr@omeratli.com</a>
-            <a href="https://www.linkedin.com/in/omer-atli-968a2a3a6" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/dromeratli" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
             <a href="/feed.xml">RSS</a>
