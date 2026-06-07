@@ -17,8 +17,10 @@ export default function Footer() {
             <Link href="/writing">Writing</Link>
             <Link href="/medical-topics">Medical Topics</Link>
             <Link href="/publications">Publications</Link>
+            <Link href="/ai-safety">AI Safety</Link>
             <Link href="/about">About</Link>
             <Link href="/now">Now</Link>
+            <Link href="/contact">Contact</Link>
           </div>
         </div>
         <div>

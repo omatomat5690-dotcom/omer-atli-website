@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { topics, getTopicBySlug, getArticlesForTopic } from '@/lib/topics'
 import { getAllArticles, type ArticleMeta } from '@/lib/articles'
+import PaginatedEssays from '@/components/PaginatedEssays'
 
 export function generateStaticParams() {
   return topics.map((t) => ({ slug: t.slug }))
@@ -95,11 +96,15 @@ export default async function TopicPage({
         {articles.length === 0 ? (
           <div className="empty">More writing on this is on the way.</div>
         ) : (
-          <div className="essays">
-            {articles.map((a) => (
-              <EssayCard key={a.slug} a={a} />
-            ))}
-          </div>
+          <PaginatedEssays
+            items={articles.map((a) => ({
+              href: `/writing/${a.slug}`,
+              tag: a.theme,
+              title: a.title,
+              description: a.description,
+              readingTime: a.readingTime,
+            }))}
+          />
         )}
       </section>
     </>

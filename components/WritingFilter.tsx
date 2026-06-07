@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import PaginatedEssays from './PaginatedEssays'
 
 export interface EssayItem {
   slug: string
@@ -57,22 +57,17 @@ export default function WritingFilter({
       {shown.length === 0 ? (
         <div className="empty">No essays in this field yet — check back soon.</div>
       ) : (
-        // key={active} re-mounts the container per filter, replaying the CSS fade.
-        <div className="essays essays-live" key={active}>
-          {shown.map((a) => (
-            <Link key={a.slug} className="essay" href={`/writing/${a.slug}`}>
-              <div className="e-tag">{a.theme}</div>
-              <div className="e-body">
-                <h3>{a.title}</h3>
-                <p>{a.description}</p>
-              </div>
-              <div className="e-read">
-                <span className="arr">→</span>
-                {a.readingTime.replace(' read', '')}
-              </div>
-            </Link>
-          ))}
-        </div>
+        // key={active} remounts on filter change, resetting pagination to page 1.
+        <PaginatedEssays
+          key={active}
+          items={shown.map((a) => ({
+            href: `/writing/${a.slug}`,
+            tag: a.theme,
+            title: a.title,
+            description: a.description,
+            readingTime: a.readingTime,
+          }))}
+        />
       )}
     </>
   )

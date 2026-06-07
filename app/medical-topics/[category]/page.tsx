@@ -6,6 +6,7 @@ import {
   getMedicalCategory,
   getMedicalArticlesByCategory,
 } from '@/lib/medical'
+import PaginatedEssays from '@/components/PaginatedEssays'
 
 export function generateStaticParams() {
   return medicalCategories.map((c) => ({ category: c.slug }))
@@ -73,25 +74,15 @@ export default async function MedicalCategoryPage({
         {articles.length === 0 ? (
           <div className="empty">More on this is on the way.</div>
         ) : (
-          <div className="essays">
-            {articles.map((a) => (
-              <Link
-                key={a.slug}
-                className="essay reveal"
-                href={`/medical-topics/${cat.slug}/${a.slug}`}
-              >
-                <div className="e-tag">{cat.title}</div>
-                <div className="e-body">
-                  <h3>{a.title}</h3>
-                  <p>{a.description}</p>
-                </div>
-                <div className="e-read">
-                  <span className="arr">→</span>
-                  {a.readingTime.replace(' read', '')}
-                </div>
-              </Link>
-            ))}
-          </div>
+          <PaginatedEssays
+            items={articles.map((a) => ({
+              href: `/medical-topics/${cat.slug}/${a.slug}`,
+              tag: cat.title,
+              title: a.title,
+              description: a.description,
+              readingTime: a.readingTime,
+            }))}
+          />
         )}
       </section>
     </>
