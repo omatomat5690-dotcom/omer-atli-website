@@ -11,6 +11,7 @@ import {
   getRelatedMedicalArticles,
 } from '@/lib/medical'
 import { formatDate } from '@/lib/format'
+import { extractFaq } from '@/lib/faq'
 
 const SITE = 'https://omeratli.com'
 
@@ -61,6 +62,7 @@ export default async function MedicalArticlePage({
   const cat = getMedicalCategory(article.category)
   const related = getRelatedMedicalArticles(slug)
   const url = `${SITE}/medical-topics/${category}/${slug}`
+  const faq = extractFaq(article.content)
 
   const schema = {
     '@context': 'https://schema.org',
@@ -82,6 +84,20 @@ export default async function MedicalArticlePage({
         mainEntityOfPage: url,
         ...(cat ? { about: { '@type': 'Thing', name: cat.title } } : {}),
       },
+      ...(faq.length
+        ? [
+            {
+              '@type': 'FAQPage',
+              '@id': `${url}#faq`,
+              inLanguage: 'en-GB',
+              mainEntity: faq.map((f) => ({
+                '@type': 'Question',
+                name: f.question,
+                acceptedAnswer: { '@type': 'Answer', text: f.answer },
+              })),
+            },
+          ]
+        : []),
       {
         '@type': 'BreadcrumbList',
         itemListElement: [

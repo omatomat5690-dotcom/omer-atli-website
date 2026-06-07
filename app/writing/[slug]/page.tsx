@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { getAllArticles, getArticleBySlug, getRelatedArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/format'
+import { extractFaq } from '@/lib/faq'
 
 const SITE = 'https://omeratli.com'
 
@@ -56,6 +57,7 @@ export default async function ArticlePage({
 
   const url = `${SITE}/writing/${slug}`
   const related = getRelatedArticles(slug)
+  const faq = extractFaq(article.content)
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -75,6 +77,20 @@ export default async function ArticlePage({
         mainEntityOfPage: url,
         ...(article.theme ? { articleSection: article.theme } : {}),
       },
+      ...(faq.length
+        ? [
+            {
+              '@type': 'FAQPage',
+              '@id': `${url}#faq`,
+              inLanguage: 'en-GB',
+              mainEntity: faq.map((f) => ({
+                '@type': 'Question',
+                name: f.question,
+                acceptedAnswer: { '@type': 'Answer', text: f.answer },
+              })),
+            },
+          ]
+        : []),
       {
         '@type': 'BreadcrumbList',
         itemListElement: [

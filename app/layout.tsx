@@ -67,11 +67,30 @@ const siteSchema = {
       name: 'Dr Omer Atli',
       honorificPrefix: 'Dr',
       url: 'https://omeratli.com/about',
-      jobTitle: 'Physician',
+      image: 'https://omeratli.com/dr-omer-atli.jpg',
+      jobTitle: ['Emergency Physician', 'Medical Reviewer'],
       description:
-        'Physician writing on healthcare AI, emergency and primary care, clinical safety, and medical content review.',
+        'GMC-registered physician writing on healthcare AI, emergency and primary care, clinical safety, and medical content review.',
       sameAs: ['https://www.linkedin.com/in/dromeratli'],
       identifier: { '@type': 'PropertyValue', propertyID: 'GMC', value: '8126471' },
+      memberOf: [
+        { '@type': 'Organization', name: 'British Medical Association' },
+        { '@type': 'Organization', name: 'Independent Doctors Federation' },
+        { '@type': 'Organization', name: 'Turkish Medical Association' },
+      ],
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'degree',
+          name: 'Doctor of Medicine (MD)',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'license',
+          name: 'Registered physician — General Medical Council (UK)',
+          recognizedBy: { '@type': 'Organization', name: 'General Medical Council' },
+        },
+      ],
       knowsAbout: [
         'Healthcare AI',
         'Emergency Medicine',

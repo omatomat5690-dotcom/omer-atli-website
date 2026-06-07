@@ -52,6 +52,36 @@ export default function HomePage() {
         </div>
       </header>
 
+      {/* FEATURED INVESTIGATION */}
+      <section className="section wrap" id="featured" style={{ paddingTop: 0 }}>
+        <div className="shead">
+          <div>
+            <div className="kicker reveal">Featured — clinician-led investigation</div>
+            <h2 className="reveal">When patients ask AI before they reach the ED</h2>
+          </div>
+          <Link className="linkmore reveal" href="/ai-safety">
+            AI safety red-teaming <span className="arr">→</span>
+          </Link>
+        </div>
+        <div className="essays">
+          <Link className="essay reveal" href="/ai-emergency-audit">
+            <div className="e-tag">Healthcare AI</div>
+            <div className="e-body">
+              <h3>Patients already ask AI before they reach the ED. I tested what happens next.</h3>
+              <p>
+                An emergency physician red-teamed ChatGPT, Claude and Gemini on 20 emergency-care
+                scenarios under a locked protocol — the models recognised the red flags; the
+                failures came after recognition.
+              </p>
+            </div>
+            <div className="e-read">
+              <span className="arr">→</span>
+              Read
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* TOPICS */}
       <section className="section wrap" id="topics">
         <div className="shead">

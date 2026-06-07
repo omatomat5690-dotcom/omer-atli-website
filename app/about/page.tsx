@@ -51,9 +51,31 @@ const focus = [
   },
 ]
 
+const profileSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': 'https://omeratli.com/about#profilepage',
+  url: 'https://omeratli.com/about',
+  name: 'About Dr Omer Atli',
+  description: ABOUT_DESC,
+  mainEntity: { '@id': 'https://omeratli.com/#person' },
+  isPartOf: { '@id': 'https://omeratli.com/#website' },
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://omeratli.com/' },
+      { '@type': 'ListItem', position: 2, name: 'About', item: 'https://omeratli.com/about' },
+    ],
+  },
+}
+
 export default function AboutPage() {
   return (
     <section className="section wrap" style={{ paddingTop: 'clamp(48px, 8vw, 104px)' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema) }}
+      />
       <div className="about-grid">
         <div className="about-portrait reveal">
           <Image
