@@ -10,6 +10,7 @@ const navItems = [
   { href: '/writing', label: 'Writing' },
   { href: '/medical-topics', label: 'Medical Topics' },
   { href: '/publications', label: 'Publications' },
+  { href: '/ai-safety', label: 'AI Safety' },
   { href: '/about', label: 'About' },
 ]
 

@@ -70,6 +70,31 @@ export default function WritingPage() {
         </p>
       </header>
 
+      <section className="section wrap" style={{ paddingTop: 12, paddingBottom: 0 }}>
+        <div className="shead">
+          <div>
+            <div className="kicker reveal">Featured — clinician-led investigation</div>
+          </div>
+        </div>
+        <div className="essays">
+          <Link className="essay reveal" href="/ai-emergency-audit">
+            <div className="e-tag">Healthcare AI</div>
+            <div className="e-body">
+              <h3>Patients already ask AI before they reach the ED. I tested what happens next.</h3>
+              <p>
+                An emergency physician red-teamed ChatGPT, Claude and Gemini on 20 emergency-care
+                scenarios under a locked protocol. The models recognised the red flags — the
+                failures came after recognition.
+              </p>
+            </div>
+            <div className="e-read">
+              <span className="arr">→</span>
+              Read
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {startArticles.length > 0 && (
         <section className="section wrap" style={{ paddingTop: 12, paddingBottom: 0 }}>
           <div className="shead">
